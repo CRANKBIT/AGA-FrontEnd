@@ -8,7 +8,7 @@ on:
       - closed
 concurrency: preview-${{ github.ref }}
 env:
-  PUBLIC_URL: /CrankBit-FrontEnd/pr-preview/pr-${{ github.event.number }}
+  PUBLIC_URL: https://CRANKBIT.github.io/CrankBit-FrontEnd/pr-preview/pr-${{ github.event.number }}
 permissions:
   contents: write
   pull-requests: write

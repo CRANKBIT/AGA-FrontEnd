@@ -1,6 +1,7 @@
 {
   "name": "allgood-frontend",
   "version": "1.0.0",
+  "homepage": "./",
   "engines": {
     "node": "^18.0.0"
   },
