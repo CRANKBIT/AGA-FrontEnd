@@ -8,7 +8,7 @@ import HomePage2 from "../pages/Home2";
 // Component definition
 function App() {
   return (
-    <Routes>
+    <Routes basename={process.env.PUBLIC_URL}>
       <Route path="/" element={<HomePage />} />
       <Route path="home" element={<HomePage />} />
       <Route path="home2" element={<HomePage2 />} />
