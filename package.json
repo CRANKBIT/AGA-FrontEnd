@@ -92,7 +92,6 @@
       "git add ."
     ],
     "*.{js,jsx,ts,tsx}": [
-      "pre-commit",
       "git add ."
     ]
   },
