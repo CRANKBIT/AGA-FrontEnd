@@ -44,7 +44,7 @@
     "no-plusplus": "off",
     "no-shadow": "off",
     "no-undef": "off",
-    // "quotes": ["error", "double"],
+    "quotes": "off",
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/function-component-definition": "off",
