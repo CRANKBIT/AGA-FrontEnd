@@ -1,4 +1,4 @@
-name: Deploy PR previews
+name: Test, Build, Preview
 on:
   pull_request:
     types:
@@ -7,6 +7,8 @@ on:
       - synchronize
       - closed
 concurrency: preview-${{ github.ref }}
+env:
+  PUBLIC_URL: /CrankBit-FrontEnd/pr-preview/pr-${{ github.event.number }}
 permissions:
   contents: write
   pull-requests: write
