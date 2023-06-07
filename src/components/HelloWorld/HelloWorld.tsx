@@ -36,11 +36,11 @@ function HelloWorld({ alert, box, text }: HelloWorldProps) {
   const boxProps = { ...defaults.box, ...box } as BoxProps
   const alertProps = { ...defaults.alert, ...alert } as AlertProps
 
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch()
 
   const handleLogout = () => {
-    dispatch(logoutUser());
-  };
+    dispatch(logoutUser())
+  }
 
   return (
     <Box {...boxProps}>
