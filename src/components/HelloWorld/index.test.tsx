@@ -1,10 +1,7 @@
 /**
  * Testing file for the HelloWorld component.
  */
-import {
-  render,
-  screen,
-} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import HelloWorld from './HelloWorld'
 
 test('Render HelloWorld Component', () => {
