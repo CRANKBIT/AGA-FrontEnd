@@ -2,11 +2,11 @@
 import { HashRouter, Route } from "react-router-dom";
 
 // Local imports
-import HomePage from './HomePage'
-import TestPage from './TestPage'
+import HomePage from "../pages/Home";
+import HomePage2 from "../pages/Home2";
 
 // Component definition
-const App = () => {
+function App() {
   return (
     <HashRouter>
       <Route path="/" element={<HomePage />} />
@@ -17,4 +17,4 @@ const App = () => {
 }
 
 // Default export
-export default App
+export default App;

@@ -1,11 +1,11 @@
-/**
- * Testing file for the HelloWorld component.
- */
+// External imports
 import { render, screen } from "@testing-library/react";
-import HelloWorld from ".";
 
-test("Render HelloWorld Component", () => {
-  render(<HelloWorld />);
+// Local imports
+import HomePage from ".";
+
+test("Render HomePage", () => {
+  render(<HomePage />);
   const element = screen.getByText(/hello-world/i);
   expect(element).toBeInTheDocument();
 });

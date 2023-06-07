@@ -24,7 +24,7 @@
   "plugins": ["jest", "react", "react-hooks", "@typescript-eslint", "import"],
   "rules": {
     "@typescript-eslint/no-empty-function": "off",
-    "comma-dangle": "off",
+    "comma-dangle": ["error", "always-multiline"],
     "jsx-a11y/alt-text": "off",
     "max-len": [
       "error",
@@ -43,8 +43,7 @@
     "no-empty": "off",
     "no-plusplus": "off",
     "no-shadow": "off",
-    "no-undef": "off",
-    // "quotes": ["error", "double"],
+    "quotes": ["error", "double"],
     "react-hooks/exhaustive-deps": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react/function-component-definition": "off",
