@@ -2,8 +2,8 @@
 import { Routes, Route } from 'react-router-dom'
 
 // Local imports
-import HomePage from './HomePage'
-import TestPage from './TestPage'
+import HomePage from '../pages/HomePage'
+import TestPage from '../pages/TestPage'
 
 // Component definition
 const App = () => {
