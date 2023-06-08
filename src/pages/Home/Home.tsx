@@ -1,37 +1,31 @@
-import HelloWorld from '../../components/HelloWorld'
-import { useAppSelector } from '../../app/hooks'
-import Layout from 'src/pages/Layout'
-import Container from '../../components/Container'
+import { useAppSelector } from '@/app/hooks'
+import Layout from '@/layouts/Layout'
+import Container from '@/layouts/Container'
+import Hero from '@/components/Hero/Hero'
+import Features from '@/components/Features/Features'
+import Pricing from '@/components/Pricing/Pricing'
 
 const Home = () => {
   const { user } = useAppSelector((state) => state.auth)
 
-  if (!user)
-    return (
-      <Layout>
-        <Container>
-          <div className="bg-background min-h-screen text-slate-50">
-            Please <a href="/auth/signup">register</a> or <a href="/auth/login">login</a>
-          </div>
-        </Container>
-      </Layout>
-    )
-
   return (
     <Layout>
       <Container>
-        <HelloWorld
-          box={{
-            sx: {
-              background: 'rgb(0, 30, 60)',
-              height: '100vh',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-            },
-          }}
-          text="hello-world"
-        />
+        {!user && (
+          <div>
+            Please{' '}
+            <a href="/auth/signup" className="font-bold">
+              register
+            </a>{' '}
+            or{' '}
+            <a href="/auth/login" className="font-bold">
+              login
+            </a>
+          </div>
+        )}
+        <Hero />
+        <Features />
+        <Pricing />
       </Container>
     </Layout>
   )
