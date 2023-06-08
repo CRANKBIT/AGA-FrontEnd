@@ -1,20 +1,16 @@
-// External imports
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom'
+import Home from '../pages/Home'
+import SignUp from '../pages/SignUp/SignUp'
+import Login from '../pages/Login/Login'
 
-// Local imports
-import HomePage from "../pages/Home";
-import HomePage2 from "../pages/Home2";
-
-// Component definition
-function App() {
+const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="home" element={<HomePage />} />
-      <Route path="home2" element={<HomePage2 />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/auth/signup" element={<SignUp />} />
+      <Route path="/auth/login" element={<Login />} />
     </Routes>
-  );
+  )
 }
 
-// Default export
-export default App;
+export default App
