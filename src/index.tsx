@@ -1,11 +1,10 @@
 // External imports
 import ReactDOM from 'react-dom/client'
-import { BrowserRouter } from 'react-router-dom'
 import { StrictMode } from 'react'
 import { Provider } from 'react-redux'
 
 // Local imports
-import App from './app'
+import App from './app/router'
 import reportWebVitals from './utils/web-vitals'
 import './styles/main.css'
 import { store } from './app/store'
@@ -14,21 +13,11 @@ const htmlRoot = document.getElementById('root') as HTMLElement
 const reactRoot = ReactDOM.createRoot(htmlRoot)
 
 reactRoot.render(
-  process.env.REACT_APP_SCRICT_MODE === 'true' ? (
-    <StrictMode>
-      <Provider store={store}>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </Provider>
-    </StrictMode>
-  ) : (
+  <StrictMode>
     <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <App />
     </Provider>
-  )
+  </StrictMode>
 )
 
 if (process.env.REACT_APP_REPORT_WEB_VITALS === 'true') {
