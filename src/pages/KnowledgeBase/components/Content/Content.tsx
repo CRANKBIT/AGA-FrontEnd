@@ -8,7 +8,7 @@ export default function Content() {
       <div className="w-[340px] text-center text-xl mx-auto">
         Explore how our Form Report can work for you
       </div>
-      <div className=" flex border mt-5 mb-10 items-center gap-2  bg-white rounded pl-2">
+      <div className="flex border mt-5 mb-10 items-center gap-2  bg-white rounded pl-2">
         <CiSearch className="bg-white " />
         <input placeholder="Search…" className=" w-full focus:outline-none" />
       </div>
