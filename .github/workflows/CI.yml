@@ -25,7 +25,7 @@ jobs:
           node-version: '18'
       - name: Install and Build
         run: |
-          yarn policies set-version
+          npm instal -g yarn
           yarn
           yarn pre-commit
           yarn build
