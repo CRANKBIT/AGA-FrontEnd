@@ -1,6 +1,7 @@
-const Features = ()=>(
-    <h3>Features</h3>
-    <div>
-        <FeaturesContent/>
-    </div>
-)
+import Content from "./components/Content/Content"
+
+const Features = ()=>{
+    return  <div>  <Content />  </div>
+}
+
+export default Features
