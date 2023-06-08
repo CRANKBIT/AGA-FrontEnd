@@ -11,10 +11,10 @@ import Login from '../pages/Login'
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/test" element={<TestPage />} />
-      <Route path="/auth/signup" element={<SignUp />} />
-      <Route path="/auth/login" element={<Login />} />
+      <Route path="`${process.env.PUBLIC_URL}/`" element={<HomePage />} />
+      <Route path="`${process.env.PUBLIC_URL}/test" element={<TestPage />} />
+      <Route path="`${process.env.PUBLIC_URL}/auth/signup`" element={<SignUp />} />
+      <Route path="`${process.env.PUBLIC_URL}/auth/login`" element={<Login />} />
     </Routes>
   )
 }
