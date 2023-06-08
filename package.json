@@ -1,7 +1,7 @@
 {
   "name": "allgood-frontend",
   "version": "1.0.0",
-  "homepage": "https://CRANKBIT.github.io/CrankBit-FrontEnd/pr-preview/pr-14",
+  "homepage": "./",
   "engines": {
     "node": "^18.0.0"
   },
