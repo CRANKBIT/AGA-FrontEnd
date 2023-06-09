@@ -5,7 +5,7 @@ import Login from '@/pages/Login'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount/MyAccount'
 
-const isLoggedIn = false
+const isLoggedIn = true
 const router = createHashRouter([
   {
     path: '/',
