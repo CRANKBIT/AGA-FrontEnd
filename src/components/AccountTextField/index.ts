@@ -1,3 +1,3 @@
 // AccountTextField / index.ts
 
-export { default } from './AccountTextField' 
+export { default } from './AccountTextField'
