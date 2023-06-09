@@ -10,7 +10,7 @@ const Home = () => {
     <Layout>
       <Container>
         {!user ? (
-          <div>
+          <div className="text-white">
             Please{' '}
             <Link to="/auth/signup" className="font-bold">
               register
@@ -21,7 +21,7 @@ const Home = () => {
             </Link>
           </div>
         ) : (
-          <>you logged in</>
+          <div className="text-white">you logged in</div>
         )}
       </Container>
     </Layout>
