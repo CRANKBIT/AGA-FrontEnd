@@ -1,6 +1,7 @@
 import { useAppSelector } from '@/app/hooks'
 import Layout from '@/layouts/Layout'
 import Container from '@/layouts/Container'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -11,13 +12,13 @@ const Home = () => {
         {!user ? (
           <div>
             Please{' '}
-            <a href="/auth/signup" className="font-bold">
+            <Link to="/auth/signup" className="font-bold">
               register
-            </a>{' '}
+            </Link>{' '}
             or{' '}
-            <a href="/auth/login" className="font-bold">
+            <Link to="/auth/login" className="font-bold">
               login
-            </a>
+            </Link>
           </div>
         ) : (
           <>you logged in</>
