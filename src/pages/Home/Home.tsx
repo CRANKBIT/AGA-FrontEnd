@@ -1,9 +1,6 @@
 import { useAppSelector } from '@/app/hooks'
 import Layout from '@/layouts/Layout'
 import Container from '@/layouts/Container'
-import Hero from './components//Hero'
-import Features from './components/Features'
-import Pricing from './components/Pricing'
 
 const Home = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -11,7 +8,7 @@ const Home = () => {
   return (
     <Layout>
       <Container>
-        {!user && (
+        {!user ? (
           <div>
             Please{' '}
             <a href="/auth/signup" className="font-bold">
@@ -22,10 +19,9 @@ const Home = () => {
               login
             </a>
           </div>
+        ) : (
+          <>you logged in</>
         )}
-        <Hero />
-        <Features />
-        <Pricing />
       </Container>
     </Layout>
   )
