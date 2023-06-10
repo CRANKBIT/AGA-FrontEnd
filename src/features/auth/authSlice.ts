@@ -34,7 +34,7 @@ export const registerUser = createAsyncThunk<User, RegisterPayload, { rejectValu
       }
       return rejectWithValue(error.response.data)
     }
-  },
+  }
 )
 
 export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: KnownError }>(
@@ -56,7 +56,7 @@ export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: Kno
       }
       return rejectWithValue(error.response.data)
     }
-  },
+  }
 )
 
 export const authSlice = createSlice({

@@ -57,7 +57,7 @@
     "@typescript-eslint/no-unnecessary-condition": "error",
     "@typescript-eslint/prefer-optional-chain": "error",
     "@typescript-eslint/semi": "off",
-    "comma-dangle": [2, "always-multiline"],
+    "@typescript-eslint/comma-dangle": "off",
     "jsx-a11y/alt-text": "off",
     "max-len": [
       "error",
