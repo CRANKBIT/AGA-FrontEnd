@@ -6,8 +6,8 @@ import {
   getUserFromLocalStorage,
   addUserToLocalStorage,
   removeUserFromLocalStorage,
-} from '../../utils/localStorage'
-import { KnownError, User, RegisterPayload, LoginPayload, AuthState } from '../../interfaces/auth'
+} from '@/utils/localStorage'
+import { KnownError, User, RegisterPayload, LoginPayload, AuthState } from '@/interfaces/auth'
 
 const initialState: AuthState = {
   isLoading: false,
