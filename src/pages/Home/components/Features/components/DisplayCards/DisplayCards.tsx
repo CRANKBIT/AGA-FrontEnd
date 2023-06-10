@@ -1,4 +1,4 @@
-import FeatureCard from "../../../FeatureCard/FeatureCard"
+import FeatureCard from "./components/FeatureCard/FeatureCard"
 
 
 const DisplayCards = ()=>(
