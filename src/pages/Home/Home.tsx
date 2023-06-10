@@ -19,6 +19,10 @@ const Home = () => {
             <Link to="/auth/login" className="font-bold">
               login
             </Link>
+            or{' '}
+            <Link to="/Report_1" className="font-bold">
+              report
+            </Link>
           </div>
         ) : (
           <>you logged in</>
