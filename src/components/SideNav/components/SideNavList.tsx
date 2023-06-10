@@ -9,7 +9,14 @@ export default function SideNavList() {
   return (
     <ul>
       {ListItems.map(({ id, item }) => {
-        return <li key={id}>{item}</li>
+        return (
+          <li
+            className="pl-[56px] px-auto border-l-4 border-background hover:bg-white  hover:bg-opacity-10 hover:border-l-4 hover:border-white"
+            key={id}
+          >
+            {item}
+          </li>
+        )
       })}
     </ul>
   )
