@@ -32,7 +32,7 @@ export default function ReusableList() {
   ]
 
   return (
-    <div className="flex flex-wrap w-full text-sm">
+    <div className="flex flex-wrap text-sm">
       {ListCreation.map(({ title, items }) => {
         return <ListContent key={title} title={title} listItems={items} />
       })}
