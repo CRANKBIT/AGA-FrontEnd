@@ -1,6 +1,6 @@
+import { AxiosError } from 'axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { RootState } from '@/app/store'
-import { AxiosError } from 'axios'
 import { loginApi, registerApi } from '@/services/user'
 import {
   getUserFromLocalStorage,
@@ -34,7 +34,7 @@ export const registerUser = createAsyncThunk<User, RegisterPayload, { rejectValu
       }
       return rejectWithValue(error.response.data)
     }
-  }
+  },
 )
 
 export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: KnownError }>(
@@ -56,7 +56,7 @@ export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: Kno
       }
       return rejectWithValue(error.response.data)
     }
-  }
+  },
 )
 
 export const authSlice = createSlice({
@@ -97,6 +97,6 @@ export const authSlice = createSlice({
 
 export const { logoutUser } = authSlice.actions
 
-export const selectAuth = (state: RootState) => state.auth
+export const selectAuth = (state: RootState): AuthState => state.auth
 
 export default authSlice.reducer

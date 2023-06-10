@@ -17,7 +17,7 @@ reactRoot.render(
     <Provider store={store}>
       <App />
     </Provider>
-  </StrictMode>
+  </StrictMode>,
 )
 
 if (process.env.REACT_APP_REPORT_WEB_VITALS === 'true') {
