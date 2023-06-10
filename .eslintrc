@@ -26,14 +26,33 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["jest", "react", "react-hooks", "@typescript-eslint", "import"],
+  "overrides": [
+    {
+      "files": ["src/features/**/*Slice.ts"],
+      "rules": { "no-param-reassign": ["error", { "props": false }] }
+    }
+  ],
   "rules": {
     "curly": ["error", "all"],
     "arrow-body-style": "error",
     "no-restricted-exports": "off",
-    "import/extensions": "off",
-    "implicit-arrow-linebreak": "off",
-    "no-param-reassign": ["error", { "props": false }],
-    "object-curly-newline": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never",
+        "": "never"
+      }
+    ],
+    "object-curly-newline": [
+      "error",
+      {
+        "ObjectExpression": { "multiline": true, "minProperties": 1 }
+      }
+    ],
     "react/function-component-definition": [
       "error",
       {

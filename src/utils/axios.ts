@@ -9,6 +9,7 @@ const axiosClient = axios.create({
 axiosClient.interceptors.request.use((config) => {
   const user = getUserFromLocalStorage()
   if (user) {
+    // eslint-disable-next-line no-param-reassign
     config.headers.common.Authorization = `Bearer ${user.token}`
   }
   return config
