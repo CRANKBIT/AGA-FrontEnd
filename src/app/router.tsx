@@ -3,7 +3,7 @@ import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
 import PrivateRoute from '@/routes/PrivateRoute'
-import MyAccount from '@/pages/MyAccount/MyAccount'
+import MyAccount from '@/pages/MyAccount'
 
 const isLoggedIn = true
 const router = createHashRouter([
