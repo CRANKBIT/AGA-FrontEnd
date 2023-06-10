@@ -1,4 +1,5 @@
 import { BiFile } from 'react-icons/bi'
+import SideNavList from './components/SideNavList'
 
 export default function SideNav() {
   return (
@@ -9,12 +10,7 @@ export default function SideNav() {
           <span className="text-2xl">Report Builder</span>
         </div>
         <div className="pb-8 leading-10 ">
-          <ul>
-            <li>My Reports</li>
-            <li>Analytics</li>
-            <li>Knowledge Base</li>
-            <li>Help & Support</li>
-          </ul>
+          <SideNavList />
         </div>
         <div className="leading-9">
           <div>My Profile</div>
