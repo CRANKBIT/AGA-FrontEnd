@@ -27,6 +27,12 @@ const Home: FC = () => {
             {' or '}
             <Link to="/auth/login" className="font-bold">
               login
+            </Link>{' '}
+            <Link to="/knowledge-base" className="font-bold">
+              KnowledgePage
+            </Link>
+            <Link to="/my-reports" className="font-bold">
+              My-report
             </Link>
           </div>
         ) : (
