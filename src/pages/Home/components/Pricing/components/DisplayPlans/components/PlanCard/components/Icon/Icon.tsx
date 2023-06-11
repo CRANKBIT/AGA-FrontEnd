@@ -1,9 +1,7 @@
-import {FC} from 'react'
-interface Props{
-    icon:string
+import { FC } from 'react'
+interface Props {
+  icon: string
 }
-const Icon:FC<Props> = ({icon})=>(
-    <img src={`${icon}.svg`} alt="icon" />
-)
+const Icon: FC<Props> = ({ icon }) => <img src={`${icon}.svg`} alt="icon" />
 
 export default Icon

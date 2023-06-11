@@ -1,1 +1,1 @@
-export {default} from './DisplayCards'
+export { default } from './DisplayCards'

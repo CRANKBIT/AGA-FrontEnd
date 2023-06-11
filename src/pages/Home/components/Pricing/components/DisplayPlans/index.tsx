@@ -1,1 +1,1 @@
-export {default} from './DisplayPlans'
+export { default } from './DisplayPlans'

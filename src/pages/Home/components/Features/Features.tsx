@@ -1,15 +1,14 @@
-import DisplayCards from "./components/DisplayCards/DisplayCards"
+import DisplayCards from './components/DisplayCards/DisplayCards'
 
-const Features = ()=>(
-    <div className="p-8 box-border mx-auto bg-white text-black bg-[#EBF1F6]">
-        <h2 className="text-2xl font-bold">Features</h2>
-        <div className="flex">
-            <DisplayCards/>
-            <div className="flex flex-col justify-center">
-                <img src="/featureImage.svg" alt="featureImage" />
-            </div>
-        </div>
-        
+const Features = () => (
+  <div className="p-8 box-border mx-auto bg-white text-black bg-[#EBF1F6]">
+    <h2 className="text-2xl font-bold">Features</h2>
+    <div className="flex">
+      <DisplayCards />
+      <div className="flex flex-col justify-center">
+        <img src="/featureImage.svg" alt="featureImage" />
+      </div>
     </div>
+  </div>
 )
 export default Features

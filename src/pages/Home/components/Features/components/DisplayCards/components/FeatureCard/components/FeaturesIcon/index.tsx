@@ -1,1 +1,1 @@
-export {default} from './FeaturesIcon'
+export { default } from './FeaturesIcon'

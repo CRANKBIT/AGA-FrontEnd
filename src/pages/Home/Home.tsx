@@ -11,7 +11,7 @@ const Home = () => {
 
   return (
     <Layout>
-      <Container >
+      <Container>
         {!user ? (
           <div>
             Please{' '}
@@ -26,9 +26,9 @@ const Home = () => {
         ) : (
           <>you logged in</>
         )}
-      <Hero/>
-      <Features/>
-      <Pricing/>
+        <Hero />
+        <Features />
+        <Pricing />
       </Container>
     </Layout>
   )
