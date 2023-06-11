@@ -19,8 +19,8 @@ const Home = () => {
             <Link to="/auth/login" className="font-bold">
               login
             </Link>{' '}
-            <Link to="/knowledge-base" className="font-bold">
-              KnowledgePage
+            <Link to="/my-reports" className="font-bold">
+              My-report
             </Link>
           </div>
         ) : (
