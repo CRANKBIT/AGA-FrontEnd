@@ -1,17 +1,17 @@
-import Login from '@/pages/Login'
-import { FC, ReactNode } from 'react'
+import { FC, ReactElement, ReactNode } from 'react'
 import { Navigate } from 'react-router-dom'
+import Login from '@/pages/Login'
 
 interface PrivateRouteProps {
   isLoggedIn: boolean
-  children?: ReactNode
+  children: ReactNode
 }
 
 const PrivateRoute: FC<PrivateRouteProps> = ({ isLoggedIn, children }) => {
   const auth = isLoggedIn
 
   return auth ? (
-    <>{children}</>
+    (children as ReactElement)
   ) : (
     <>
       <Login />
