@@ -18,6 +18,9 @@ const Home = () => {
             or{' '}
             <Link to="/auth/login" className="font-bold">
               login
+            </Link>{' '}
+            <Link to="/usr/profile" className="font-bold">
+              profile
             </Link>
           </div>
         ) : (
