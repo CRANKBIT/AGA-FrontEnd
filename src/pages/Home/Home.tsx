@@ -34,6 +34,11 @@ const Home: FC = () => {
             <Link to="/my-reports" className="font-bold">
               My-report
             </Link>
+            or
+            {' '}
+            <Link to="/Report_1" className="font-bold">
+              report
+            </Link>
           </div>
             {' '}
             <Link to="/usr/profile" className="font-bold">

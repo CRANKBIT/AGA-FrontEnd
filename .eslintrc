@@ -47,6 +47,7 @@
         "": "never"
       }
     ],
+    "jsx-a11y/label-has-associated-control": "off",
     "object-curly-newline": [
       "error",
       {
