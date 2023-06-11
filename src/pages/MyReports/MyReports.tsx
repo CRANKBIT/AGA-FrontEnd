@@ -6,7 +6,7 @@ import Content from './Content/Content'
 export default function MyReports() {
   return (
     <Container>
-      <div className="flex text-xl">
+      <div className="flex text-xl min-h-[832px]">
         <SideNav />
         <PageContent>
           <Content />

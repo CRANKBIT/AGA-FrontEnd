@@ -13,8 +13,8 @@ export default function Content() {
           <div className="inline-block font-bold">My Reports</div> {'(12)'}
         </div>
         <div>
-          <div className="flex items-center justify-between border border-black bg-white rounded w-[250px] px-[5px]">
-            <input placeholder="Search…" className="focus:outline-none" />
+          <div className="p-[5px] flex items-center justify-between border border-black bg-white rounded w-[250px] px-[5px]">
+            <input placeholder="Search.." className="focus:outline-none" />
             <CiSearch />
           </div>
         </div>
