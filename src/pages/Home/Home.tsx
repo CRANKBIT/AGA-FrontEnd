@@ -5,6 +5,9 @@ import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { logout } from '@/features/auth/authSlice'
 import Layout from '@/layouts/Layout'
 import Container from '@/layouts/Container'
+import Hero from './components/Hero/Hero'
+import Features from './components/Features/Features'
+import Pricing from './components/Pricing/Pricing'
 
 const Home: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -51,6 +54,9 @@ const Home: FC = () => {
             </Button>
           </>
         )}
+        <Hero />
+        <Features />
+        <Pricing />
       </Container>
     </Layout>
   )

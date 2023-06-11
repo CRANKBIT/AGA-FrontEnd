@@ -18,6 +18,7 @@
 html {
   background-color: #03111b;
   font-size: 100%; /* 1rem = 16px */
+  color: white;
 }
 
 body {
