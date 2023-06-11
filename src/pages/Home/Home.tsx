@@ -19,7 +19,7 @@ const Home: FC = () => {
     <Layout>
       <Container>
         {!user ? (
-          <div>
+          <div className="text-white">
             {'Please '}
             <Link to="/auth/signup" className="font-bold">
               register
