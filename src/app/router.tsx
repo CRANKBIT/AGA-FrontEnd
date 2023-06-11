@@ -3,13 +3,14 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
-import Report_1 from '@/pages/Report_1'
+import Report from '@/pages/Report'
 import MyReports from '@/pages/MyReports/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 
 const isLoggedIn = true
+
 const router = createHashRouter([
   {
     path: '/',
@@ -24,15 +25,24 @@ const router = createHashRouter([
     element: <Login />,
   },
   {
-    path: '/Report_1',
-    element: <Report_1 />,
-  },
-  { path: '/my-reports', element: <MyReports /> },
-  { path: '/knowledge-base', element: <KnowledgeBase /> },
-    path: '/my-reports', element: <MyReports />
+    path: '/report',
+    element: <Report />,
   },
   {
-    path: '/knowledge-base', element: <KnowledgeBase />
+    path: '/my-reports',
+    element: <MyReports />,
+  },
+  {
+    path: '/knowledge-base',
+    element: <KnowledgeBase />,
+  },
+  {
+    path: '/my-reports',
+    element: <MyReports />,
+  },
+  {
+    path: '/knowledge-base',
+    element: <KnowledgeBase />,
   },
   {
     path: '/account',
@@ -41,7 +51,6 @@ const router = createHashRouter([
         <MyAccount />
       </PrivateRoute>
     ),
-
   },
 ])
 

@@ -1,13 +1,11 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { HiOutlineCamera } from 'react-icons/hi'
 import { Link } from '@mui/material'
-// import { Box, Button, Container, Link } from '@mui/material'
-// import TextField from '@mui/material/TextField'
 
-const Report_1 = () => {
+const Report: FC = () => {
   const [image, setImage] = useState<File | null>(null)
 
-  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.files && event.target.files.length > 0) {
       setImage(event.target.files[0])
     }
@@ -20,14 +18,36 @@ const Report_1 = () => {
         <Link
           href="/report_1"
           underline="hover"
-          sx={{ position: 'absolute', left: 0, top: 50, fontSize: 12, fontWeight: 400 }}
+          sx={{
+            position: 'absolute',
+            left: 0,
+            top: 50,
+            fontSize: 12,
+            fontWeight: 400,
+          }}
         >
-          {'My Report'}
+          My Report
         </Link>
-        <p style={{ left: 60, top: 48, position: 'absolute', color: 'rgba(3, 17, 27, 0.4)' }}>
+        <p
+          style={{
+            left: 60,
+            top: 48,
+            position: 'absolute',
+            color: 'rgba(3, 17, 27, 0.4)',
+          }}
+        >
           &gt;&gt;
         </p>
-        <h1 style={{ position: 'absolute', fontSize: 12, left: 80, top: 50 }}>Create New Report</h1>
+        <h1
+          style={{
+            position: 'absolute',
+            fontSize: 12,
+            left: 80,
+            top: 50,
+          }}
+        >
+          Create New Report
+        </h1>
 
         <div className="flex justify-end w-full">
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
@@ -39,7 +59,7 @@ const Report_1 = () => {
           <div className="p-4">
             <div className="p-4">
               <h2 className="text-lg font-bold ">Snapshot</h2>
-              <div className="border-t border-black mx-auto w-full"></div>
+              <div className="border-t border-black mx-auto w-full" />
               <div className="text-center mt-4">
                 <div className="flex flex-col items-center mb-4">
                   <p className="font-semibold">Services:</p>
@@ -69,7 +89,7 @@ const Report_1 = () => {
 
             <div className="p-4">
               <div className="border border-black p-2">
-                <textarea className="w-full h-20 p-2 bg-white" placeholder="Comments..."></textarea>
+                <textarea className="w-full h-20 p-2 bg-white" placeholder="Comments..." />
               </div>
             </div>
             <div className="p-4">
@@ -86,4 +106,4 @@ const Report_1 = () => {
   )
 }
 
-export default Report_1
+export default Report
