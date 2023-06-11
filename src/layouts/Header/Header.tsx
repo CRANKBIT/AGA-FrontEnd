@@ -1,5 +1,5 @@
-import HomeNavigation from '@/components/HomeNavigation'
 import { FC } from 'react'
+import HomeNavigation from '@/components/HomeNavigation'
 
 const Header: FC = () => <HomeNavigation />
 

@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
@@ -22,8 +23,12 @@ const router = createHashRouter([
     path: '/auth/login',
     element: <Login />,
   },
-  { path: '/my-reports', element: <MyReports /> },
-  { path: '/knowledge-base', element: <KnowledgeBase /> },
+  {
+    path: '/my-reports', element: <MyReports />
+  },
+  {
+    path: '/knowledge-base', element: <KnowledgeBase />
+  },
   {
     path: '/account',
     element: (
@@ -38,8 +43,6 @@ const router = createHashRouter([
   },
 ])
 
-const App = () => {
-  return <RouterProvider router={router} />
-}
+const App: FC = () => <RouterProvider router={router} />
 
 export default App
