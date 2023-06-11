@@ -6,7 +6,7 @@ export default function KnowledgeBase() {
   return (
     <div>
       <Container>
-        <div className="flex text-xl">
+        <div className="flex text-xl min-h-[832px]]">
           <SideNav />
           <Content />
         </div>
