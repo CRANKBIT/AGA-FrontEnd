@@ -1,6 +1,7 @@
+import { FC } from 'react'
 import { Link } from 'react-router-dom'
 
-const Hero = () => (
+const Hero: FC = () => (
   <div className="text-center py-40">
     <img className="mx-auto" src="/svg/heroImage.svg" alt="HeroImage" />
     <p className="text-4xl text-center mb-11">
