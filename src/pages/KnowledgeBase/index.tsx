@@ -1,4 +1,4 @@
-import SideNav from '@/components/SideNav/SideNav'
+import SideNav from '@/components/SideNav'
 import Content from './components/Content/Content'
 import Container from '@/layouts/Container/Container'
 

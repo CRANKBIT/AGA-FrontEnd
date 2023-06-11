@@ -1,4 +1,4 @@
-import ReusableList from './components/List/List'
+import ReusableList from './components/List'
 import { CiSearch } from 'react-icons/ci'
 
 export default function Content() {
@@ -9,7 +9,7 @@ export default function Content() {
         <div className="w-[340px] text-center text-xl mx-auto">
           Explore how our Form Report can work for you
         </div>
-        <div className="flex border border-black mt-5 mb-10 items-center gap-2 bg-white rounded pr-2 pl-2">
+        <div className="flex border border-black mt-5 mb-10 items-center gap-2 bg-white rounded px-2">
           <CiSearch className="bg-white " />
           <input placeholder="Search…" className="w-full focus:outline-none" />
         </div>

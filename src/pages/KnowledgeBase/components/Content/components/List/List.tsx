@@ -1,4 +1,4 @@
-import ListContent from '../ListContent/ListContent'
+import ListContent from '../ListContent'
 
 export default function ReusableList() {
   const ListCreation = [
