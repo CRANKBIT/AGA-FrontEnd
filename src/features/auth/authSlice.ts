@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { RootState } from '../../app/store'
+import { RootState } from '@/app/store'
 import { AxiosError } from 'axios'
-import { loginApi, registerApi } from '../../services/user'
+import { loginApi, registerApi } from '@/services/user'
 import {
   getUserFromLocalStorage,
   addUserToLocalStorage,

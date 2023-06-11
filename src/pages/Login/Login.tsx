@@ -1,22 +1,21 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { registerUser } from '../../features/auth/authSlice'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { loginUser } from '@/features/auth/authSlice'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
 
-const SignUp = () => {
+const Login = () => {
   const { user } = useAppSelector((state) => state.auth)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
 
-  // TODO: Use actual form value in the future, this is test only, and please remove in database
-  const handleRegister = () => {
+  // TODO: bind form input value later
+  const handleLogin = () => {
     const user = {
-      name: 'John Doe',
       email: 'john@gmail.com',
       password: 'password123',
     }
 
-    dispatch(registerUser(user))
+    dispatch(loginUser(user))
   }
 
   useEffect(() => {
@@ -29,9 +28,9 @@ const SignUp = () => {
 
   return (
     <div>
-      <button onClick={handleRegister}>Register</button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   )
 }
 
-export default SignUp
+export default Login

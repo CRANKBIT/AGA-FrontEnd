@@ -1,4 +1,4 @@
-import { User } from '../interfaces/auth'
+import { User } from '@/interfaces/auth'
 
 export const addUserToLocalStorage = (user: User) => {
   localStorage.setItem('user', JSON.stringify(user))

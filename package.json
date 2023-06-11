@@ -2,9 +2,6 @@
   "name": "allgood-frontend",
   "version": "1.0.0",
   "homepage": "./",
-  "engines": {
-    "node": "^18.0.0"
-  },
   "dependencies": {
     "@emotion/react": "^11.11.0",
     "@emotion/styled": "^11.11.0",
@@ -14,6 +11,7 @@
     "@mui/styled-engine-sc": "^5.12.0",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
+    "classnames": "^2.3.2",
     "dotenv": "^16.1.1",
     "eslint-plugin-jest": "^27.2.1",
     "formik": "^2.4.0",
@@ -23,7 +21,6 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^12.3.1",
-    "react-icons": "^4.9.0",
     "react-redux": "^8.0.7",
     "react-router-dom": "^6.10.0",
     "react-scripts": "5.0.1",
@@ -32,6 +29,7 @@
     "web-vitals": "^3.3.0"
   },
   "devDependencies": {
+    "@craco/craco": "^7.1.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
@@ -62,14 +60,12 @@
     "webpack": "^5.77.0"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "lint": "eslint --ext .js,.jsx,.ts,.tsx src/ --no-cache",
+    "dev": "craco start",
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "craco eject",
     "lint:f": "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --no-cache",
-    "slint": "stylelint \"src/**/*.{css,scss}\"",
     "slint:f": "stylelint --fix \"src/**/*.{css,scss}\"",
     "prettier:f": "prettier --write .",
     "prepare": "husky install",
@@ -93,6 +89,10 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,css,json,md}": []
+  },
+  "engines": {
+    "node": "^18.0.0",
+    "yarn": "^3.6.0"
   },
   "browserslist": {
     "production": [
