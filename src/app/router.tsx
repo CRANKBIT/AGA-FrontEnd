@@ -2,6 +2,7 @@ import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
+import MyReports from '@/pages/MyReports/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
@@ -21,6 +22,7 @@ const router = createHashRouter([
     path: '/auth/login',
     element: <Login />,
   },
+  { path: '/my-reports', element: <MyReports /> },
   { path: '/knowledge-base', element: <KnowledgeBase /> },
   {
     path: '/account',
