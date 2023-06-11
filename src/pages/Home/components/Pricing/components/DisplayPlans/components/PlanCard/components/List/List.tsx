@@ -1,4 +1,3 @@
-import { InsertEmoticonTwoTone } from '@mui/icons-material'
 import { FC } from 'react'
 
 interface Props {
