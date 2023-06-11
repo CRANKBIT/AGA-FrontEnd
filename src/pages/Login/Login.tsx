@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { loginUser } from '@/features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
 
@@ -28,7 +28,11 @@ const Login = () => {
 
   return (
     <div>
-      <button onClick={handleLogin}>Login</button>
+      <Link to="/auth/login">
+        <button onClick={handleLogin} className="text-white">
+          Login
+        </button>
+      </Link>
     </div>
   )
 }
