@@ -22,8 +22,12 @@ const router = createHashRouter([
     path: '/auth/login',
     element: <Login />,
   },
-  { path: '/my-reports', element: <MyReports /> },
-  { path: '/knowledge-base', element: <KnowledgeBase /> },
+  {
+    path: '/my-reports', element: <MyReports />
+  },
+  {
+    path: '/knowledge-base', element: <KnowledgeBase />
+  },
   {
     path: '/account',
     element: (

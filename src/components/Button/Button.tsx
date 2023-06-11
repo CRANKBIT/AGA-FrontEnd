@@ -23,8 +23,8 @@ const Button: FC<Props> = ({ children, className, variant = Variant.Default, typ
       'rounded-md',
       'px-4',
       'py-1',
-      variant === Variant.Default && ['bg-background', 'text-primary'],
-      variant === Variant.Primary && ['bg-background', 'text-on-primary'],
+      variant === Variant.Default && ['bg-background', 'text-white'],
+      variant === Variant.Primary && ['bg-background', 'text-primary'],
       className
     )}
   >
@@ -33,3 +33,6 @@ const Button: FC<Props> = ({ children, className, variant = Variant.Default, typ
 )
 
 export default Button
+
+// const buttonClassNames =
+//   'w-[250px] h-[90px] bg-[#03111B] hover:bg-[#007AD3] text-white rounded-md'
