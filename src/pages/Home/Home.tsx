@@ -19,9 +19,12 @@ const Home = () => {
             <Link to="/auth/login" className="font-bold">
               login
             </Link>{' '}
+            <Link to="/knowledge-base" className="font-bold">
+              KnowledgePage
+            </Link>
+            {' '}
             <Link to="/usr/profile" className="font-bold">
               profile
-            </Link>
           </div>
         ) : (
           <div className="text-white">you logged in</div>
