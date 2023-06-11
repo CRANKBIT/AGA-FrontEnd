@@ -1,11 +1,19 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import { useAppSelector } from '@/app/hooks'
+import { Button } from '@mui/material'
+import { useAppSelector, useAppDispatch } from '@/app/hooks'
+import { logout } from '@/features/auth/authSlice'
 import Layout from '@/layouts/Layout'
 import Container from '@/layouts/Container'
 
 const Home: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
+
+  const dispatch = useAppDispatch()
+
+  const handleLogout = (): void => {
+    dispatch(logout())
+  }
 
   return (
     <Layout>
@@ -22,7 +30,12 @@ const Home: FC = () => {
             </Link>
           </div>
         ) : (
-          <>you logged in</>
+          <>
+            <div>Welcome, you have logged in</div>
+            <Button type="button" variant="contained" onClick={handleLogout}>
+              logout
+            </Button>
+          </>
         )}
       </Container>
     </Layout>
