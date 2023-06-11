@@ -1,6 +1,6 @@
+import { FC } from 'react'
 import FeatureDescription from './components/FeatureDescription/FeatureDescription'
 import FeaturesIcon from './components/FeaturesIcon/FeaturesIcon'
-import { FC } from 'react'
 
 interface Props {
   icon: string

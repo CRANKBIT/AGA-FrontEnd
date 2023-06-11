@@ -1,5 +1,5 @@
-import Icon from './components/Icon/Icon'
 import { FC } from 'react'
+import Icon from './components/Icon/Icon'
 import List from './components/List/List'
 import Button from './components/Button/Button'
 
