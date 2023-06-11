@@ -6,7 +6,7 @@ const Features = () => (
     <div className="flex">
       <DisplayCards />
       <div className="flex flex-col justify-center">
-        <img src="/featureImage.svg" alt="featureImage" />
+        <img src="/svg/featureImage.svg" alt="featureImage" />
       </div>
     </div>
   </div>

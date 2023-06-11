@@ -18,21 +18,21 @@ const PremiumList = [
 const DisplayPlans = () => (
   <div className="flex justify-center">
     <PlanCard
-      icon="/StarterIcon"
+      icon="/svg/StarterIcon.svg"
       plan="Starter"
       price="FREE"
       PlanList={StarterList}
       className="bg-white text-black rounded-lg p-11 mr-4 w-80"
-      ListIcon="/ListIconStarter.svg"
+      ListIcon="/svg/ListIconStarter.svg"
       PriceText="text-3xl text-[#007AD3]"
     />
     <PlanCard
-      icon="/PremiumIcon"
+      icon="/svg/PremiumIcon.svg"
       plan="Premium"
       price="$ 4.99/month"
       PlanList={PremiumList}
       className="bg-[#007AD3] text-white rounded-lg p-11 ml-4 w-80"
-      ListIcon="ListIconPremium.svg"
+      ListIcon="/svg/ListIconPremium.svg"
       PriceText="text-3xl"
     />
   </div>

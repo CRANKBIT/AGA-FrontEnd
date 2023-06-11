@@ -4,5 +4,5 @@ interface Props {
   icon: string
   content: string
 }
-const FeaturesIcon: FC<Props> = ({ icon, content }) => <img src={`${icon}.svg`} alt={content} />
+const FeaturesIcon: FC<Props> = ({ icon, content }) => <img src={icon} alt={content} />
 export default FeaturesIcon
