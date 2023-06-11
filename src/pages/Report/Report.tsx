@@ -50,7 +50,10 @@ const Report: FC = () => {
         </h1>
 
         <div className="flex justify-end w-full">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          <button
+            type="button"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          >
             Back to My Reports
           </button>
         </div>
@@ -94,7 +97,10 @@ const Report: FC = () => {
             </div>
             <div className="p-4">
               <div className="text-center">
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                <button
+                  type="button"
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                >
                   Submit
                 </button>
               </div>
