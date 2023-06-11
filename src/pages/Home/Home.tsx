@@ -10,7 +10,7 @@ const Home = () => {
     <Layout>
       <Container>
         {!user ? (
-          <div>
+          <div className="text-white">
             Please{' '}
             <Link to="/auth/signup" className="font-bold">
               register
@@ -18,6 +18,12 @@ const Home = () => {
             or{' '}
             <Link to="/auth/login" className="font-bold">
               login
+            </Link>{' '}
+            <Link to="/knowledge-base" className="font-bold">
+              KnowledgePage
+            </Link>
+            <Link to="/my-reports" className="font-bold">
+              My-report
             </Link>
             or{' '}
             <Link to="/Report_1" className="font-bold">
@@ -25,7 +31,7 @@ const Home = () => {
             </Link>
           </div>
         ) : (
-          <>you logged in</>
+          <div className="text-white">you logged in</div>
         )}
       </Container>
     </Layout>

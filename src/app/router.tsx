@@ -3,9 +3,13 @@ import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
 import Report_1 from '@/pages/Report_1'
+import MyReports from '@/pages/MyReports/MyReports'
+import KnowledgeBase from '@/pages/KnowledgeBase'
+import PrivateRoute from '@/routes/PrivateRoute'
+import MyAccount from '@/pages/MyAccount'
 
-// import { Report } from '@mui/icons-material'
 
+const isLoggedIn = true
 const router = createHashRouter([
   {
     path: '/',
@@ -22,6 +26,17 @@ const router = createHashRouter([
   {
     path: '/Report_1',
     element: <Report_1 />,
+  },
+  { path: '/my-reports', element: <MyReports /> },
+  { path: '/knowledge-base', element: <KnowledgeBase /> },
+  {
+    path: '/account',
+    element: (
+      <PrivateRoute isLoggedIn={isLoggedIn}>
+        <MyAccount />
+      </PrivateRoute>
+    ),
+
   },
 ])
 
