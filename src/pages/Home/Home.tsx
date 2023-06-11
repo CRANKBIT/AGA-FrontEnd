@@ -12,11 +12,11 @@ const Home: FC = () => {
       <Container>
         {!user ? (
           <div>
-            Please
+            {'Please '}
             <Link to="/auth/signup" className="font-bold">
               register
             </Link>
-            or
+            {' or '}
             <Link to="/auth/login" className="font-bold">
               login
             </Link>
