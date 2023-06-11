@@ -3,7 +3,7 @@ import SideNavList from './components/SideNavList'
 
 export default function SideNav() {
   return (
-    <div className="bg-background w-[305px] text-white h-screen ">
+    <div className="bg-background w-[305px] text-white h-100vh ">
       <div className="pt-[55px] w-full">
         <div className="cursor-pointer pb-8 text-3xl pl-[56px]">
           <BiFile className="inline-block text-blue-600 mr-2"></BiFile>
