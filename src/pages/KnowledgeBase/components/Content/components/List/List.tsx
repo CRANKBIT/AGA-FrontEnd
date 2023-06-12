@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import ListContent from '../ListContent'
+import ListRender from './components/ListRender'
 
 const ListCreation = [
   {
@@ -68,12 +68,12 @@ const ListCreation = [
   },
 ]
 
-const ReusableList: FC = () => (
+const List: FC = () => (
   <div className="flex flex-wrap text-sm">
     {ListCreation.map(({ title, items }) => (
-      <ListContent key={title} title={title} listItems={items} />
+      <ListRender key={title} title={title} listItems={items} />
     ))}
   </div>
 )
 
-export default ReusableList
+export default List

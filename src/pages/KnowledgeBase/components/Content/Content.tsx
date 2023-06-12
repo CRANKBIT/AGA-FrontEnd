@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { CiSearch } from 'react-icons/ci'
-import ReusableList from './components/List'
+import List from './components/List'
 
 const Content: FC = () => (
   <div className="bg-[#E9EFF4] w-full max-w-[975px] flex justify-center pt-14">
@@ -13,7 +13,7 @@ const Content: FC = () => (
         <CiSearch />
         <input placeholder="Search.." className="focus:outline-none" />
       </div>
-      <ReusableList />
+      <List />
     </div>
   </div>
 )

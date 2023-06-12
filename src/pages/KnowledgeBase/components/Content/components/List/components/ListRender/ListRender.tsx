@@ -10,7 +10,7 @@ interface ListContentProps {
   listItems: Item[]
 }
 
-const ListContent: FC<ListContentProps> = ({ title, listItems }) => (
+const ListRender: FC<ListContentProps> = ({ title, listItems }) => (
   <div className="w-1/2">
     <div className="text-xl font-bold">{title}</div>
     <ul className="leading-10 my-5">
@@ -21,4 +21,4 @@ const ListContent: FC<ListContentProps> = ({ title, listItems }) => (
   </div>
 )
 
-export default ListContent
+export default ListRender
