@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import SideNav from '@/components/SideNav/SideNav'
+import SideNav from '@/components/SideNavigationBar/SideNavigationBar'
 import Container from '@/layouts/Container/Container'
 import PageContent from '@/components/PageContent/PageContent'
 import Content from './components/Content/Content'
