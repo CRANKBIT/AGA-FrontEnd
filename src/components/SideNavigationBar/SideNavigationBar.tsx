@@ -35,7 +35,7 @@ const List: FC = () => (
 )
 
 const SideNavigationBar: FC = () => (
-  <nav className="bg-background w-[305px] text-white h-100vh ">
+  <nav className="bg-background w-[305px] text-white h-100vh">
     <div className="pt-14">
       <div className="cursor-pointer pb-8 text-3xl pl-14">
         <BiFile className="inline-block text-blue-600 mr-2" />

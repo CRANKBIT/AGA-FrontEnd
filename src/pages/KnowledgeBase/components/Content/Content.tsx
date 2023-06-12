@@ -9,8 +9,8 @@ const Content: FC = () => (
       <div className="w-80 text-center text-xl mx-auto">
         Explore how our Form Report can work for you
       </div>
-      <div className="flex items-center border border-black my-8 px-2 gap-2 bg-white rounded">
-        <CiSearch />
+      <div className="border border-black my-8 px-2 bg-white rounded">
+        <CiSearch className="inline-block mr-2" />
         <input placeholder="Search.." className="focus:outline-none" />
       </div>
       <List />
