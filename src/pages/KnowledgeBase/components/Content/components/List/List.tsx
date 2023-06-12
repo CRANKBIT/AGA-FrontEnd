@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { v4 as uuidv4 } from 'uuid'
 import ListContent from '../ListContent'
 
 const ReusableList: FC = () => {
@@ -7,23 +8,23 @@ const ReusableList: FC = () => {
       title: 'From Creation',
       items: [
         {
-          id: 1,
+          id: uuidv4(),
           text: 'Steps to create a new report',
         },
         {
-          id: 2,
+          id: uuidv4(),
           text: 'Steps to edit an existing report',
         },
         {
-          id: 3,
+          id: uuidv4(),
           text: 'Steps to edit a contact report',
         },
         {
-          id: 4,
+          id: uuidv4(),
           text: 'Steps to edit a template',
         },
         {
-          id: 5,
+          id: uuidv4(),
           text: 'Creating a complex report',
         },
       ],
@@ -32,19 +33,19 @@ const ReusableList: FC = () => {
       title: 'Payments',
       items: [
         {
-          id: 1,
+          id: uuidv4(),
           text: 'Payment shows failed',
         },
         {
-          id: 2,
+          id: uuidv4(),
           text: 'About refund policy',
         },
         {
-          id: 3,
+          id: uuidv4(),
           text: 'Privacy of card payments',
         },
         {
-          id: 4,
+          id: uuidv4(),
           text: 'Upgrading to a premium account',
         },
       ],
@@ -53,15 +54,15 @@ const ReusableList: FC = () => {
       title: 'Account',
       items: [
         {
-          id: 1,
+          id: uuidv4(),
           text: 'What to do when forgetting password',
         },
         {
-          id: 2,
+          id: uuidv4(),
           text: 'How to activate dark mode',
         },
         {
-          id: 3,
+          id: uuidv4(),
           text: 'Enable / Disable 2-step verification',
         },
       ],

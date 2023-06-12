@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 interface Item {
-  id: number
+  id: string | number
   text: string
 }
 

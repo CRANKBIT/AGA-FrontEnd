@@ -11,7 +11,7 @@ const Content: FC = () => (
       </div>
       <div className="flex items-center border border-black my-8 px-2 gap-2 bg-white rounded">
         <CiSearch />
-        <input placeholder="Search…" className="focus:outline-none" />
+        <input placeholder="Search.." className="focus:outline-none" />
       </div>
       <ReusableList />
     </div>
