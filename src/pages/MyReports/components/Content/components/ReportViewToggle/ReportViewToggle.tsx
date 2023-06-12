@@ -21,13 +21,13 @@ const ReportViewToggle: FC = () => {
     <div className="mb-[20px] items-center">
       <div className="flex items-center my-4">
         <div className="w-2/6">
-          <div className="text-gray-600">Reports</div>
+          <div className="text-gray-600">{viewMode === 'list' ? 'Reports' : ''}</div>
         </div>
         <div className="w-2/6">
-          <div className="text-gray-600">Last Updated</div>
+          <div className="text-gray-600">{viewMode === 'list' ? 'Last Updated' : ''}</div>
         </div>
         <div className="w-1/6">
-          <div className="text-gray-600">Tasks</div>
+          <div className="text-gray-600">{viewMode === 'list' ? 'tasks' : ''}</div>
         </div>
         <div className="w-1/6 cursor-pointer text-end text-3xl">
           <AiOutlineAppstore
