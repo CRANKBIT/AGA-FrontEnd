@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { registerUser } from '../../features/auth/authSlice'
-import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { registerUser } from '@/features/auth/authSlice'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
 
 const SignUp = () => {
   const { user } = useAppSelector((state) => state.auth)
