@@ -41,7 +41,7 @@ const ListItems: FC = () => {
   const renderedListItems = dummyList.map(({ report, lastUpdated, task }) => (
     <div key={report} className="flex items-center">
       <div className={`w-2/6 font-bold ${commonClassNames}`}>
-        {' report '}
+        {report}
         <div className="font-normal text-gray-600">
           <FaCircle className="text-green-400 inline-block mr-3" />
           Active
