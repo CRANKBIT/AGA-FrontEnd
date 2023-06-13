@@ -42,6 +42,10 @@ const Home: FC = () => {
             <Link to="/Report_1" className="font-bold">
               report
             </Link>
+            {' '}
+            <Link to="/usr/profile" className="font-bold">
+              profile
+            </Link>
           </div>
         ) : (
           <>
