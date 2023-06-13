@@ -1,83 +1,59 @@
-import * as React from 'react';
+import { FC } from 'react';
+import { Link } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import Container from '@/layouts/Container';
+import MyForm from './components/MyForm';
 
-const myProfile: React.FC = () => (
-  <div className="container w-96 mx-auto px-4">
-    <div style={
+const myProfile: FC = () => (
+  <Container>
+    <div className="w-96 mx-auto px-4">
+      <div style={
       {
         display: 'flex', justifyContent: 'flex-end'
       }
     }
-    >
-      <IconButton aria-label="Close" color="inherit">
-        <CloseIcon />
-      </IconButton>
-    </div>
+      >
+        <IconButton aria-label="Close" color="inherit">
+          <CloseIcon />
+        </IconButton>
+      </div>
 
-    <h1 className="font-bold mb-5 text-2xl font-inter">
-      My Profile
-    </h1>
+      <h1 className="font-bold mb-5 text-2xl font-inter">
+        My Profile
+      </h1>
 
-    <div className="w-full mb-4">
-      <label htmlFor="full-name" className="mb-1 text-xl font-medium font-inter">
-        Full Name
-      </label>
-      <br />
-      <input
-        type="text"
-        id="full-name"
-        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="John Doe"
-        required
-      />
-    </div>
-
-    <div className="w-full mb-4">
-      <label htmlFor="email" className="mt-1 mb-1 text-xl font-medium font-inter">
-        Email
-      </label>
-      <input
-        type="email"
-        id="email"
-        className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-        placeholder="john.doe@website.com"
-        required
-      />
-    </div>
-
-    <div className="my-1">
-      <a href="." className="text-lg border-b border-sky-600 text-sky-600">Change Password</a>
-    </div>
-
-    <Button
-      variant="contained"
-      sx={
+      <div>
+        <MyForm />
+      </div>
+      <Link to="." className="text-lg border-b border-sky-600 text-sky-600">Change Password</Link>
+      <Button
+        variant="contained"
+        sx={
       {
         marginBottom: 3, marginTop: 3
       }
     }
-      fullWidth
-    >
-      Update Changes
-    </Button>
-    <hr className="border-gray-400 border-t-2" />
-    <Button
-      variant="outlined"
-      sx={
+        fullWidth
+      >
+        Update Changes
+      </Button>
+      <hr className="border-gray-400 border-t-2" />
+      <Button
+        variant="outlined"
+        sx={
       {
         marginTop: 3
       }
     }
-      fullWidth
-    >
-      Logout
-    </Button>
+        fullWidth
+      >
+        Logout
+      </Button>
 
-    <div className="my-2 text-center">
-      <a href="." className="text-lg border-b border-red-400 text-red-400">Request to Close Account</a>
+      <Link to="/" className="text-lg border-b border-red-400 text-red-400">Request to Close Account</Link>
     </div>
-  </div>
+  </Container>
 );
 export default myProfile;
