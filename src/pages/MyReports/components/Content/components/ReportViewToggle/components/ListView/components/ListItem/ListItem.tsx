@@ -6,10 +6,9 @@ interface Props {
   report: string
   lastUpdated: string
   task: number
-  id: string
 }
 
-const ListItem: FC<Props> = ({ report, lastUpdated, task, id }) => (
+const ListItem: FC<Props> = ({ report, lastUpdated, task }) => (
   <div className="flex items-center gap-20 h-[84px] mb-[20px] border-b-[1px] border-blue-900 border-opacity-20 ">
     <div className="font-bold min-w-[140px]">
       {report}

@@ -5,10 +5,9 @@ interface Props {
   report: string
   lastUpdated: string
   task: number
-  id: string
 }
 
-const CardItem: FC<Props> = ({ report, lastUpdated, task, id }) => (
+const CardItem: FC<Props> = ({ report, lastUpdated, task }) => (
   <div>
     <div key={report} className="border border-gray-400 h-36 w-[250px] p-5 rounded">
       <div className="font-bold">{report}</div>
