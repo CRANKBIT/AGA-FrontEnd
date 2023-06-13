@@ -19,7 +19,8 @@ const ReportViewToggle: FC = () => {
         ) : (
           <div />
         )}
-        <div className="w-1/6 text-end text-3xl">
+
+        <div className="w-1/6 cursor-pointer text-end text-3xl">
           <ToggleButton
             icon={AiOutlineAppstore}
             isActive={viewMode === 'card'}
