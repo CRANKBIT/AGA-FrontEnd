@@ -4,27 +4,21 @@ import { FaCircle } from 'react-icons/fa'
 interface Props {
   report: string
   lastUpdated: string
-  task: number
+  taskNumber: number
 }
 
-const CardItem: FC<Props> = ({ report, lastUpdated, task }) => (
+const CardItem: FC<Props> = ({ report, lastUpdated, taskNumber }) => (
   <div>
-    <div key={report} className="border border-gray-400 h-36 w-[250px] p-5 rounded">
+    <div key={report} className="border border-border h-36 w-[250px] p-5 rounded">
       <div className="font-bold">{report}</div>
-      <div className="flex justify-between text-sm ">
+      <div className="flex justify-between text-sm">
         <div>
-          <FaCircle className="text-green-400 inline-block mr-3" />
-          <span>
-            {task}
-            {' Tasks'}
-          </span>
+          <FaCircle className="text-active inline-block mr-3" />
+          <span>{`${taskNumber} Tasks`}</span>
         </div>
         <div>8 today</div>
       </div>
-      <div className="text-gray-400 text-sm mt-4">
-        {'You '}
-        {lastUpdated}
-      </div>
+      <div className="text-gray text-sm mt-4">{`You ${lastUpdated}`}</div>
     </div>
   </div>
 )

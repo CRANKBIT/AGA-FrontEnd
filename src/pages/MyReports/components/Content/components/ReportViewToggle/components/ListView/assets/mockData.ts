@@ -7,7 +7,7 @@ interface Props {
   id: string
 }
 
-const dummyList: Props[] = [
+const mockData: Props[] = [
   {
     id: uuidv4(),
     report: 'Rego BI9820',
@@ -46,4 +46,4 @@ const dummyList: Props[] = [
   },
 ]
 
-export default dummyList
+export default mockData
