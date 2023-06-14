@@ -4,6 +4,8 @@ import classNames from 'classnames'
 export enum Variant {
   Default,
   Primary,
+  BlueBackground,
+  WhiteBackground
 }
 
 export interface Props extends HTMLProps<HTMLButtonElement> {
@@ -25,6 +27,8 @@ const Button: FC<Props> = ({ children, className, variant = Variant.Default, typ
       'py-1',
       variant === Variant.Default && ['bg-background', 'text-white'],
       variant === Variant.Primary && ['bg-background', 'text-primary'],
+      variant === Variant.BlueBackground && ['bg-primary', 'text-white', 'w-full', 'border', 'border-primary', 'py-4', 'font-bold', 'text-base', 'text-xl', 'leading-6'],
+      variant === Variant.WhiteBackground && ['bg-white', 'text-primary', 'w-full', 'border', 'border-primary', 'py-4', 'font-bold', 'text-base', 'text-xl', 'leading-6'],
       className
     )}
   >
