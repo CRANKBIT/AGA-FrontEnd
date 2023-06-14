@@ -1,5 +1,3 @@
-// AccountForm.tsx
-
 import { FC } from 'react'
 
 type InputProps = {

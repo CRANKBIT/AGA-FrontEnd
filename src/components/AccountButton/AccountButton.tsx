@@ -1,7 +1,5 @@
-// AccountButton.tsx
-
 import { FC } from 'react'
-import Button from '../Button';
+import Button from '@/components/Button'
 
 type InputProps = {
   text: string
@@ -9,10 +7,10 @@ type InputProps = {
   textColor: string
 }
 
-const AccountButton: FC<InputProps> = ({ text, backgroundColor: background_color, textColor: text_color }) => (
+const AccountButton: FC<InputProps> = ({ text, backgroundColor, textColor }) => (
   <div className="w-full flex items-center justify-center">
     <Button
-      className={` bg-[${background_color}] w-full border border-[#007AD3] rounded-[5px] py-[14px] font-bold text-base text-[1.125rem] text-[${text_color}] leadding-[1.375rem]`}
+      className={` bg-[${backgroundColor}] w-full border border-[#007AD3] rounded-[5px] py-[14px] font-bold text-base text-[1.125rem] text-[${textColor}] leadding-[1.375rem]`}
       type="submit"
     >
       {text}
