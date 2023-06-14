@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { registerUser } from '@/features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import AuthLayout from '@/layouts/AuthLayout'
 
 const SignUp: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -22,17 +23,17 @@ const SignUp: FC = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/')
+        navigate('/user')
       }, 1500)
     }
   }, [user, navigate])
 
   return (
-    <div>
+    <AuthLayout>
       <button type="button" onClick={handleRegister}>
         Register
       </button>
-    </div>
+    </AuthLayout>
   )
 }
 

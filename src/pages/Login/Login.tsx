@@ -2,6 +2,7 @@ import { FC, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { loginUser } from '@/features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import AuthLayout from '@/layouts/AuthLayout'
 
 const Login: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -21,19 +22,19 @@ const Login: FC = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/')
+        navigate('/user')
       }, 1500)
     }
   }, [user, navigate])
 
   return (
-    <div>
+    <AuthLayout>
       <Link to="/auth/login">
-        <button type="button" onClick={handleLogin} className="text-white">
+        <button type="button" onClick={handleLogin}>
           Login
         </button>
       </Link>
-    </div>
+    </AuthLayout>
   )
 }
 

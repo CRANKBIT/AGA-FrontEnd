@@ -6,7 +6,7 @@ interface Props {
   children: ReactNode
 }
 
-const Layout: FC<Props> = ({ children }) => (
+const BasicLayout: FC<Props> = ({ children }) => (
   <>
     <Header />
     {children}
@@ -14,4 +14,4 @@ const Layout: FC<Props> = ({ children }) => (
   </>
 )
 
-export default Layout
+export default BasicLayout
