@@ -37,12 +37,7 @@ const Button: FC<Props> = ({
       variant === Variant.Default && ['bg-background', 'text-white'],
       variant === Variant.Primary && ['bg-primary', 'text-white'],
       variant === Variant.PrimaryFont && ['bg-background', 'text-primary'],
-      variant === Variant.PrimaryOutline && [
-        'bg-white',
-        'text-primary',
-        'border',
-        'border-primary',
-      ],
+      variant === Variant.PrimaryOutline && ['bg-white', 'text-primary', 'border', 'border-primary'],
       block && ['block', 'w-full'],
       className
     )}

@@ -21,14 +21,11 @@ module.exports = {
       },
       width: {
         container: '1280px',
-<<<<<<< HEAD
-        button: '60'
-=======
+        button: '60',
         authHeroLogoWidth: '80px',
       },
       height: {
         authHeroLogoHeight: '100px',
->>>>>>> 63dfb24890bfeb00af5c1997e2d12ccd4942a476
       },
     },
   },

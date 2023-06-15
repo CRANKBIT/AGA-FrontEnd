@@ -60,9 +60,7 @@ const ContactPage: FC = () => {
       </div>
       <div style={tableStyle}>
         <div>
-          <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">
-            Chat with our Experts
-          </div>
+          <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">Chat with our Experts</div>
         </div>
         <div className="">
           <div style={chatIconStyle}>💬</div>
@@ -70,10 +68,7 @@ const ContactPage: FC = () => {
             Chat with one of our experts. They can answer, guide and resolve your issues.
           </div>
           <div className="flex justify-center mt-10">
-            <Button className="w-[200px] h-[40px] hover:bg-[#007AD3] text-sm">
-              Start a Chat Now
-              {' '}
-            </Button>
+            <Button className="w-[200px] h-[40px] hover:bg-[#007AD3] text-sm">Start a Chat Now </Button>
           </div>
         </div>
       </div>
