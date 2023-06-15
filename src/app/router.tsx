@@ -4,13 +4,14 @@ import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
 import Report from '@/pages/Report'
-import MyReports from '@/pages/MyReports/MyReports'
+import MyReports from '@/pages/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import HelpSupport from '@/pages/HelpSupport/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 import Profile from '@/pages/Profile'
 import CreateAccount from '@/pages/CreateAccount/CreateAccount'
+import ReportsHistory from '@/pages/MyReports/components/ReportsHistory'
 
 const isLoggedIn = true
 
@@ -58,6 +59,10 @@ const router = createHashRouter([
   {
     path: '/auth/signup/create-account',
     element: <CreateAccount />,
+  },
+  {
+    path: '/my-reports/history',
+    element: <ReportsHistory />,
   },
 ])
 

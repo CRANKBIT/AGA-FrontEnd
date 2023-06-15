@@ -8,13 +8,13 @@ interface Props {
 }
 
 const ListItem: FC<Props> = ({ report, lastUpdated, taskNumber }) => (
-  <div className="flex items-center gap-9 p-5 h-[84px] mb-[20px] border-b border-blue-900 border-opacity-20">
+  <div className="flex items-center gap-9 p-5 h-20 mb-5 border-b border-blue-900 border-opacity-20">
     <div className="font-bold min-w-[200px]">{report}</div>
     <div className="min-w-[240px]">{lastUpdated}</div>
     <div className="min-w-[100px]">
       <div className="font-bold">{taskNumber}</div>
     </div>
-    <div className="cursor-pointer min-w-[140px] text-[#007AD3] flex items-center">
+    <div className="cursor-pointer min-w-[140px] text-primary flex items-center">
       <div className="underline">See More</div>
       <AiOutlineArrowRight className="ml-1" />
     </div>

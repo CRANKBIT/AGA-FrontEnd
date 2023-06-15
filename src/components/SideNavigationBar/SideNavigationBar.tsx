@@ -30,7 +30,7 @@ const List: FC = () => (
   <ul>
     {ListItems.map(({ id, item, url }) => (
       <li
-        className="cursor-pointer pl-[52px] border-l-2 border-background hover:bg-white  hover:bg-opacity-10  hover:border-white"
+        className="cursor-pointer pl-[52px] border-l-8 border-background hover:bg-white  hover:bg-opacity-10  hover:border-white"
         key={id}
       >
         <Link to={url}>{item}</Link>
