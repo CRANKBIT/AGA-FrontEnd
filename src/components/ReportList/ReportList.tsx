@@ -1,7 +1,8 @@
 import { Divider, List, ListItemButton, ListItemText } from '@mui/material'
 
 import ArticleIcon from '@mui/icons-material/Article'
-import { useState } from 'react'
+import { FC, useState } from 'react'
+
 const style = {
   maxWidth: 360,
   bgcolor: '#03111B',
@@ -12,12 +13,12 @@ const style = {
   top: 0,
 }
 
-const ReportList = () => {
+const ReportList: FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(1)
   const handleListItemClick = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>,
     index: number
-  ) => {
+  ): void => {
     setSelectedIndex(index)
   }
   return (
@@ -31,7 +32,7 @@ const ReportList = () => {
           top: '55px',
           color: '#007AD3',
         }}
-      ></ArticleIcon>
+      />
       <h1
         style={{
           position: 'absolute',
@@ -53,7 +54,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 0}
         onClick={(event) => handleListItemClick(event, 0)}
-        sx={{ position: 'absolute', top: 130, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 130,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="My Reports"
@@ -73,7 +79,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 1}
         onClick={(event) => handleListItemClick(event, 1)}
-        sx={{ position: 'absolute', top: 180, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 180,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="Analytics"
@@ -93,7 +104,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 2}
         onClick={(event) => handleListItemClick(event, 2)}
-        sx={{ position: 'absolute', top: 230, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 230,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="Knowledge Base"
@@ -114,7 +130,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 3}
         onClick={(event) => handleListItemClick(event, 3)}
-        sx={{ position: 'absolute', top: 280, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 280,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="Help & Support"
@@ -134,7 +155,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 4}
         onClick={(event) => handleListItemClick(event, 4)}
-        sx={{ position: 'absolute', top: 380, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 380,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="My Profile"
@@ -154,7 +180,12 @@ const ReportList = () => {
       <ListItemButton
         selected={selectedIndex === 5}
         onClick={(event) => handleListItemClick(event, 5)}
-        sx={{ position: 'absolute', top: 420, width: 305, height: 40 }}
+        sx={{
+          position: 'absolute',
+          top: 420,
+          width: 305,
+          height: 40,
+        }}
       >
         <ListItemText
           primary="Log out"

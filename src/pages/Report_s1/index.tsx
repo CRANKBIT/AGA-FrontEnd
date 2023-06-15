@@ -1,27 +1,14 @@
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Box, Button, Container, Link } from '@mui/material'
 import TextField from '@mui/material/TextField'
-import { PutReportApi } from '@/services/report'
 import ReportList from '../../components/ReportList/ReportList'
 
-const Report_s1 = () => {
+const ReportS1: FC = () => {
   const [Rego, setRego] = useState('')
   const [VIN, setVIN] = useState('')
   const [Odometer, setOdometer] = useState('')
   const [FirstName, setFirstName] = useState('')
   const [LastName, setLastName] = useState('')
-  const handle_My_Report = async () => {
-    //检察数据
-    const report = {
-      Rego,
-      VIN,
-      Odometer,
-      FirstName,
-      LastName,
-    }
-    const res = await putReportApi(report)
-    console.log(res.data)
-  }
 
   return (
     <div color="rgb(235,241,247)">
@@ -53,19 +40,45 @@ const Report_s1 = () => {
         <Link
           href="/report_s1"
           underline="hover"
-          sx={{ position: 'absolute', left: 80, top: 80, fontSize: 12, fontWeight: 400 }}
+          sx={{
+            position: 'absolute',
+            left: 80,
+            top: 80,
+            fontSize: 12,
+            fontWeight: 400,
+          }}
         >
-          {'My Report'}
+          My Report
         </Link>
-        <p style={{ left: 145, top: 77, position: 'absolute', color: 'rgba(3, 17, 27, 0.4)' }}>
+        <p
+          style={{
+            left: 145,
+            top: 77,
+            position: 'absolute',
+            color: 'rgba(3, 17, 27, 0.4)',
+          }}
+        >
           &gt;&gt;
         </p>
-        <h1 style={{ position: 'absolute', fontSize: 12, left: 170, top: 79 }}>
+        <h1
+          style={{
+            position: 'absolute',
+            fontSize: 12,
+            left: 170,
+            top: 79,
+          }}
+        >
           Create New Report
         </h1>
         <Button
           variant="contained"
-          sx={{ position: 'absolute', width: 200, height: 45, left: 720, top: 45 }}
+          sx={{
+            position: 'absolute',
+            width: 200,
+            height: 45,
+            left: 720,
+            top: 45,
+          }}
         >
           Back to My Reports
         </Button>
@@ -130,13 +143,17 @@ const Report_s1 = () => {
             Rego
           </h2>
           <TextField
-            label={'Rego'}
+            label="Rego"
             id="Rego"
-            sx={{ position: 'absolute', left: 50, top: 130, width: 376, height: 40 }}
-            type="text"
-            onChange={(e) => {
-              return setRego(e.target.value)
+            sx={{
+              position: 'absolute',
+              left: 50,
+              top: 130,
+              width: 376,
+              height: 40,
             }}
+            type="text"
+            onChange={(e) => setRego(e.target.value)}
             value={Rego}
           />
           {/* <RedBar /> */}
@@ -156,13 +173,17 @@ const Report_s1 = () => {
             VIN
           </h2>
           <TextField
-            label={'VIN'}
+            label="VIN"
             id="VIN"
-            sx={{ position: 'absolute', left: 50, width: 376, height: 40, top: 220 }}
-            type="text"
-            onChange={(e) => {
-              return setVIN(e.target.value)
+            sx={{
+              position: 'absolute',
+              left: 50,
+              width: 376,
+              height: 40,
+              top: 220,
             }}
+            type="text"
+            onChange={(e) => setVIN(e.target.value)}
             value={VIN}
           />
           <h2
@@ -181,13 +202,17 @@ const Report_s1 = () => {
             Odometer
           </h2>
           <TextField
-            label={'Odometer'}
+            label="Odometer"
             id="Odometer"
-            sx={{ position: 'absolute', left: 50, width: 376, height: 40, top: 310 }}
-            type="text"
-            onChange={(e) => {
-              return setOdometer(e.target.value)
+            sx={{
+              position: 'absolute',
+              left: 50,
+              width: 376,
+              height: 40,
+              top: 310,
             }}
+            type="text"
+            onChange={(e) => setOdometer(e.target.value)}
             value={Odometer}
           />
           {/* <RedBar /> */}
@@ -237,11 +262,15 @@ const Report_s1 = () => {
           <TextField
             label="First Name"
             id="First Name"
-            sx={{ position: 'absolute', left: 50, width: 376, height: 40, top: 450 }}
-            type="text"
-            onChange={(e) => {
-              return setFirstName(e.target.value)
+            sx={{
+              position: 'absolute',
+              left: 50,
+              width: 376,
+              height: 40,
+              top: 450,
             }}
+            type="text"
+            onChange={(e) => setFirstName(e.target.value)}
             value={FirstName}
           />
           <h2
@@ -262,11 +291,15 @@ const Report_s1 = () => {
           <TextField
             label="Last Name"
             id="Last Name"
-            sx={{ position: 'absolute', left: 50, width: 376, height: 40, top: 540 }}
-            type="text"
-            onChange={(e) => {
-              return setLastName(e.target.value)
+            sx={{
+              position: 'absolute',
+              left: 50,
+              width: 376,
+              height: 40,
+              top: 540,
             }}
+            type="text"
+            onChange={(e) => setLastName(e.target.value)}
             value={LastName}
           />
           <br />
@@ -274,8 +307,14 @@ const Report_s1 = () => {
           <center>
             <Button
               variant="contained"
-              sx={{ position: 'absolute', width: 200, height: 40, top: 610, left: 130 }}
-              onClick={handle_My_Report}
+              sx={{
+                position: 'absolute',
+                width: 200,
+                height: 40,
+                top: 610,
+                left: 130,
+              }}
+              // onClick={handle_My_Report}
             >
               Next
             </Button>
@@ -285,4 +324,4 @@ const Report_s1 = () => {
     </div>
   )
 }
-export default Report_s1
+export default ReportS1

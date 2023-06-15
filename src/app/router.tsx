@@ -8,6 +8,7 @@ import MyReports from '@/pages/MyReports/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
+import ReportS1 from '@/pages/Report_s1'
 
 const isLoggedIn = true
 
@@ -51,6 +52,10 @@ const router = createHashRouter([
         <MyAccount />
       </PrivateRoute>
     ),
+  },
+  {
+    path: '/report_s1',
+    element: <ReportS1 />,
   },
 ])
 
