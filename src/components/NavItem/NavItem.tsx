@@ -23,7 +23,6 @@ const NavItem: FC<Props> = ({ href, label, active = false, onMouseEnter, onMouse
       'before:block',
       'before:absolute',
       'before:border-4',
-      'before:border-dark',
       'before:left-0',
       'before:top-0',
       'before:bottom-0',

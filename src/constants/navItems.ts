@@ -18,7 +18,7 @@ const navItems = [
   },
   {
     id: uuidv4(),
-    href: '/user/help',
+    href: '/user/support',
     label: 'Help & Support',
   },
 ]

@@ -23,7 +23,7 @@ const SignUp: FC = () => {
   useEffect(() => {
     if (user) {
       setTimeout(() => {
-        navigate('/user')
+        navigate('/account')
       }, 1500)
     }
   }, [user, navigate])
