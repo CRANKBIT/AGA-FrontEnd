@@ -24,8 +24,8 @@ module.exports = {
         authHeroLogoWidth: '80px',
       },
       height: {
-        authHeroLogoHeight: '100px'
-      }
+        authHeroLogoHeight: '100px',
+      },
     },
   },
   plugins: [],

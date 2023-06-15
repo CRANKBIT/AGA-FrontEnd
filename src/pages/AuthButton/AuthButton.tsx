@@ -3,15 +3,12 @@ import Button, { Variant } from '@/components/Button'
 
 type InputProps = {
   children: ReactNode
-  variant: Variant;
+  variant: Variant
 }
 
 const AuthButton: FC<InputProps> = ({ children, variant }) => (
   <div className="w-full flex items-center justify-center">
-    <Button
-      variant={variant}
-      type="submit"
-    >
+    <Button variant={variant} type="submit">
       {children}
     </Button>
   </div>
