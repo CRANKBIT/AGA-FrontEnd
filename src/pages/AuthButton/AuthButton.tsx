@@ -8,7 +8,7 @@ type InputProps = {
 
 const AuthButton: FC<InputProps> = ({ children, variant }) => (
   <div className="w-full flex items-center justify-center">
-    <Button variant={variant} type="submit">
+    <Button variant={variant} type="submit" block className="py-3 font-bold text-base leading-6">
       {children}
     </Button>
   </div>

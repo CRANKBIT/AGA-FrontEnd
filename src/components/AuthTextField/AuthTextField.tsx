@@ -10,8 +10,6 @@ type InputProps = {
   placeholder: string
 }
 
-// TextField with Label when you asign value to both label and htmlFor
-// TextField with no Label when you leave label and htmlFor value undefined or null
 const AuthTextField: FC<InputProps> = ({
   label = undefined,
   htmlFor = undefined,
