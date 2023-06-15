@@ -9,6 +9,7 @@ import KnowledgeBase from '@/pages/KnowledgeBase'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 import Profile from '@/pages/Profile'
+import CreateAccount from '@/pages/CreateAccount/CreateAccount'
 
 const isLoggedIn = true
 
@@ -48,6 +49,10 @@ const router = createHashRouter([
   {
     path: '/usr/profile',
     element: <Profile />,
+  },
+  {
+    path: '/auth/signup/create-account',
+    element: <CreateAccount />,
   },
 ])
 
