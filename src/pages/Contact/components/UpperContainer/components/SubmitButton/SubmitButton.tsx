@@ -1,11 +1,8 @@
-import { Button} from '@mui/material'
+import { Button } from '@mui/material'
 import { FC } from 'react'
 
-const SubmitButton: FC<{ ButtonName: string }> = ({ButtonName}) => {
-
-
-  return (
-    <div className="flex justify-center items-center">
+const SubmitButton: FC<{ ButtonName: string }> = ({ ButtonName }) => (
+  <div className="flex justify-center items-center">
     <Button
       type="submit"
       variant="contained"
@@ -13,10 +10,10 @@ const SubmitButton: FC<{ ButtonName: string }> = ({ButtonName}) => {
       value="Submit"
     >
       {' '}
-      {ButtonName}{' '}
+      {ButtonName}
+      {' '}
     </Button>
   </div>
-  )
-}
+)
 
 export default SubmitButton
