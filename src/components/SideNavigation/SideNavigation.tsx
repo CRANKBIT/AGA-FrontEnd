@@ -9,7 +9,7 @@ const SideNavigation: FC = () => {
   const [currentActive, setCurrentActive] = useState<string | null>(location.pathname)
 
   return (
-    <>
+    <div className="w-[305px]">
       <div className="text-2xl pl-14 my-12">
         <FileLogo className="mr-4">Report Builder</FileLogo>
       </div>
@@ -31,7 +31,7 @@ const SideNavigation: FC = () => {
       <div className="text-sm pl-14 text-[#7C7C81]">
         <Link to="/auth/logout">Logout</Link>
       </div>
-    </>
+    </div>
   )
 }
 
