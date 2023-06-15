@@ -9,7 +9,7 @@ interface Props {
 
 const FileLogo: FC<Props> = ({ children, className = undefined }) => (
   <>
-    <BiFile className={classNames('text-blue-600', 'inline-block', className)} />
+    <BiFile className={classNames('text-primary', 'inline-block', className)} />
     {children}
   </>
 )

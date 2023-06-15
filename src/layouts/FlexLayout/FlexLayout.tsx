@@ -24,7 +24,13 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
         variant === PageVariant.UserPage && ['w-[305px]']
       )}
     >
-      {variant === PageVariant.AuthPage && <FileLogo>Form Builder</FileLogo>}
+      {variant === PageVariant.AuthPage && (
+        <div className="px-64 py-80 text-center">
+          <FileLogo className="w-20 h-24">
+            <div className="text-xl">Form Builder</div>
+          </FileLogo>
+        </div>
+      )}
       {variant === PageVariant.UserPage && <SideNavigation />}
     </div>
     <div className="flex-grow">{children}</div>

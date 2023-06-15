@@ -5,8 +5,6 @@ interface Props {
   children: ReactNode
 }
 
-const AuthLayout: FC<Props> = ({ children }) => (
-  <FlexLayout variant={PageVariant.AuthPage}>{children}</FlexLayout>
-)
+const AuthLayout: FC<Props> = ({ children }) => <FlexLayout variant={PageVariant.AuthPage}>{children}</FlexLayout>
 
 export default AuthLayout
