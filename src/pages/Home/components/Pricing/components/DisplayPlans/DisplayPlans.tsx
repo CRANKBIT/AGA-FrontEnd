@@ -38,7 +38,7 @@ const DisplayPlans: FC = () => (
       </PlanCard>
     </div>
 
-    <div className="bg-[#007AD3] rounded-xl">
+    <div className="bg-primary rounded-xl">
       <PlanCard icon="/svg/PremiumIcon.svg" title="Premium">
         <div className="text-white text-3xl text-left font-bold">$4.99/month</div>
         <ul className="list-none">
