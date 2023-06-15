@@ -1,7 +1,6 @@
-import { FC } from 'react';
+import { FC } from 'react'
 
 const Table: FC = () => (
-
   <div
     style={{
       boxSizing: 'border-box',
@@ -14,7 +13,7 @@ const Table: FC = () => (
       display: 'flex',
       flexDirection: 'column',
       justifyContent: 'space-around',
-      borderRadius: '10px'
+      borderRadius: '10px',
     }}
   >
     <div
@@ -26,7 +25,7 @@ const Table: FC = () => (
         display: 'flex',
         alignItems: 'center',
         height: '63px',
-        padding: '0px 0px 0px 30px'
+        padding: '0px 0px 0px 30px',
       }}
     >
       <div>Frequently Asked Questions</div>
@@ -39,11 +38,13 @@ const Table: FC = () => (
         display: 'flex',
         alignItems: 'center',
         height: '63px',
-        padding: '0px 0px 0px 30px'
+        padding: '0px 0px 0px 30px',
       }}
     >
       <div>Will you be adding more templates later?</div>
-      <button type="button" className="mr-4">▼</button>
+      <button type="button" className="mr-4">
+        ▼
+      </button>
     </div>
     <div
       className="flex justify-between black-border"
@@ -53,11 +54,13 @@ const Table: FC = () => (
         display: 'flex',
         alignItems: 'center',
         height: '63px',
-        padding: '0px 0px 0px 30px'
+        padding: '0px 0px 0px 30px',
       }}
     >
       <div>Can I create custom report from scratch?</div>
-      <button type="button" className="mr-4">▼</button>
+      <button type="button" className="mr-4">
+        ▼
+      </button>
     </div>
     <div
       className="flex justify-between black-border"
@@ -66,12 +69,14 @@ const Table: FC = () => (
         display: 'flex',
         alignItems: 'center',
         height: '63px',
-        padding: '0px 0px 0px 30px'
+        padding: '0px 0px 0px 30px',
       }}
     >
       <div>How to remove your “Form created using Forms Ocean” tag?</div>
-      <button type="button" className="mr-4">▼</button>
+      <button type="button" className="mr-4">
+        ▼
+      </button>
     </div>
   </div>
-);
-export default Table;
+)
+export default Table

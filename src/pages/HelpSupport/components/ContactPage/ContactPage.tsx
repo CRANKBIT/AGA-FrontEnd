@@ -1,13 +1,13 @@
-import { FC, CSSProperties } from 'react';
+import { FC, CSSProperties } from 'react'
 import Button from '@/components/Button'
 
 const ContactPage: FC = () => {
-  const boxSizing: 'border-box' | 'content-box' = 'border-box';
+  const boxSizing: 'border-box' | 'content-box' = 'border-box'
   const containerStyle: CSSProperties = {
     display: 'flex',
     flexDirection: 'row',
     padding: '0 100px',
-  };
+  }
 
   const tableStyle: CSSProperties = {
     boxSizing,
@@ -20,20 +20,20 @@ const ContactPage: FC = () => {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    margin: '0 10px'
-  };
+    margin: '0 10px',
+  }
 
   const iconStyle: CSSProperties = {
     textAlign: 'center',
     background: '#03111B',
     margin: '0px 0px 16px 0px',
-  };
+  }
 
   const chatIconStyle: CSSProperties = {
     ...iconStyle,
     background: '#000000',
     margin: '0px 0px 50px 0px',
-  };
+  }
 
   return (
     <div style={containerStyle}>
@@ -60,18 +60,25 @@ const ContactPage: FC = () => {
       </div>
       <div style={tableStyle}>
         <div>
-          <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">Chat with our Experts</div>
+          <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">
+            Chat with our Experts
+          </div>
         </div>
         <div className="">
           <div style={chatIconStyle}>💬</div>
-          <div className="text-black ml-6 mr-4 text-base">Chat with one of our experts. They can answer, guide and resolve your issues.</div>
+          <div className="text-black ml-6 mr-4 text-base">
+            Chat with one of our experts. They can answer, guide and resolve your issues.
+          </div>
           <div className="flex justify-center mt-10">
-            <Button className="w-[200px] h-[40px] hover:bg-[#007AD3] text-sm">Start a Chat Now </Button>
+            <Button className="w-[200px] h-[40px] hover:bg-[#007AD3] text-sm">
+              Start a Chat Now
+              {' '}
+            </Button>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ContactPage;
+export default ContactPage
