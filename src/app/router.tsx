@@ -6,6 +6,7 @@ import Login from '@/pages/Login'
 import Report from '@/pages/Report'
 import MyReports from '@/pages/MyReports/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
+import HelpSupport from '@/pages/HelpSupport/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 
@@ -41,6 +42,10 @@ const router = createHashRouter([
   {
     path: '/knowledge-base',
     element: <KnowledgeBase />,
+  },
+  {
+    path: '/help-support',
+    element: <HelpSupport />,
   },
   {
     path: '/account',

@@ -37,7 +37,11 @@ const Home: FC = () => {
             <Link to="/my-reports" className="font-bold">
               My-report
             </Link>
-            or{' '}
+            <Link to="/help-support" className="font-bold">
+              HelpSupport
+            </Link>
+            or
+            {' '}
             <Link to="/Report_1" className="font-bold">
               report
             </Link>{' '}
