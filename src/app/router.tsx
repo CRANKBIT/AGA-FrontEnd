@@ -1,8 +1,17 @@
+import { FC } from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import Login from '@/pages/Login'
+import Report from '@/pages/Report'
+import MyReports from '@/pages/MyReports/MyReports'
+import KnowledgeBase from '@/pages/KnowledgeBase'
+import PrivateRoute from '@/routes/PrivateRoute'
+import MyAccount from '@/pages/MyAccount'
+import Profile from '@/pages/Profile'
 import Contact from '@/pages/Contact/Contact'
+
+const isLoggedIn = true
 
 const router = createHashRouter([
   {
@@ -18,13 +27,35 @@ const router = createHashRouter([
     element: <Login />,
   },
   {
+    path: '/report',
+    element: <Report />,
+  },
+  {
+    path: '/my-reports',
+    element: <MyReports />,
+  },
+  {
+    path: '/knowledge-base',
+    element: <KnowledgeBase />,
+  },
+  {
+    path: '/account',
+    element: (
+      <PrivateRoute isLoggedIn={isLoggedIn}>
+        <MyAccount />
+      </PrivateRoute>
+    ),
+  },
+  {
+    path: '/usr/profile',
+    element: <Profile />,
+  },
+  {
     path: '/contact',
     element: <Contact />,
   },
 ])
 
-const App = () => {
-  return <RouterProvider router={router} />
-}
+const App: FC = () => <RouterProvider router={router} />
 
 export default App

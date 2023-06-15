@@ -11,6 +11,7 @@ env:
   NODE_ENV: development
   PUBLIC_URL: https://CRANKBIT.github.io/CrankBit-FrontEnd/pr-preview/pr-${{ github.event.number }}
   FAST_REFRESH: false
+  CI: false
 permissions:
   contents: write
   pull-requests: write
@@ -29,6 +30,7 @@ jobs:
           yarn set version stable
           yarn
           yarn pre-commit
+          yarn test
           yarn build
       - name: Deploy preview
         uses: rossjrw/pr-preview-action@v1.4.4
