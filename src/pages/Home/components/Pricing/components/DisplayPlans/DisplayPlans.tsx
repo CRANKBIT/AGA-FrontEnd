@@ -18,7 +18,7 @@ const PremiumList = [
 
 const DisplayPlans: FC = () => (
   <div className="flex justify-center">
-    <div className="bg-white rounded-xl text-black mr-[40px]">
+    <div className="bg-white rounded-xl text-black mr-10">
       <PlanCard icon="/svg/StarterIcon.svg" title="Starter">
         <div className="text-[#007AD3] text-3xl text-left font-bold">FREE</div>
         <ul className="list-none">
@@ -29,7 +29,12 @@ const DisplayPlans: FC = () => (
             </li>
           ))}
         </ul>
-        <button type="button" className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white">Choose Plan</button>
+        <button
+          type="button"
+          className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white"
+        >
+          Choose Plan
+        </button>
       </PlanCard>
     </div>
 
@@ -44,7 +49,12 @@ const DisplayPlans: FC = () => (
             </li>
           ))}
         </ul>
-        <button type="button" className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white">Choose Plan</button>
+        <button
+          type="button"
+          className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white"
+        >
+          Choose Plan
+        </button>
       </PlanCard>
     </div>
   </div>
