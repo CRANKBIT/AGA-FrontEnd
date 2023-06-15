@@ -61,7 +61,7 @@ const ReusableList: FC = () => {
           text: 'How to activate dark mode',
         },
         {
-          id: 3,
+          id: 4,
           text: 'Enable / Disable 2-step verification',
         },
       ],
