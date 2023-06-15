@@ -4,17 +4,25 @@ import classNames from 'classnames'
 export enum Variant {
   Default,
   Primary,
-  BlueBackground,
-  WhiteBackground
+  PrimaryFont,
+  PrimaryOutline,
 }
 
 export interface Props extends HTMLProps<HTMLButtonElement> {
   children: ReactNode
   variant?: Variant
   type?: 'button' | 'submit' | 'reset' | undefined
+  block?: boolean
 }
 
-const Button: FC<Props> = ({ children, className, variant = Variant.Default, type = 'button' }) => (
+const Button: FC<Props> = ({
+  children,
+  className,
+  variant = Variant.Default,
+  type = 'button',
+  block = false,
+  ...props
+}) => (
   <button
     // eslint-disable-next-line react/button-has-type
     type={type}
@@ -26,11 +34,13 @@ const Button: FC<Props> = ({ children, className, variant = Variant.Default, typ
       'px-4',
       'py-1',
       variant === Variant.Default && ['bg-background', 'text-white'],
-      variant === Variant.Primary && ['bg-background', 'text-primary'],
-      variant === Variant.BlueBackground && ['bg-primary', 'text-white', 'w-full', 'border', 'border-primary', 'py-4', 'font-bold', 'text-base', 'text-xl', 'leading-6'],
-      variant === Variant.WhiteBackground && ['bg-white', 'text-primary', 'w-full', 'border', 'border-primary', 'py-4', 'font-bold', 'text-base', 'text-xl', 'leading-6'],
+      variant === Variant.Primary && ['bg-primary', 'text-white', 'w-full'],
+      variant === Variant.PrimaryFont && ['bg-background', 'text-primary'],
+      variant === Variant.PrimaryOutline && ['bg-white', 'text-primary', 'border', 'border-primary'],
+      block && ['block', 'w-full'],
       className
     )}
+    {...props}
   >
     {children}
   </button>
