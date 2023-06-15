@@ -4,6 +4,7 @@ import { AiOutlineAppstore, AiOutlineMenu } from 'react-icons/ai'
 import Button from '@/components/Button'
 import ToggleButton from '@/components/ToggleButton'
 import ListView from './components/ListView'
+import CardView from './components/CardView'
 
 const Content: FC = () => {
   const [viewMode, SetViewMode] = useState<'list' | 'card'>('list')
@@ -40,8 +41,6 @@ const Content: FC = () => {
       <div>
         <ListView />
       </div>
-
-      {/* <div className="mt-12 flex gap-7" /> */}
     </div>
   )
 }
