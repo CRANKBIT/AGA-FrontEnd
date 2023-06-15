@@ -2,6 +2,8 @@ import { TextField, InputLabel, MenuItem} from '@mui/material'
 import { FC, useEffect, useState } from 'react'
 
 const Selector: FC<{ width: number; labelName: string }> = ({ width, labelName }) => {
+
+
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
   const inputWidth = width;
   function getCurrentDimension(){
@@ -28,26 +30,20 @@ const Selector: FC<{ width: number; labelName: string }> = ({ width, labelName }
     width = 250;
   }
 
+  const cssValue = `bg-white m-0 w-[${width}px]`;
+
   const enquiryType = [
     {
       value: 'Sales',
       label: 'Sales',
     },
-    {
-      value: 'A',
-      label: 'A',
-    },
   ]
-
+  
   return (
     <div>
       <div>
         <InputLabel
-          sx={{
-            display: 'flex',
-            color: 'black',
-            fontSize: '500',
-          }}
+          className="flex text-black"
         >
         {labelName}
         </InputLabel>
@@ -58,14 +54,13 @@ const Selector: FC<{ width: number; labelName: string }> = ({ width, labelName }
         id="enquiryType"
         select
         defaultValue="Sales"
-        className="bg-white"
+        className= {cssValue}
+        
         size = "small"
-        style={{ width: width, margin: 0 }}
         sx={{
           fieldset: { borderColor: 'black' },
         }}
         name = {labelName}
-        value= {labelName}
 
       >
         {enquiryType.map((option) => (

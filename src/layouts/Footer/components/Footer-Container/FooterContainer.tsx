@@ -1,34 +1,35 @@
 import { FC } from 'react'
-import NavLink from './components/NavLink/NavLink';
-import ScrollUpButton from './components/ScrollUpButton/ScrollUpButton';
+import NavLink from './components/NavLink'
+import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward'
 
-
+const handleScrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
 
 const FooterContainer: FC = () => {
-    
-    return (
-        <div className='bg-[#03111B] text-white h-96 mx-auto flex flex-col justify-center max-w-7xl'>
-        <div className='text-base space-x-9 pt-28 mx-auto'>
-              <NavLink Ref="/features" LinkName="Features"/>
-              <NavLink Ref="/pricing" LinkName="Pricing"/>
-              <NavLink Ref="/contact" LinkName="Contact"/>
+
+  return (
+    <div className="bg-background text-white h-[384px] mx-auto flex flex-col justify-center max-w-7xl min-w-[390px]">
+      <div className="text-base space-x-9 pt-[112px] mx-auto">
+        <NavLink Ref="/features" LinkName="Features" ScrollToTop={handleScrollToTop} />
+        <NavLink Ref="/pricing" LinkName="Pricing" ScrollToTop={handleScrollToTop}  />
+        <NavLink Ref="/contact" LinkName="Contact" ScrollToTop={handleScrollToTop} />
+      </div>
+
+      <div className="text-xs pt-[64px] mx-auto">© Report Builder, 2023 - All Rights Reserved</div>
+
+      <div className="z-10 pt-[56px] mx-auto">
+        <div className="flex justify-center items-center h-[40px] w-[40px] bg-[#007ad333] rounded-full text-[#007AD3]">
+          <button
+            className="hover:cursor-pointer hover:opacity-50 ease-in-out duration-300  active:translate-y-3"
+            onClick={handleScrollToTop}
+          >
+            <ArrowUpwardIcon />
+          </button>
         </div>
-    
-        <div className='text-xs pt-16 mx-auto'>
-       © Report Builder, 2023 - All Rights Reserved 
-        </div>
-    
-        <div className='justify-center items-center z-10 pt-14 mx-auto'>
-            <ScrollUpButton/>
-        </div>
+      </div>
     </div>
-    )
+  )
 }
-
-
-
-
-
-
 
 export default FooterContainer

@@ -1,18 +1,19 @@
 import Layout from '@/layouts/Layout'
 import Container from '@/layouts/Container'
-import Upperbox from './components/Upperbox/Upperbox'
-import Lowerbox from './components/Lowerbox/Lowerbox'
+import UpperContainer from './components/UpperContainer/UpperContainer'
+import LowerContainer from './components/LowerContainer/LowerContainer'
+import { StyledEngineProvider } from '@mui/material'
 
 const Contact = () => {
   return (
-    <Layout>
-      <Container>
-        <>
-          <Upperbox />
-          <Lowerbox />
-        </>
-      </Container>
-    </Layout>
+    <StyledEngineProvider injectFirst>
+      <Layout>
+        <Container>
+          <UpperContainer />
+          <LowerContainer />
+        </Container>
+      </Layout>
+    </StyledEngineProvider>
   )
 }
 

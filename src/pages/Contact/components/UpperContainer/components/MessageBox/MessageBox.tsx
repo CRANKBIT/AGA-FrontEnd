@@ -3,7 +3,7 @@ import { FC, useState, useEffect } from 'react'
 
 
 
-const Messagebox: FC<{ width: number; labelName: string }> = ({ width, labelName }) => {
+const MessageBox: FC<{ width: number; labelName: string; }> = ({ width, labelName}) => {
   const inputWidth = width;
   const [screenSize, setScreenSize] = useState(getCurrentDimension());
 
@@ -20,7 +20,6 @@ const Messagebox: FC<{ width: number; labelName: string }> = ({ width, labelName
       }
       window.addEventListener('resize', updateDimension);
   
-  
       return(() => {
           window.removeEventListener('resize', updateDimension);
       })
@@ -31,15 +30,15 @@ const Messagebox: FC<{ width: number; labelName: string }> = ({ width, labelName
     width = 250;
   }
 
+  const cssValue = `bg-white m-0 w-[${width}px]`;
+
+
+
   return (
     <div>
       <div>
         <InputLabel
-          sx={{
-            display: 'flex',
-            color: 'black',
-            fontSize: '500',
-          }}
+          className="flex text-black"
         >
         {labelName}
         </InputLabel>
@@ -48,15 +47,13 @@ const Messagebox: FC<{ width: number; labelName: string }> = ({ width, labelName
       <div>
       <TextField
         id="outlined-multiline-static"
-        className="bg-white"
-        style={{ width: width, margin:0 }}
+        className={cssValue}
         sx={{
             fieldset: { borderColor: 'black' },
         }}
         name = {labelName}
-        value = {labelName} 
-
         multiline
+        required
         rows = {4}
         />
       </div>
@@ -64,4 +61,4 @@ const Messagebox: FC<{ width: number; labelName: string }> = ({ width, labelName
   )
 }
 
-export default Messagebox
+export default MessageBox

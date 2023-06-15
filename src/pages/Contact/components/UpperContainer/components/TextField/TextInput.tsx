@@ -1,18 +1,14 @@
 import { TextField, InputLabel} from '@mui/material'
 import { FC } from 'react'
 
-const TextInput: FC<{ width: number; labelName: string }> = ({ width, labelName }) => {
+const TextInput: FC<{ width: number; labelName: string, type: string }> = ({ width, labelName, type }) => {
 
-
+  const cssValue = `bg-white m-0 w-[${width}px]`;
   return (
     <div>
       <div>
         <InputLabel
-          sx={{
-            display: 'flex',
-            color: 'black',
-            fontSize: '500',
-          }}
+          className="flex text-black"
         >
         {labelName}
         </InputLabel>
@@ -22,14 +18,14 @@ const TextInput: FC<{ width: number; labelName: string }> = ({ width, labelName 
         <TextField
           margin="dense"
           id="outlined-required"
-          className="bg-white"
+          className={cssValue}
           size = "small"
-          style={{ width: width, margin: 0 }}
+          required
           sx={{
             fieldset: { borderColor: 'black' },
           }}
           name = {labelName}
-          value = {labelName}
+          type={type}
         />
       </div>
     </div>
