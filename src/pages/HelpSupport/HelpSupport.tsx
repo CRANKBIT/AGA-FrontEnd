@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import SideNav from '@/components/SideNav/SideNav'
+import SideNavigationBar from '@/components/SideNavigationBar'
 import Container from '@/layouts/Container/Container'
 import PageContent from '@/components/PageContent/PageContent'
 import ContactPage from './components/ContactPage/ContactPage'
@@ -9,7 +9,7 @@ import QAHeader from './components/ContactPage/components/Table/components/QAHea
 const HelpSupport: FC = () => (
   <Container>
     <div className="flex text-xl min-h-[832px]">
-      <SideNav />
+      <SideNavigationBar />
       <PageContent>
         <QAHeader />
         <Table />
