@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 interface Item {
-  id: number
+  id: string | number
   text: string
 }
 
@@ -10,10 +10,10 @@ interface ListContentProps {
   listItems: Item[]
 }
 
-const ListContent: FC<ListContentProps> = ({ title, listItems }) => (
+const ListRender: FC<ListContentProps> = ({ title, listItems }) => (
   <div className="w-1/2">
     <div className="text-xl font-bold">{title}</div>
-    <ul className="leading-10 mt-5 mb-5">
+    <ul className="leading-10 my-5">
       {listItems.map(({ id, text }) => (
         <li key={id}>{text}</li>
       ))}
@@ -21,4 +21,4 @@ const ListContent: FC<ListContentProps> = ({ title, listItems }) => (
   </div>
 )
 
-export default ListContent
+export default ListRender

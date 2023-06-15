@@ -9,6 +9,7 @@ import KnowledgeBase from '@/pages/KnowledgeBase'
 import HelpSupport from '@/pages/HelpSupport/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
+import Profile from '@/pages/Profile'
 
 const isLoggedIn = true
 
@@ -38,14 +39,6 @@ const router = createHashRouter([
     element: <KnowledgeBase />,
   },
   {
-    path: '/my-reports',
-    element: <MyReports />,
-  },
-  {
-    path: '/knowledge-base',
-    element: <KnowledgeBase />,
-  },
-  {
     path: '/help-support',
     element: <HelpSupport />,
   },
@@ -56,6 +49,10 @@ const router = createHashRouter([
         <MyAccount />
       </PrivateRoute>
     ),
+  },
+  {
+    path: '/usr/profile',
+    element: <Profile />,
   },
 ])
 
