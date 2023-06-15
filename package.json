@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "homepage": "./",
   "scripts": {
-    "dev": "craco start",
+    "dev": "npm run pre-commit && craco start",
     "start": "craco start",
     "build": "craco build",
     "test": "craco test --passWithNoTests",
