@@ -13,6 +13,7 @@ module.exports = {
       },
       width: {
         container: '1280px',
+        button: '60'
       },
     },
   },

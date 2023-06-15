@@ -31,7 +31,7 @@ const DisplayPlans: FC = () => (
         </ul>
         <button
           type="button"
-          className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white"
+          className="text-center text- primary w-60 border py-2.5 rounded-md border-primary bg-white"
         >
           Choose Plan
         </button>
@@ -51,7 +51,7 @@ const DisplayPlans: FC = () => (
         </ul>
         <button
           type="button"
-          className="text-center text-base text-[#007AD3] w-60 border py-2.5 rounded-md border-[#007AD3] bg-white"
+          className="text-center text-primary w-60 border py-2.5 rounded-md border-primary bg-white"
         >
           Choose Plan
         </button>
