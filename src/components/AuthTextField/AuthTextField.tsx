@@ -21,10 +21,7 @@ const AuthTextField: FC<InputProps> = ({
 }: InputProps) => (
   <div className="mb-6 w-full">
     {label && htmlFor && (
-      <label
-        htmlFor={htmlFor}
-        className="block text-textColorBlack leading-5 font-medium text-base mb-0.5 font-inter"
-      >
+      <label htmlFor={htmlFor} className="block text-textColorBlack leading-5 font-medium text-base mb-0.5 font-inter">
         {label}
       </label>
     )}
