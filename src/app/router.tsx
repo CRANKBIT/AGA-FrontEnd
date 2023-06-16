@@ -10,8 +10,8 @@ import HelpSupport from '@/pages/HelpSupport/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 import MyProfile from '@/pages/MyProfile'
-import CreateAccount from '@/pages/CreateAccount/CreateAccount'
-import ReportsHistory from '@/pages/MyReports/components/ReportsHistory'
+import CreateAccount from '@/pages/CreateAccount'
+import MyReportsHistory from '@/pages/MyReportsHistory'
 
 const isLoggedIn = true
 
@@ -61,8 +61,8 @@ const router = createHashRouter([
     element: <CreateAccount />,
   },
   {
-    path: '/my-reports/history',
-    element: <ReportsHistory />,
+    path: '/user/my-reports/history',
+    element: <MyReportsHistory />,
   },
 ])
 

@@ -22,7 +22,7 @@ const Content: FC = () => (
         </div>
       </Button>
       <Button className="w-[250px] h-[90px] hover:bg-hover">Browse Templates</Button>
-      <Link to="/my-reports/history">
+      <Link to="/user/my-reports/history">
         <Button className="w-[250px] h-[90px] hover:bg-hover">Report History</Button>
       </Link>
     </div>
