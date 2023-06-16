@@ -2,7 +2,6 @@ import { FC, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { loginUser } from '@/features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
-import LoginForCompany from './components/LoginForCompany/LoginForCompany'
 
 const Login: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
