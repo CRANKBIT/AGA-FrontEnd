@@ -54,9 +54,8 @@ const router = createHashRouter([
     ),
   },
   {
+    path: '/usr/reportS1',
     element: <ReportS1 />,
-    path: '/usr/profile',
-    element: <Profile />,
   },
   {
     path: '/auth/signup/create-account',
