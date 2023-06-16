@@ -1,10 +1,11 @@
+import { FC } from 'react'
 import { Box, Typography } from '@mui/material'
 import TextInput from './components/TextField/TextInput'
 import Selector from './components/Selector/Selector'
 import MessageBox from './components/MessageBox'
 import SubmitButton from './components/SubmitButton/SubmitButton'
 
-const UpperContainer = () => (
+const UpperContainer: FC = () => (
   <Box className="h-[670px] bg-[#EBF1F6]">
     <div>
       <Typography variant="h3" gutterBottom align="center" className="pt-[56px] font-bold">
@@ -14,16 +15,16 @@ const UpperContainer = () => (
     <form action="" method="get">
       <div className="max-w-2xl mx-auto">
         <div className="flex justify-center flex-wrap min-[512px]:space-x-3 mt-[28px]">
-          <TextInput width={250} labelName="Name" type="string" />
-          <TextInput width={250} labelName="Email Address" type="email" />
+          <TextInput labelName="Name" type="string" />
+          <TextInput labelName="Email Address" type="email" />
         </div>
 
         <div className="flex justify-center pt-[28px]">
-          <Selector width={512} labelName="Enquiry Type" />
+          <Selector labelName="Enquiry Type" />
         </div>
 
         <div className="flex justify-center pt-[28px]">
-          <MessageBox width={512} labelName="Message" />
+          <MessageBox labelName="Message" />
         </div>
       </div>
 
