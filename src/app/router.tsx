@@ -10,6 +10,7 @@ import HelpSupport from '@/pages/HelpSupport/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 import Profile from '@/pages/Profile'
+import LoginForCompany from '@/pages/Login/components/LoginForCompany/LoginForCompany'
 import CreateAccount from '@/pages/CreateAccount/CreateAccount'
 import ReportsHistory from '@/pages/MyReports/components/ReportsHistory'
 import Contact from '@/pages/Contact/Contact'
@@ -58,9 +59,15 @@ const router = createHashRouter([
     element: <Profile />,
   },
   {
+    path: '/login-for-company',
+    element: <LoginForCompany />,
+  },
+
+  {
     path: '/auth/signup/create-account',
     element: <CreateAccount />,
   },
+
   {
     path: '/my-reports/history',
     element: <ReportsHistory />,
