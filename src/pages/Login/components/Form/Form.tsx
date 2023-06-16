@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-const LoginPage: FC = () => (
+const Form: FC = () => (
   <div className="flex justify-center items-center bg-white w-[640px] h-[832px]  ">
     <div className="relative text-left w-[280px] h-[356px]">
       <h1 className="text-[#1E1E1E] text-4.5 mb-5 font-medium">Welcome back, Alonso</h1>
@@ -38,4 +38,4 @@ const LoginPage: FC = () => (
   </div>
 )
 
-export default LoginPage
+export default Form
