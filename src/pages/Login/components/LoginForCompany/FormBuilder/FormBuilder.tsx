@@ -7,7 +7,7 @@ const FormBuilder: FC = () => (
       <div className="w-[77px] h-[99px] mx-auto">
         <img className="w-[77px] h-[99px] " src={file} />
       </div>
-      <div className="text-[#FFFFFF] w-[131px] h-[27px] text-[22px] font-medium leading-[22.63px]">
+      <div className="text-[#FFFFFF] w-[131px] h-[27px] text-[22px] font-medium leading-[22px]">
         Form Builder
       </div>
     </div>

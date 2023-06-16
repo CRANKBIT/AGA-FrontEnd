@@ -34,7 +34,6 @@ const Login: FC = () => {
           Login
         </button>
       </Link>
-      <LoginForCompany />
     </div>
   )
 }

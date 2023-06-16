@@ -9,6 +9,7 @@ import KnowledgeBase from '@/pages/KnowledgeBase'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 import Profile from '@/pages/Profile'
+import LoginForCompany from '@/pages/Login/components/LoginForCompany/LoginForCompany'
 
 const isLoggedIn = true
 
@@ -48,6 +49,10 @@ const router = createHashRouter([
   {
     path: '/usr/profile',
     element: <Profile />,
+  },
+  {
+    path: '/login-for-company',
+    element: <LoginForCompany />,
   },
 ])
 
