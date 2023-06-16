@@ -11,10 +11,8 @@ import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
 
 import ReportS1 from '@/pages/Report_s1'
-=======
 import Profile from '@/pages/Profile'
 import CreateAccount from '@/pages/CreateAccount/CreateAccount'
-
 
 const isLoggedIn = true
 
@@ -56,11 +54,9 @@ const router = createHashRouter([
     ),
   },
   {
-
     element: <ReportS1 />,
     path: '/usr/profile',
     element: <Profile />,
-
   },
   {
     path: '/auth/signup/create-account',
