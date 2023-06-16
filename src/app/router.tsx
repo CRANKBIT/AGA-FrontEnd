@@ -58,7 +58,6 @@ const router = createHashRouter([
   {
 
     element: <ReportS1 />,
-=======
     path: '/usr/profile',
     element: <Profile />,
 
