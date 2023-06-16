@@ -14,7 +14,6 @@ import LoginForCompany from '@/pages/Login/components/LoginForCompany/LoginForCo
 import CreateAccount from '@/pages/CreateAccount/CreateAccount'
 import ReportsHistory from '@/pages/MyReports/components/ReportsHistory'
 
-
 const isLoggedIn = true
 
 const router = createHashRouter([
@@ -61,14 +60,16 @@ const router = createHashRouter([
   {
     path: '/login-for-company',
     element: <LoginForCompany />,
+  },
 
+  {
     path: '/auth/signup/create-account',
     element: <CreateAccount />,
   },
+
   {
     path: '/my-reports/history',
     element: <ReportsHistory />,
-
   },
 ])
 
