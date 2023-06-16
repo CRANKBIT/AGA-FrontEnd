@@ -21,6 +21,7 @@ module.exports = {
       },
       width: {
         container: '1280px',
+        button: '60',
         authHeroLogoWidth: '80px',
       },
       height: {
