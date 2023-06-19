@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-const Table: FC = () => (
+const Accordion: FC = () => (
   <div
     style={{
       boxSizing: 'border-box',
@@ -79,4 +79,5 @@ const Table: FC = () => (
     </div>
   </div>
 )
-export default Table
+
+export default Accordion

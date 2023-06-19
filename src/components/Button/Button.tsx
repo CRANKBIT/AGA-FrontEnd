@@ -19,7 +19,6 @@ export interface Props extends HTMLProps<HTMLButtonElement> {
   size?: Size
   type?: 'button' | 'submit' | 'reset' | undefined
   block?: boolean
-  DefaultAuthButtonStyle?: boolean
 }
 
 const Button: FC<Props> = ({

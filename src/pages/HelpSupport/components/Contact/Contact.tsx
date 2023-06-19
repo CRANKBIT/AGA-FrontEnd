@@ -1,7 +1,7 @@
 import { FC, CSSProperties } from 'react'
 import Button from '@/components/Button'
 
-const ContactPage: FC = () => {
+const Contact: FC = () => {
   const boxSizing: 'border-box' | 'content-box' = 'border-box'
   const containerStyle: CSSProperties = {
     display: 'flex',
@@ -38,7 +38,7 @@ const ContactPage: FC = () => {
   return (
     <div style={containerStyle}>
       <div style={tableStyle}>
-        <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">Contact</div>
+        <div className="text-black font-bold flex ml-4 text-xl mt-5">Contact</div>
         <div>
           <div style={iconStyle}>📞</div>
           <div className="flex flex-col justify-center items-center text-black text-base">
@@ -60,7 +60,7 @@ const ContactPage: FC = () => {
       </div>
       <div style={tableStyle}>
         <div>
-          <div className="text-black font-bold flex ml-4 text-xl mt-5 text-base">Chat with our Experts</div>
+          <div className="text-black font-bold flex ml-4 text-xl mt-5">Chat with our Experts</div>
         </div>
         <div className="">
           <div style={chatIconStyle}>💬</div>
@@ -76,4 +76,4 @@ const ContactPage: FC = () => {
   )
 }
 
-export default ContactPage
+export default Contact
