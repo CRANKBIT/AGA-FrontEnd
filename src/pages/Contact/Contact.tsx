@@ -1,6 +1,6 @@
 import { StyledEngineProvider } from '@mui/material'
 import { FC } from 'react'
-import Layout from '@/layouts/Layout'
+import Layout from '@/layouts/BasicLayout'
 import Container from '@/layouts/Container'
 import UpperContainer from './components/UpperContainer/UpperContainer'
 import LowerContainer from './components/LowerContainer/LowerContainer'

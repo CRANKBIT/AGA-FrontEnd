@@ -6,15 +6,14 @@ import Login from '@/pages/Login'
 import Report from '@/pages/Report'
 import MyReports from '@/pages/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
-import HelpSupport from '@/pages/HelpSupport/HelpSupport'
+import HelpSupport from '@/pages/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
 import MyAccount from '@/pages/MyAccount'
-
 import ReportS1 from '@/pages/Report_s1'
 import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
-import Contact from '@/pages/Contact/Contact'
+import Contact from '@/pages/Contact'
 
 const isLoggedIn = true
 
@@ -44,7 +43,7 @@ const router = createHashRouter([
     element: <KnowledgeBase />,
   },
   {
-    path: '/help-support',
+    path: '/user/help-support',
     element: <HelpSupport />,
   },
   {
@@ -72,8 +71,8 @@ const router = createHashRouter([
     element: <Contact />,
   },
   {
-    path: '/contact',
-    element: <Contact />,
+    path: '/report-s1',
+    element: <ReportS1 />,
   },
 ])
 
