@@ -1,1 +1,1 @@
-export { default } from './PopupPage'
+export { default } from './Modal'
