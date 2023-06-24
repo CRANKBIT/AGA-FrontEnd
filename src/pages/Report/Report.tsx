@@ -1,6 +1,8 @@
 import { FC, useState } from 'react'
 import { HiOutlineCamera } from 'react-icons/hi'
 import { Link } from '@mui/material'
+import SideNavigationBar from '../../components/SideNavigationBar';
+
 
 const Report: FC = () => {
   const [image, setImage] = useState<File | null>(null)
@@ -12,32 +14,36 @@ const Report: FC = () => {
   }
 
   return (
+    <div className="flex">
+    <SideNavigationBar />
+    <div className="flex-1">
 <div className="Reprt_1 bg-blue-100 flex flex-col mt-3">
+  
     <div className="flex flex-col ">
-      <h1 className="text-2xl font-bold">Create New Report</h1>
-      <div className="flex items-center">
+      <h1 className="text-2xl font-bold ml-4 mt-4">Create New Report</h1>  
+      <div className="flex items-center ml-4">
         <Link
           href="/report_1"
           underline="hover"
           className="text-xs"
         >
-          My Report
+          My Report 
         </Link>
         <p className="text-blue-400">&gt;&gt;</p>
-        <h1 className="text-xs">Create New Report</h1>
+        <h1 className="text-xm"> Create New Report</h1>
       </div>
     </div>
-
-
         <div className="flex justify-end w-full">
           <button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
             Back to My Reports
           </button>
         </div>
 
-          <div className="mx-auto container border border-black mt-10 bg-white">
-            <div className="p-4">
-              <div className="p-4">
+        {/* <div className="mx-auto container border border-black mt-10 bg-white"> */}
+        <div className=" border border-black mt-4 mb-8 bg-white m-1 ml-64 mr-64 ">
+            <div className=" p-4 ">
+
+              <div className="p-4 ">
                 <h2 className="text-lg font-bold">Snapshot</h2>
                 <div className="border-t border-black mx-auto w-full" />
                 <div className="text-center mt-4">
@@ -50,9 +56,9 @@ const Report: FC = () => {
                     </select>
                   </div>
                   <div className="flex flex-col items-center">
-                    <div className="w-16 h-16 border border-black flex items-center justify-center bg-white text-center">
+                    <div className="w-64 h-64 border border-black flex items-center justify-center bg-white text-center">
                       <label htmlFor="upload-image">
-                        <HiOutlineCamera className="w-6 h-6 text-black cursor-pointer" />
+                        <HiOutlineCamera className="w-10 h-10 text-black cursor-pointer" />
                       </label>
                       <input
                         id="upload-image"
@@ -81,6 +87,8 @@ const Report: FC = () => {
               </div>
             </div>
           </div>
+        </div>
+        </div>
         </div>
   )
 }
