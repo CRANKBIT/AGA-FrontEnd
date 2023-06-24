@@ -18,7 +18,10 @@ const Content: FC = () => {
         </div>
       </div>
       <div className="mt-12 flex gap-7">
-        <Button className="w-[250px] h-[90px] hover:bg-hover">
+        <Button
+          className="w-[250px] h-[90px] hover:bg-hover"
+          onClick={() => navigate('/user/my-reports/create-report')}
+        >
           <FileLogo className="text-4xl mr-2">+ New Report</FileLogo>
         </Button>
         <Button className="w-[250px] h-[90px] hover:bg-hover">Browse Templates</Button>
