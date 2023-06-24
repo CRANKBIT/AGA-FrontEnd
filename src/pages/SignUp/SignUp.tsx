@@ -33,7 +33,7 @@ const SignUp: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="px-44 py-80">
+      <div className="px-44 py-80 bg-white">
         <div className="text-xl font-medium mb-5">Get started</div>
 
         <Button variant={Variant.Primary} size={Size.Large} className="font-bold" onClick={handleRegister}>
