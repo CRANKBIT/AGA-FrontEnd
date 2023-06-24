@@ -17,30 +17,35 @@ const Report: FC = () => {
     <div className="flex">
     <SideNavigationBar />
     <div className="flex-1">
-<div className="Reprt_1 bg-blue-100 flex flex-col mt-3">
   
-    <div className="flex flex-col ">
-      <h1 className="text-2xl font-bold ml-4 mt-4">Create New Report</h1>  
-      <div className="flex items-center ml-4">
-        <Link
-          href="/report_1"
-          underline="hover"
-          className="text-xs"
-        >
-          My Report 
-        </Link>
-        <p className="text-blue-400">&gt;&gt;</p>
-        <h1 className="text-xm"> Create New Report</h1>
-      </div>
-    </div>
-        <div className="flex justify-end w-full">
-          <button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-            Back to My Reports
-          </button>
-        </div>
 
-        {/* <div className="mx-auto container border border-black mt-10 bg-white"> */}
-        <div className=" border border-black mt-4 mb-8 bg-white m-1 ml-64 mr-64 ">
+  
+<div className="Reprt_1 bg-blue-100 flex flex-col mt-3">
+
+<div className="flex items-center">
+<div className="flex flex-col w-80">
+    <h1 className="text-2xl font-bold ml-4 mt-8">Create New Report</h1>
+    <div className="flex items-center">
+    <div className="ml-4 text-xs">
+      <Link href="/report_1" underline="hover" className="text-xs">
+      My Report 
+      </Link>
+    </div>
+    <p className="text-blue-400 text-xs">&nbsp;&gt;&gt;&nbsp;</p>
+    <h1 className="text-xs"> Create New Report</h1>
+  </div>
+   </div>
+  <div className="flex justify-end w-full mt-8">
+    <button
+      type="button"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+    >
+      Back to My Reports
+    </button>
+  </div>
+</div>
+
+        <div className=" border border-black mt-4 mb-8 bg-white m-1 ml-64 mr-64 rounded-md">
             <div className=" p-4 ">
 
               <div className="p-4 ">
