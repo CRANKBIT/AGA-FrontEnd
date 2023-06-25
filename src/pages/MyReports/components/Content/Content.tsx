@@ -9,7 +9,7 @@ const Content: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-white pt-14 px-20">
+    <div className="bg-white pt-14 px-20 h-screen">
       <div className="flex justify-between">
         <div className="font-bold">My Reports (12)</div>
         <div className="p-1 flex items-center border border-black bg-white rounded w-[250px]">
