@@ -1,9 +1,10 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 
 const MyAccount: FC = () => (
-  <div>
-    <div>MyAccount Page</div>
-  </div>
+  <Link to="/user/dashboard">
+    <div>this is Dashboard</div>
+  </Link>
 )
 
 export default MyAccount

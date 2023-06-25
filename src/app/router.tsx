@@ -13,6 +13,7 @@ import ReportS1 from '@/pages/Report_s1'
 import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
+import Dashboard from '@/pages/Dashboard/Dashboard'
 
 const isLoggedIn = true
 
@@ -68,6 +69,10 @@ const router = createHashRouter([
   {
     path: '/report-s1',
     element: <ReportS1 />,
+  },
+  {
+    path: '/user/dashboard',
+    element: <Dashboard />,
   },
 ])
 
