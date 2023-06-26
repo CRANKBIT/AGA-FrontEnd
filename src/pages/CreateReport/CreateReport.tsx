@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import UserLayout from '@/layouts/UserLayout/UserLayout'
+import UserLayout from '@/layouts/UserLayout'
 import Content from './components/Content'
 
 const CreateReport: FC = () => (
