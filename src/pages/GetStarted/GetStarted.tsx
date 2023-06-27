@@ -1,10 +1,10 @@
 import { FC } from 'react'
 import AuthLayout from '@/layouts/AuthLayout'
-import Form from './components/Form'
+import Content from './components/Content'
 
 const GetStarted: FC = () => (
   <AuthLayout>
-    <Form />
+    <Content />
   </AuthLayout>
 )
 
