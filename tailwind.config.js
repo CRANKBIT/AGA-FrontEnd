@@ -5,8 +5,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        background: '#03111B',
+        background: '#062235',
+        'background-light': '#EBF1F6',
         primary: '#007AD3',
+        'primary-light': '#aebfcc',
+        'primary-dark': '#123956',
         active: '#1FDB81',
         border: '#E6E6E6',
         gray: '#CBD5E1',
