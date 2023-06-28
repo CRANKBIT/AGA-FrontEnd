@@ -98,16 +98,11 @@
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
       "prettier --write .",
-      "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --no-cache",
+      "eslint --fix --ext .js,.jsx,.ts,.tsx src/ --fix --no-cache",
       "git add ."
     ],
     "*.{css,scss}": [
-      "prettier --write .",
       "stylelint --fix \"src/**/*.{css,scss}\"",
-      "git add ."
-    ],
-    "*.{json,md,html}": [
-      "prettier --write .",
       "git add ."
     ]
   },
