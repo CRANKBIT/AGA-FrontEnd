@@ -2,8 +2,6 @@ name: Deploy
 on:
   push:
     branches: ['main']
-  pull_request:
-    branches: ['main']
 env:
   PUBLIC_URL: https://CRANKBIT.github.io/CrankBit-FrontEnd/main
   FAST_REFRESH: false
