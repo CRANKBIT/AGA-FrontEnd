@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         // Specify the Node.js tool installation
-        nodejs 'your-nodejs-installation-name'
+        nodejs 'nodejs'
     }
     
     stages {
