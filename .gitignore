@@ -126,3 +126,4 @@ dist
 .env
 **/.idea/*
 .yarnrc.yml
+build
