@@ -2,8 +2,9 @@ name: Deploy
 on:
   push:
     branches: ['main']
+  pull_request:
+    branches: ['main']
 env:
-  NODE_ENV: production
   PUBLIC_URL: https://CRANKBIT.github.io/CrankBit-FrontEnd/main
   FAST_REFRESH: false
   CI: false
@@ -11,7 +12,7 @@ permissions:
   contents: write
   pull-requests: write
 jobs:
-  CI:
+  CD:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout
