@@ -23,15 +23,15 @@ pipeline {
                 sh 'npm run test' // Run tests
             }
             }
-        // stage('Build') {
-        //     steps {
-        //         dir('./') {
-        //           echo 'build'
-        //           // Build your application according to the package.jason file
-        //           sh 'yarn build --config .eslintrc'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                dir('./') {
+                  echo 'build'
+                  // Build your application according to the package.jason file
+                  sh 'yarn build --config .eslintrc'
+                }
+            }
+        }
         // stage('Upload to S3') {
         //     steps {
         //         // Use AWS CLI to upload files to S3
