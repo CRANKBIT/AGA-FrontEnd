@@ -23,22 +23,22 @@ pipeline {
                 sh 'npm run test' // Run tests
             }
             }
-        stage('Build') {
-            steps {
-                dir('./') {
-                  echo 'build'
-                  // Build your application according to the package.jason file
-                  sh 'yarn build --config .eslintrc'
-                }
-            }
-        }
-        stage('Upload to S3') {
-            steps {
-                // Use AWS CLI to upload files to S3
-                withAWS(region: 'ap-southeast-2', credentials: 'aws-s3') {
-                sh 'aws s3 sync build/ s3://crankbit-test/'
-                }
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         dir('./') {
+        //           echo 'build'
+        //           // Build your application according to the package.jason file
+        //           sh 'yarn build --config .eslintrc'
+        //         }
+        //     }
+        // }
+        // stage('Upload to S3') {
+        //     steps {
+        //         // Use AWS CLI to upload files to S3
+        //         withAWS(region: 'ap-southeast-2', credentials: 'aws-s3') {
+        //         sh 'aws s3 sync build/ s3://crankbit-test/'
+        //         }
+        //     }
+        // }
     }
 }
