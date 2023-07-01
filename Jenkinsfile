@@ -35,7 +35,7 @@ pipeline {
             steps {
                 // Use AWS CLI to upload files to S3
                 withAWS(region: 'ap-southeast-2', credentials: 'aws-s3') {
-                sh 'aws s3 sync build/ s3://crankbit-test/'
+                sh 'aws s3 sync build/ s3://crankbit-barneywang.click-dev/'
                 }
             }
         }
