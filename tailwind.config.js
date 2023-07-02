@@ -12,6 +12,10 @@ module.exports = {
         gray: '#CBD5E1',
         hover: '#007AD3',
         textColorBlack: '#1E1E1E',
+        passwordBarWeak: '#eb4034',
+        passwordBarFair: '#FFA500',
+        passwordBarStrong: '#52A447',
+        passwordBarDefault: '#D0D0D0',
       },
       borderColor: {
         primary: '#007AD3',

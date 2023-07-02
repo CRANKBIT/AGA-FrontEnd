@@ -8,6 +8,7 @@ import { Variant } from '@/components/Button'
 import AuthTextField from '@/components/AuthTextField/AuthTextField'
 import Label from '@/components/Label/Label'
 import IconVisibility from '@/components/IconVisibility/IconVisibility'
+import PasswordProcessBar from './PasswordProcessBar'
 
 const Form: FC = () => {
   const [fullName, setFullName] = useState<string>('')
@@ -77,6 +78,7 @@ const Form: FC = () => {
               handleKeyDown={handleKeyDown}
             />
           </AuthTextField>
+          <PasswordProcessBar inputPassword={password} />
 
           <AuthButton variant={Variant.Primary} onClick={handleRegister}>
             Sign Up
