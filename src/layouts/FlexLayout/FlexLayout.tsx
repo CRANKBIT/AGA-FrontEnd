@@ -25,7 +25,7 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
       )}
     >
       {variant === PageVariant.AuthPage && (
-        <div className="px-64 py-80 text-center">
+        <div className="px-64 py-80 text-center flex flex-col justify-center h-screen">
           <FileLogo className="w-20 h-24">
             <div className="text-xl">Form Builder</div>
           </FileLogo>
