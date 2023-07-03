@@ -127,3 +127,4 @@ dist
 **/.idea/*
 .yarnrc.yml
 build
+.DS_Store
