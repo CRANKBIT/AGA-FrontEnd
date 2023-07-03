@@ -7,7 +7,7 @@ locals {
 
 # Create S3 bucket to store objects from jenkins pipeline
 module "s3_bucket" {
-  source                         = "./Terraform/modules/s3"
+  source                         = "../modules/s3"
   project_name                   = local.project_name
   domain_name                    = local.domain_name
   environment                    = local.environment
@@ -16,7 +16,7 @@ module "s3_bucket" {
 }
 
 module "aws_cloudfront_CDN" {
-  source                         = "./Terraform/modules/cloudfront"
+  source                         = "../modules/cloudfront"
   project_name                   = local.project_name
   domain_name                    = local.domain_name
   environment                    = local.environment
@@ -45,7 +45,7 @@ module "aws_cloudfront_CDN" {
 }
 
 module "acm" {
-  source                            = "./Terraform/modules/acm"
+  source                            = "../modules/acm"
   domain_name                       = local.domain_name
   subdomain_name                    = var.subdomain_name
   acm_certificate_validation_method = var.acm_certificate_validation_method
@@ -55,7 +55,7 @@ module "acm" {
 }
 
 module "route53" {
-  source                                 = "./Terraform/modules/route53"
+  source                                 = "../modules/route53"
   domain_name                            = local.domain_name
   cloudfront_distribution_domain_name    = module.aws_cloudfront_CDN.cloudfront_distribution_domain_name
   cloudfront_distribution_hosted_zone_id = module.aws_cloudfront_CDN.cloudfront_distribution_hosted_zone_id
