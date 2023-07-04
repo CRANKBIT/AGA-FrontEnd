@@ -15,6 +15,7 @@ import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
 import CreateReport from '@/pages/CreateReport'
+import SetNewPassword from '@/pages/SetNewPassword/SetNewPassword'
 
 const isLoggedIn = true
 
@@ -30,6 +31,10 @@ const router = createHashRouter([
   {
     path: '/auth/get-started',
     element: <GetStarted />,
+  },
+  {
+    path: '/auth/set-new-password',
+    element: <SetNewPassword />,
   },
   {
     path: '/auth/login',
