@@ -2,6 +2,7 @@ import { FC } from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
+import GetStarted from '@/pages/GetStarted'
 import Login from '@/pages/Login'
 import Report from '@/pages/Report'
 import MyReports from '@/pages/MyReports'
@@ -13,6 +14,7 @@ import ReportS1 from '@/pages/Report_s1'
 import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
+import CreateReport from '@/pages/CreateReport'
 
 const isLoggedIn = true
 
@@ -26,6 +28,10 @@ const router = createHashRouter([
     element: <SignUp />,
   },
   {
+    path: '/auth/get-started',
+    element: <GetStarted />,
+  },
+  {
     path: '/auth/login',
     element: <Login />,
   },
@@ -36,6 +42,10 @@ const router = createHashRouter([
   {
     path: '/user/my-reports',
     element: <MyReports />,
+  },
+  {
+    path: '/user/my-reports/create-report',
+    element: <CreateReport />,
   },
   {
     path: '/user/knowledge-base',
