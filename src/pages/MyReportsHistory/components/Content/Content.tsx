@@ -15,7 +15,7 @@ const Content: FC = () => {
       <div className="flex items-center justify-between">
         <div className="font-bold text-3xl">Good Morning, Alonso</div>
         <Button className="text-center w-[250px] h-10 bg-hover">
-          <Link to="/report-step1">+ Create New Report</Link>
+          <Link to="/report/create">+ Create New Report</Link>
         </Button>
       </div>
       <div className="flex justify-between my-9">
