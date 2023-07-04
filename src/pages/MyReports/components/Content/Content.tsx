@@ -9,16 +9,19 @@ const Content: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-white pt-14 px-20">
+    <div className="bg-white pt-14 px-20 h-screen">
       <div className="flex justify-between">
-        <div className="font-bold">My Reports (12)</div>
-        <div className="p-1 flex items-center border border-black bg-white rounded w-[250px]">
+        <div className="font-bold text-2xl">My Reports (12)</div>
+        <div className="p-1 flex justify-between items-center border border-black bg-white rounded w-[250px]">
           <input placeholder="Search.." className="focus:outline-none" />
           <CiSearch />
         </div>
       </div>
       <div className="mt-12 flex gap-7">
-        <Button className="w-[250px] h-[90px] hover:bg-hover">
+        <Button
+          className="w-[250px] h-[90px] hover:bg-hover"
+          onClick={() => navigate('/user/my-reports/create-report')}
+        >
           <FileLogo className="text-4xl mr-2">+ New Report</FileLogo>
         </Button>
         <Button className="w-[250px] h-[90px] hover:bg-hover">Browse Templates</Button>
