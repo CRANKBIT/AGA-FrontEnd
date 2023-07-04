@@ -1,0 +1,185 @@
+name: Build Nodejs frontend and deploy to AWS S3
+run-name: ${{ github.actor }} is running GitHub Actions workflow
+on:   
+  push:
+    branches: 
+      - 'CB**'
+      - main
+      - uat
+      - prod
+
+  pull_request:
+    branches: 
+      - main
+      - uat
+      - prod
+    types:
+      - opened
+      - reopened
+      - synchronize
+
+  workflow_dispatch:
+    inputs:
+      environment:
+         description: 'Please select the environment on which to run:'
+         required: true
+         default: 'dev'
+         type: choice
+         options:
+         - dev
+         - uat
+         - prod
+concurrency:
+  group: ${{ github.ref || github.run_id }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  test-alert:
+    runs-on: ubuntu-latest
+    permissions: 
+      security-events: write 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+
+    - name: Run Snyk to check for vulnerabilities
+      uses: snyk/actions/node@master
+      continue-on-error: true
+      env:
+        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      with:
+        args: --severity-threshold=high --sarif-file-output=snyk.sarif
+
+    - name: Upload result to GitHub Code Scanning
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: snyk.sarif
+
+    - name: Checking code format, testing the code and building the code
+      env: 
+        REACT_APP_BACKEND_BASE_URL: ${{ secrets.REACT_APP_BACKEND_BASE_URL }}
+      run: |
+        npm ci
+        npm run lint
+        npm run test
+        npm run build
+
+    - name: Archive build artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: crankbit-frontend-build
+        path: build
+
+  build-and-deploy-dev:
+    if: ${{ (github.event.inputs.environment == 'dev' || github.event_name == 'push') && github.ref == 'refs/heads/main' }}
+    needs: test-alert
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download build artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: crankbit-frontend-build
+        path: build
+
+    - name: Deploy to Dev
+      run: |
+        aws s3 sync ./build s3://www.dev.crankbit.com
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_DISTRIBUTION_ID }} --paths "/*"
+
+
+  build-and-deploy-uat:
+    if: ${{ (github.event.inputs.environment == 'uat' || github.event_name == 'push') && github.ref == 'refs/heads/uat' }}
+    needs: test-alert
+    runs-on: ubuntu-latest
+   
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+    - name: Download build artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: crankbit-frontend-build
+        path: build
+
+    - name: Deploy to UAT
+      run: |
+        aws s3 sync ./build s3://www.uat.crankbit.com
+
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.UAT_DISTRIBUTION_ID }} --paths "/*"
+
+  build-and-deploy-prod:
+    if: ${{ (github.event.inputs.environment == 'prod' || github.event_name == 'push') && github.ref == 'refs/heads/prod' }}
+    needs: test-alert
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+
+        
+    - name: Download build artifact
+      uses: actions/download-artifact@v3
+      with:
+        name: crankbit-frontend-build
+        path: build
+
+    - name: Deploy to Prod
+      run: |
+        aws s3 sync ./build s3://www.crankbit.com
+
+    - name: Invalidate CloudFront cache
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_DISTRIBUTION_ID }} --paths "/*"
