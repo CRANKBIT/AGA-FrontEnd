@@ -15,7 +15,7 @@ import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
 import CreateReport from '@/pages/CreateReport'
-import StaffLogin from '@/pages/StaffLogin/StaffLogin'
+import UserLogin from '@/pages/UserLogin'
 
 const isLoggedIn = true
 
@@ -81,8 +81,8 @@ const router = createHashRouter([
     element: <ReportS1 />,
   },
   {
-    path: '/auth/staff-login',
-    element: <StaffLogin/>,
+    path: '/auth/user-login',
+    element: <UserLogin />,
   },
 ])
 
