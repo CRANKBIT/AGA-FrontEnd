@@ -1,6 +1,7 @@
 # Create S3 bucket to store objects from jenkins pipeline
 resource "aws_s3_bucket" "crankbit_bucket" {
   bucket = "${var.project_name}-${var.domain_name}-${var.environment}"
+  force_destroy = true  #force to delete s3 bucket without empty objects in s3 bucket
   tags = {
     Name = var.project_name
   }
