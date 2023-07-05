@@ -2,9 +2,9 @@ import { FC } from 'react'
 import Button, { Variant } from '@/components/Button'
 
 const Content: FC = () => (
-  <div>
+  <>
     <div className="text-2xl mb-6">Forgot Password?</div>
-    <div className="text-[rgb(165,165,165)]">Please enter your email address to reset your password</div>
+    <div className="text-darkGray">Please enter your email address to reset your password</div>
     <div>
       <div className="my-14">
         <div className="text-2xl">Email :</div>
@@ -18,6 +18,6 @@ const Content: FC = () => (
         Reset
       </Button>
     </div>
-  </div>
+  </>
 )
 export default Content
