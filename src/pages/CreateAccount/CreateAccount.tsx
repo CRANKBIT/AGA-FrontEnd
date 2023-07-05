@@ -1,3 +1,4 @@
+
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react'
 import { Input, IconButton, InputAdornment, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
@@ -7,6 +8,7 @@ import axios from '@/utils/axios'
 import Modal from './components/Modal'
 
 const CreateAccount: FC = () => {
+
   const [name, setname] = useState('')
   const [nameError, setnameError] = useState('')
   const [email, setEmail] = useState('')
@@ -36,9 +38,11 @@ const CreateAccount: FC = () => {
         setErrorMessage('')
       }
     }
+  
   const togglePasswordVisibility = (): void => {
     setPasswordVisible(!passwordVisible)
   }
+
   const handleSubmit = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     try {
@@ -54,9 +58,12 @@ const CreateAccount: FC = () => {
       setMessage(errorMessage)
     }
   }
+
   const handleClosePopup = (): void => {
     setMessage('')
   }
+
+
   const isError = !message.includes('successfully')
 
   return (

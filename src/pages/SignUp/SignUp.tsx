@@ -33,28 +33,21 @@ const SignUp: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="px-44 py-80 bg-white">
-        <div className="text-xl font-medium mb-5">Get started</div>
+      <div className="text-xl font-medium mb-5">Get started</div>
 
-        <Button variant={Variant.Primary} size={Size.Large} className="font-bold" onClick={handleRegister}>
-          Continue with Google
-        </Button>
+      <Button variant={Variant.Primary} size={Size.Large} className="font-bold" onClick={handleRegister}>
+        Continue with Google
+      </Button>
 
-        <div className="flex justify-between items-center my-3">
-          <hr className="w-28" />
-          or
-          <hr className="w-28" />
-        </div>
-
-        <Button
-          variant={Variant.PrimaryOutline}
-          size={Size.Large}
-          className="font-bold"
-          onClick={handleSignUpWithEmail}
-        >
-          Sign up with email
-        </Button>
+      <div className="flex justify-between items-center my-3">
+        <hr className="w-28" />
+        or
+        <hr className="w-28" />
       </div>
+
+      <Button variant={Variant.PrimaryOutline} size={Size.Large} className="font-bold" onClick={handleSignUpWithEmail}>
+        Sign up with email
+      </Button>
     </AuthLayout>
   )
 }
