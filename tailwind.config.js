@@ -15,7 +15,6 @@ module.exports = {
         active: '#1FDB81',
         border: '#E6E6E6',
         gray: '#CBD5E1',
-        darkGray: 'rgb(165,165,165)',
         hover: '#007AD3',
         textColorBlack: '#1E1E1E',
         userContentBackground: '#E9EFF4',
