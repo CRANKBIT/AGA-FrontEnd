@@ -39,27 +39,5 @@ pipeline {
                 }
             }
         }
-
-        stage('TerraformDestroy') {
-            steps {
-                script {
-                    def destroy = false
-                    try {
-                        input message: 'Are you sure you want to destroy the infrastructure?', ok: 'Destroy'
-                        destroy = true
-                    } catch (err) {
-                        destroy = false
-                        currentBuild.result = 'UNSTABLE'
-                    }
-                    if (destroy) {
-                        withAWS(region: 'ap-southeast-2', credentials: 'aws-s3') {
-                            dir('./Terraform/provision-files') {
-                                sh 'terraform destroy -auto-approve'
-                            }
-                        }
-                    }
-                }
-            }
-        }
     }
 }
