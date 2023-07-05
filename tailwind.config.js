@@ -10,6 +10,8 @@ module.exports = {
         primary: '#007AD3',
         'primary-light': '#aebfcc',
         'primary-dark': '#123956',
+        success: '#0EA739',
+        error: '#dc2626',
         active: '#1FDB81',
         border: '#E6E6E6',
         gray: '#CBD5E1',
