@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 const Form: FC = () => (
-  <div className="py-80 bg-white w-[640px] flex justify-center">
+  <div>
     <div className="w-[280px] h-[356px]">
       <h1 className="text-textColorBlack text-4.5 mb-5 font-medium">Welcome back, Alonso</h1>
       <div>
