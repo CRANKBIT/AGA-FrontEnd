@@ -87,6 +87,7 @@ jobs:
           npm run test
   
   build:
+    if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/uat' || github.ref == 'refs/heads/prod'}}
     needs: test
     runs-on: ubuntu-22.04
     steps:
