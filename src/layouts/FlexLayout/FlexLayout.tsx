@@ -34,7 +34,7 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
       {variant === PageVariant.UserPage && <SideNavigation />}
     </div>
     <div className="flex-grow flex">
-      {variant === PageVariant.UserPage && children}
+      {variant === PageVariant.UserPage && <div className="w-full bg-userContentBackground h-screen">{children}</div>}
       {variant === PageVariant.AuthPage && (
         <div className="py-60 w-[640px] flex items-center justify-center bg-white">
           <div className="w-[280px]">{children}</div>
