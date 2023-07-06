@@ -33,7 +33,14 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
       )}
       {variant === PageVariant.UserPage && <SideNavigation />}
     </div>
-    <div className="flex-grow flex">{children}</div>
+    <div
+      className={classNames(
+        variant === PageVariant.AuthPage && ['flex w-1/2'],
+        variant === PageVariant.UserPage && ['"flex-grow flex"']
+      )}
+    >
+      {children}
+    </div>
   </Container>
 )
 
