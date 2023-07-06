@@ -30,7 +30,7 @@ const CreateAccount: FC = () => {
       if (validatePassword) {
         const { value } = e.target
         if (value.length < 8 || !/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
-          setErrorMessage('Password must be at least 8 characters long and contain at least 1 letter.')
+          setErrorMessage(' At least 8 characters with 1 letter')
         } else {
           setErrorMessage('')
         }
@@ -68,7 +68,7 @@ const CreateAccount: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="px-44 py-80 bg-white">
+      <div className="px-44 py-80 bg-white w-1/2 flex-1">
         <form onSubmit={handleSubmit}>
           <div className="text-xl font-medium mb-5">Create Account</div>
           <div className="mt-4 text-xs font-bold">Full Name</div>
@@ -105,11 +105,11 @@ const CreateAccount: FC = () => {
               </InputAdornment>
             }
           />
-          {passwordError && (
-            <Typography variant="caption" color="error">
+          <div>
+            <Typography className="caption" color="error">
               {passwordError}
             </Typography>
-          )}
+          </div>
 
           <Button variant={Variant.Primary} size={Size.Large} className="font-bold mt-8 w-full" type="submit">
             Sign Up
