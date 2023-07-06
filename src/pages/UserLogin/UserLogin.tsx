@@ -12,7 +12,10 @@ const UserLogin: FC = () => (
           <p className="font-medium">User name or email</p>
           <Input type="email" placeholder="john@mail.com" />
           <p className="font-medium">Password</p>
-          <Input type="password" placeholder="******************" />
+          <div className="relative">
+            <Input type="password" placeholder="******************" />
+            <img className="absolute left-60 bottom-9" src="/svg/passwordIcon.svg" alt="" />
+          </div>
           <button type="button" className="text-gray block mb-2">
             Forget Password?
           </button>
@@ -27,14 +30,11 @@ const UserLogin: FC = () => (
           or
           <hr className="w-28" />
         </div>
-        <div className="flex justify-center mb-2">
-          <Button className="block text-center w-[250px] h-10 bg-hover">Google</Button>
-        </div>
-        <div className="flex justify-center mb-2">
-          <Button className="block text-center w-[250px] h-10 bg-hover">Microsoft</Button>
-        </div>
-        <div className="flex justify-center mb-2">
-          <Button className="block text-center w-[250px] h-10 bg-hover">Apple</Button>
+        <div className="flex justify-center mb-2 relative">
+          <Button className="block text-center text-[#5E5E5E] w-[280px] h-10 bg-white border-[#03111B] border-2">
+            Sign in with Google
+          </Button>
+          <img className="absolute left-3 top-3" src="/svg/googleIcon.svg" alt="" />
         </div>
       </div>
     </div>

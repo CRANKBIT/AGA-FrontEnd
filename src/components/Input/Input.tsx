@@ -1,7 +1,7 @@
 import { FC, HTMLProps, ReactNode } from 'react';
 
 interface Props extends HTMLProps<HTMLInputElement> {
-  type?: 'email' | 'password' | undefined;
+  type?: 'email' | 'password' | undefined
 }
 const Input: FC<Props> = ({...props}) => (
   <input
