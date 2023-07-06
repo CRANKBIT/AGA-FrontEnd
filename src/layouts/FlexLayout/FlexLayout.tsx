@@ -35,8 +35,8 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
     </div>
     <div
       className={classNames(
-        variant === PageVariant.AuthPage && ['flex w-1/2'],
-        variant === PageVariant.UserPage && ['"flex-grow flex"']
+        variant === PageVariant.AuthPage && ['w-1/2'],
+        variant === PageVariant.UserPage && ['flex-grow flex']
       )}
     >
       {children}
