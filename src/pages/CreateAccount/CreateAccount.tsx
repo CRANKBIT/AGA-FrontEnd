@@ -14,18 +14,20 @@ const CreateAccount: FC = () => {
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState<string>('')
 
-  const handleInputChange =
-    (setValue: React.Dispatch<React.SetStateAction<string>>, validatePassword = false) =>
-    (e: ChangeEvent<HTMLInputElement>): void => {
-      setValue(e.target.value)
+  const inputClassName =
+    'w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-1 focus:ring-gray-400'
 
-      if (validatePassword) {
-        const { value } = e.target
-        if (value.length < 8 || !/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
-          setPasswordError(' At least 8 characters with 1 letter')
-        } else {
-          setPasswordError('')
+  const handleInputChange =
+    (setValue: React.Dispatch<React.SetStateAction<string>>) =>
+    (e: ChangeEvent<HTMLInputElement>): void => {
+      const { value } = e.target
+      setValue(value)
+      if (setValue === setPassword) {
+        let errorMessage = ''
+        if (value.length < 6 || !/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
+          errorMessage = 'At least 6 characters with 1 letter'
         }
+        setPasswordError(value !== '' ? errorMessage : '')
       }
     }
 
@@ -67,7 +69,7 @@ const CreateAccount: FC = () => {
             value={name}
             placeholder="John Wick"
             onChange={handleInputChange(setname)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-1 focus:ring-gray-400"
+            className={inputClassName}
           />
           <div className="mt-5 text-xs font-bold">Email Address</div>
           <Input
@@ -76,16 +78,16 @@ const CreateAccount: FC = () => {
             value={email}
             placeholder="John@email.com"
             onChange={handleInputChange(setEmail)}
-            className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-1 focus:ring-gray-400"
+            className={inputClassName}
           />
           <div className="mt-4 text-xs font-bold">Password</div>
           <Input
             id="password"
-            className="w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-opacity-50"
+            className={inputClassName}
             type={passwordVisible ? 'text' : 'password'}
             value={password}
             placeholder="********"
-            onChange={handleInputChange(setPassword, true)}
+            onChange={handleInputChange(setPassword)}
             endAdornment={
               <InputAdornment position="end">
                 <IconButton onClick={togglePasswordVisibility}>
