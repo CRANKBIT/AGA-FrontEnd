@@ -59,65 +59,63 @@ const CreateAccount: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="flex justify-center items-center h-screen bg-white">
-        <div className="w-1/2">
-          <form onSubmit={handleSubmit}>
-            <div className="text-xl font-medium mb-5">Create Account</div>
-            <div className="mt-4 text-xs font-bold">Full Name</div>
-            <Input
-              id="name"
-              type="text"
-              value={name}
-              placeholder="John Wick"
-              onChange={handleInputChange(setname)}
-              className={inputClassName}
-            />
-            <div className="mt-5 text-xs font-bold">Email Address</div>
-            <Input
-              id="EmailAddress"
-              type="email"
-              value={email}
-              placeholder="John@email.com"
-              onChange={handleInputChange(setEmail)}
-              className={inputClassName}
-            />
-            <div className="mt-4 text-xs font-bold">Password</div>
-            <Input
-              id="password"
-              className={inputClassName}
-              type={passwordVisible ? 'text' : 'password'}
-              value={password}
-              placeholder="********"
-              onChange={handleInputChange(setPassword)}
-              endAdornment={
-                <InputAdornment position="end">
-                  <IconButton onClick={togglePasswordVisibility}>
-                    {passwordVisible ? <Visibility /> : <VisibilityOff />}
-                  </IconButton>
-                </InputAdornment>
-              }
-            />
-            <div>
-              <Typography className="caption" color="error">
-                {passwordError}
-              </Typography>
-            </div>
+      <div className="w-1/2">
+        <form onSubmit={handleSubmit}>
+          <div className="text-xl font-medium mb-5">Create Account</div>
+          <div className="mt-4 text-xs font-bold">Full Name</div>
+          <Input
+            id="name"
+            type="text"
+            value={name}
+            placeholder="John Wick"
+            onChange={handleInputChange(setname)}
+            className={inputClassName}
+          />
+          <div className="mt-5 text-xs font-bold">Email Address</div>
+          <Input
+            id="EmailAddress"
+            type="email"
+            value={email}
+            placeholder="John@email.com"
+            onChange={handleInputChange(setEmail)}
+            className={inputClassName}
+          />
+          <div className="mt-4 text-xs font-bold">Password</div>
+          <Input
+            id="password"
+            className={inputClassName}
+            type={passwordVisible ? 'text' : 'password'}
+            value={password}
+            placeholder="********"
+            onChange={handleInputChange(setPassword)}
+            endAdornment={
+              <InputAdornment position="end">
+                <IconButton onClick={togglePasswordVisibility}>
+                  {passwordVisible ? <Visibility /> : <VisibilityOff />}
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+          <div>
+            <Typography className="caption" color="error">
+              {passwordError}
+            </Typography>
+          </div>
 
-            <Button variant={Variant.Primary} size={Size.Large} className="font-bold mt-8 w-full" type="submit">
-              Sign Up
-            </Button>
-            <div className="flex justify-between items-center my-3">
-              <hr className="w-28" />
-              or
-              <hr className="w-28" />
-            </div>
+          <Button variant={Variant.Primary} size={Size.Large} className="font-bold mt-8 w-full" type="submit">
+            Sign Up
+          </Button>
+          <div className="flex justify-between items-center my-3">
+            <hr className="w-28" />
+            or
+            <hr className="w-28" />
+          </div>
 
-            <Button variant={Variant.PrimaryOutline} size={Size.Large} className="font-bold w-full">
-              Login
-            </Button>
-          </form>
-          {message && <Modal message={message} onClose={handleClosePopup} isError={isError} />}
-        </div>
+          <Button variant={Variant.PrimaryOutline} size={Size.Large} className="font-bold w-full">
+            Login
+          </Button>
+        </form>
+        {message && <Modal message={message} onClose={handleClosePopup} isError={isError} />}
       </div>
     </AuthLayout>
   )
