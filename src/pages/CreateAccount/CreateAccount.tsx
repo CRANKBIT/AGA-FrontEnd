@@ -28,75 +28,80 @@ const CreateAccount: FC = () => {
   return (
     <AuthLayout>
       <div className="flex justify-center items-center h-full bg-white">
-        <div className="w-1/2">
-          <Formik
-            initialValues={{
-              name: '',
-              email: '',
-              password: '',
-            }}
-            validationSchema={SignUpSchema}
-            onSubmit={async (values) => {
-              await dispatch(registerUser(values))
-              setIsModalOpen(true)
-            }}
-          >
-            {({ isSubmitting, errors, touched, isValid }) => (
-              <Form>
-                <div className="text-2xl font-medium mb-5">Create Account</div>
+        <Formik
+          initialValues={{
+            name: '',
+            email: '',
+            password: '',
+          }}
+          validationSchema={SignUpSchema}
+          onSubmit={async (values) => {
+            await dispatch(registerUser(values))
+            setIsModalOpen(true)
+          }}
+        >
+          {({ isSubmitting, errors, touched, isValid }) => (
+            <Form>
+              <div className="text-2xl font-medium mb-5">Create Account</div>
 
-                <div className="mb-4">
-                  <FieldSet label="Full Name" name="name" type="text" placeholder="John Wick" />
-                  {errors.name && touched.name && <div className="text-darkGray mt-1">{errors.name}</div>}
-                </div>
+              <div className="mb-4">
+                <FieldSet label="Full Name" name="name" type="text" placeholder="John Wick" />
+                {errors.name && touched.name && <div className="text-darkGray mt-1">{errors.name}</div>}
+              </div>
 
-                <div className="mb-4">
-                  <FieldSet label="Email Address" type="email" name="email" placeholder="John@email.com" />
-                  {errors.email && touched.email && <div className="text-darkGray mt-1">{errors.email}</div>}
-                </div>
+              <div className="mb-4">
+                <FieldSet label="Email Address" type="email" name="email" placeholder="John@email.com" />
+                {errors.email && touched.email && <div className="text-darkGray mt-1">{errors.email}</div>}
+              </div>
 
-                <div className="mb-8 relative">
-                  <FieldSet
-                    label="Password"
-                    type={isPasswordVisible ? 'text' : 'password'}
-                    name="password"
-                    placeholder="********"
-                  />
-                  <span className="absolute -translate-x-10 translate-y-3">
-                    {isPasswordVisible ? (
-                      <BsEyeFill size={20} onClick={() => setIsPasswordVisible(!isPasswordVisible)} />
-                    ) : (
-                      <BsEyeSlashFill size={20} onClick={() => setIsPasswordVisible(!isPasswordVisible)} />
-                    )}
-                  </span>
-                  {errors.password && touched.password && <div className="text-darkGray mt-1">{errors.password}</div>}
-                </div>
+              <div className="mb-8 relative">
+                <FieldSet
+                  label="Password"
+                  type={isPasswordVisible ? 'text' : 'password'}
+                  name="password"
+                  placeholder="********"
+                />
+                <span className="absolute -translate-x-10 translate-y-3">
+                  {isPasswordVisible ? (
+                    <BsEyeFill size={20} onClick={() => setIsPasswordVisible(!isPasswordVisible)} />
+                  ) : (
+                    <BsEyeSlashFill size={20} onClick={() => setIsPasswordVisible(!isPasswordVisible)} />
+                  )}
+                </span>
+                {errors.password && touched.password && <div className="text-darkGray mt-1">{errors.password}</div>}
+              </div>
 
-                <Button
-                  variant={Variant.Primary}
-                  size={Size.Large}
-                  className="font-bold"
-                  block
-                  type="submit"
-                  disabled={isSubmitting || !isValid}
-                >
-                  Sign Up
-                </Button>
+              <Button
+                variant={Variant.Primary}
+                size={Size.Large}
+                className="font-bold"
+                block
+                type="submit"
+                disabled={isSubmitting || !isValid}
+              >
+                Sign Up
+              </Button>
 
-                <div className="flex justify-between items-center my-3">
-                  <hr className="w-8" />
-                  Already have an Account?
-                  <hr className="w-8" />
-                </div>
+              <div className="flex justify-between items-center my-3">
+                <hr className="w-8" />
+                Already have an Account?
+                <hr className="w-8" />
+              </div>
 
-                <Button variant={Variant.PrimaryOutline} size={Size.Large} className="font-bold" block>
-                  Login
-                </Button>
-              </Form>
-            )}
-          </Formik>
-        </div>
+              <Button
+                variant={Variant.PrimaryOutline}
+                size={Size.Large}
+                className="font-bold"
+                block
+                onClick={() => navigate('/auth/login')}
+              >
+                Login
+              </Button>
+            </Form>
+          )}
+        </Formik>
       </div>
+
       {isModalOpen && <Modal error={error} onClose={() => setIsModalOpen(false)} />}
     </AuthLayout>
   )
