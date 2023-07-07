@@ -1,11 +1,11 @@
 import { FC } from 'react'
-import UserLayout from '@/layouts/UserLayout'
+import CompanyLayout from '@/layouts/CompanyLayout'
 import Content from './components/Content'
 
 const MyReportsHistory: FC = () => (
-  <UserLayout>
+  <CompanyLayout>
     <Content />
-  </UserLayout>
+  </CompanyLayout>
 )
 
 export default MyReportsHistory
