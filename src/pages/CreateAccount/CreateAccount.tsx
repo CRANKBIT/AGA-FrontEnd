@@ -21,8 +21,14 @@ const CreateAccount: FC = () => {
 
   useEffect(() => {
     if (user) {
-      navigate('/account')
+      const timer = setTimeout(() => {
+        navigate('/account')
+      }, 2000)
+
+      return () => clearTimeout(timer)
     }
+
+    return undefined
   }, [user, navigate])
 
   return (
@@ -61,7 +67,7 @@ const CreateAccount: FC = () => {
                   name="password"
                   placeholder="********"
                 />
-                <span className="absolute -translate-x-10 translate-y-3">
+                <span className="absolute -translate-x-10 translate-y-3 cursor-pointer">
                   {isPasswordVisible ? (
                     <BsEyeFill size={20} onClick={() => setIsPasswordVisible(!isPasswordVisible)} />
                   ) : (
