@@ -22,7 +22,7 @@ const Content: FC = () => {
           className="w-[250px] h-[90px] hover:bg-hover"
           onClick={() => navigate('/user/my-reports/create-report')}
         >
-          <FileLogo className="text-4xl mr-2">+ New Report</FileLogo>
+          <div className="mr-2">+ New Report</div>
         </Button>
         <Button className="w-[250px] h-[90px] hover:bg-hover">Browse Templates</Button>
 

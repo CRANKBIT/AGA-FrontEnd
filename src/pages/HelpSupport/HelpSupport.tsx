@@ -5,7 +5,7 @@ import Contact from './components/Contact'
 
 const HelpSupport: FC = () => (
   <UserLayout>
-    <div className="pt-[55px] px-20 bg-userContentBackground">
+    <div className="pt-[55px]">
       <div className="text-3xl font-bold ml-20">Help & Support</div>
       <Accordion />
       <Contact />
