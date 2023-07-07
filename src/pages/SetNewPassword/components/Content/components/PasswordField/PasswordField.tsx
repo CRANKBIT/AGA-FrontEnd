@@ -2,7 +2,12 @@ import { FC, useState, ChangeEvent, MouseEvent } from 'react'
 import VisibilityIcon from '@mui/icons-material/Visibility'
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff'
 
-const PasswordField: FC = () => {
+type Props = {
+  // eslint-disable-next-line
+  setPasswordReset: React.Dispatch<React.SetStateAction<any>>
+}
+
+const PasswordField: FC<Props> = ({ setPasswordReset }) => {
   const [values, setValues] = useState({
     password: '',
     confirmPassword: '',
@@ -59,6 +64,12 @@ const PasswordField: FC = () => {
 
       <button
         type="submit"
+        onClick={() => {
+          setPasswordReset(true)
+        }}
+        onMouseDown={() => {
+          setPasswordReset(false)
+        }}
         className="w-[280px] h-[50px] hover:bg-sky-700 duration-150  text-white bg-hover text-[18px] leading-5 font-bold rounded-[5px] mt-[20px]"
       >
         Update password
