@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { CiSearch } from 'react-icons/ci'
 import { useNavigate } from 'react-router-dom'
 import Button from '@/components/Button'
-import FileLogo from '@/components/FileLogo'
 import ReportViewToggle from './components/ReportViewToggle'
 
 const Content: FC = () => {
@@ -22,7 +21,7 @@ const Content: FC = () => {
           className="w-[250px] h-[90px] hover:bg-hover"
           onClick={() => navigate('/user/my-reports/create-report')}
         >
-          <FileLogo className="text-4xl mr-2">+ New Report</FileLogo>
+          <div className="mr-2">+ New Report</div>
         </Button>
         <Button className="w-[250px] h-[90px] hover:bg-hover">Browse Templates</Button>
 
