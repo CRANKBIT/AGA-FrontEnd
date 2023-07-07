@@ -10,9 +10,7 @@ const SideNavigation: FC = () => {
 
   return (
     <div className="w-[305px]">
-      <div className="text-2xl pl-14 my-12">
-        <FileLogo className="mr-4">Report Builder</FileLogo>
-      </div>
+      <FileLogo className="my-10 h-[70px] ml-14" />
       <div className="flex flex-col mb-[67px]">
         {navItems.map(({ id, href, label }) => (
           <NavItem
