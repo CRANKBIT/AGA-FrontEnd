@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import {Link} from "react-router-dom";
 
 const Form: FC = () => (
   <div className="py-80 bg-white w-[640px] flex justify-center">
@@ -32,6 +33,14 @@ const Form: FC = () => (
       >
         Agree
       </button>
+      <br/>
+      <br/>
+      <div>
+      <Link to="/auth/login/reset-password" className='m-10'>
+        <button type='submit' className='w-[280px] h-[50px] hover:bg-sky-700  text-white bg-blue-500 font-bold rounded-[5px]'> Forget your password?
+        </button>
+      </Link>
+      </div>
     </div>
   </div>
 )
