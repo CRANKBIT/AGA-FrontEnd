@@ -4,7 +4,7 @@ import { Visibility, VisibilityOff } from '@mui/icons-material'
 import AuthLayout from '@/layouts/AuthLayout'
 import Button, { Variant, Size } from '@/components/Button'
 import axios from '@/utils/axios'
-import Modal from './components/Modal'
+import Modal, { IconVariant } from '@/components/Modal/Modal'
 
 const CreateAccount: FC = () => {
   const [name, setname] = useState('')
@@ -115,7 +115,11 @@ const CreateAccount: FC = () => {
             Login
           </Button>
         </form>
-        {message && <Modal message={message} onClose={handleClosePopup} isError={isError} />}
+        {message && (
+          <Modal onClose={handleClosePopup} isError={isError} variant={IconVariant.Validation}>
+            {message}
+          </Modal>
+        )}
       </div>
     </AuthLayout>
   )

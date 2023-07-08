@@ -3,14 +3,14 @@ import classNames from 'classnames'
 import { CgClose } from 'react-icons/cg'
 import { MdOutlineMarkEmailUnread } from 'react-icons/md'
 import { BiFile } from 'react-icons/bi'
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded'
-import CheckRoundedIcon from '@mui/icons-material/CheckRounded'
+import { ImCross } from 'react-icons/im'
+import { FaCheck } from 'react-icons/fa'
 
 interface Props {
   children?: ReactNode
   variant?: IconVariant
-  onClose?: () => void
   isError?: boolean
+  onClose?: () => void
 }
 
 export enum IconVariant {
@@ -35,8 +35,8 @@ const Modal: FC<Props> = ({ children = null, variant = null, onClose = undefined
 
   return (
     <div className="w-screen h-screen fixed z-50 inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div className="w-[500px] rounded bg-white p-10 min-h-[500px] flex flex-col items-center">
-        <div className="text-6xl self-end">
+      <div className="w-[500px] rounded bg-white p-10 min-h-[400px] flex flex-col items-center">
+        <div className="text-5xl self-end">
           <CgClose onClick={handleClose} className="cursor-pointer" />
         </div>
         <div
@@ -49,16 +49,17 @@ const Modal: FC<Props> = ({ children = null, variant = null, onClose = undefined
             'my-2',
             variant === IconVariant.Email && ['bg-gray text-white text-6xl h-24 mt-10'],
             variant === IconVariant.Form && ['text-primary text-[100px] mt-10'],
-            variant === IconVariant.Validation && [isError ? 'bg-error' : 'bg-success', 'text-white h-24 mt-10']
+            variant === IconVariant.Validation && [
+              isError ? 'bg-error' : 'bg-success',
+              'text-white h-24 mt-10 text-5xl',
+            ]
           )}
         >
           {variant === IconVariant.Email && <MdOutlineMarkEmailUnread />}
-          {variant === IconVariant.Validation &&
-            (isError ? <CloseRoundedIcon className="text-6xl" /> : <CheckRoundedIcon className="text-6xl" />)}
+          {variant === IconVariant.Validation && (isError ? <ImCross /> : <FaCheck />)}
           {variant === IconVariant.Form && <BiFile />}
-          {}
         </div>
-        <div className="text-2xl">{children}</div>
+        <div className="text-2xl my-4">{children}</div>
       </div>
     </div>
   )
