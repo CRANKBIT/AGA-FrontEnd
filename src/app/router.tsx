@@ -16,6 +16,7 @@ import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
 import CreateReport from '@/pages/CreateReport'
 import ForgotPassword from '@/pages/ForgotPassword'
+import ResetPassword from '@/pages/ResetPassword'
 
 const isLoggedIn = true
 
@@ -83,6 +84,10 @@ const router = createHashRouter([
   {
     path: '/auth/login/forgot-password',
     element: <ForgotPassword />,
+  },
+  {
+    path: '/auth/login/rest-password',
+    element: <ResetPassword />,
   },
 ])
 
