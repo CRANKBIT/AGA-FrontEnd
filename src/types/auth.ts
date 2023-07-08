@@ -24,4 +24,3 @@ export interface AuthState {
   isError: boolean
   tenant: Tenant | null
 }
-
