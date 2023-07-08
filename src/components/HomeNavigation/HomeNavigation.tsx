@@ -20,11 +20,13 @@ const HomeNavigation: FC = () => (
 
       <div className="flex gap-9">
         <Link to="/buy">
-          <Button variant={Variant.Primary}>Buy</Button>
+          <Button variant={Variant.Primary} className="border border-primary hover:bg-primary-dark">
+            Buy
+          </Button>
         </Link>
         <PrivateRoute isLoggedIn={isLoggedIn}>
           <Link to="/account">
-            <Button variant={Variant.Primary} className="border border-primary">
+            <Button variant={Variant.Primary} className="border border-primary hover:bg-primary-dark">
               My Account
             </Button>
           </Link>
