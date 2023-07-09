@@ -2,7 +2,6 @@ import { FC } from 'react'
 import { CiSearch } from 'react-icons/ci'
 import { useNavigate } from 'react-router-dom'
 import Button from '@/components/Button'
-import FileLogo from '@/components/FileLogo'
 import ReportViewToggle from './components/ReportViewToggle'
 
 const Content: FC = () => {

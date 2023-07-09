@@ -16,8 +16,7 @@ import CreateAccount from '@/pages/CreateAccount'
 import MyReportsHistory from '@/pages/MyReportsHistory'
 import CreateReport from '@/pages/CreateReport'
 import ForgotPassword from '@/pages/ForgotPassword'
-
-const isLoggedIn = true
+import SetNewPassword from '@/pages/SetNewPassword/SetNewPassword'
 
 const router = createHashRouter([
   {
@@ -31,6 +30,10 @@ const router = createHashRouter([
   {
     path: '/auth/get-started',
     element: <GetStarted />,
+  },
+  {
+    path: '/auth/set-new-password',
+    element: <SetNewPassword />,
   },
   {
     path: '/auth/login',
@@ -59,7 +62,7 @@ const router = createHashRouter([
   {
     path: '/account',
     element: (
-      <PrivateRoute isLoggedIn={isLoggedIn}>
+      <PrivateRoute>
         <MyAccount />
       </PrivateRoute>
     ),
