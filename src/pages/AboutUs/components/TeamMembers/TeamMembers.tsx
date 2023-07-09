@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import memberCard from './components/DisplayMemberCard/components/MemberCard'
 import DisplayMemberCard from './components/DisplayMemberCard'
 
 const TeamMembers: FC = () => (
