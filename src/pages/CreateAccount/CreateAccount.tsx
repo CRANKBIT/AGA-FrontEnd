@@ -1,6 +1,8 @@
 import { ChangeEvent, FC, FormEvent, useState } from 'react'
 import { Input, IconButton, InputAdornment, Typography } from '@mui/material'
 import { Visibility, VisibilityOff } from '@mui/icons-material'
+import { zxcvbn } from '@zxcvbn-ts/core'
+import classNames from 'classnames'
 import AuthLayout from '@/layouts/AuthLayout'
 import Button, { Variant, Size } from '@/components/Button'
 import axios from '@/utils/axios'
@@ -13,6 +15,7 @@ const CreateAccount: FC = () => {
   const [passwordVisible, setPasswordVisible] = useState(false)
   const [passwordError, setPasswordError] = useState('')
   const [message, setMessage] = useState<string>('')
+  const [score, setScore] = useState<any | null>(null)
 
   const inputClassName =
     'w-full border border-gray-300 rounded-md px-3 py-2 mt-1 focus:outline-none focus:ring-1 focus:ring-gray-400'
@@ -22,6 +25,13 @@ const CreateAccount: FC = () => {
     (e: ChangeEvent<HTMLInputElement>): void => {
       const { value } = e.target
       setValue(value)
+      if (e.target.value !== '') {
+        const pass = zxcvbn(e.target.value)
+        setScore(pass.score)
+      } else {
+        setScore(null)
+      }
+
       if (setValue === setPassword) {
         let errorMessage = ''
         if (value.length < 6 || !/\d/.test(value) || !/[a-zA-Z]/.test(value)) {
@@ -100,6 +110,24 @@ const CreateAccount: FC = () => {
             <Typography className="caption" color="error">
               {passwordError}
             </Typography>
+          </div>
+
+          <div
+            data-score={score}
+            className={classNames(
+              'w-0 h-2 bg-transparent ease-in-out duration-300 mt-2',
+              score === 0 && 'bg-red-600 text-red-600 w-1/3 h-2',
+              score === 1 && 'bg-red-600 text-red-600 w-1/3 h-2',
+              score === 2 && 'bg-orange-400 text-orange-400 w-2/3 h-2',
+              score === 3 && 'bg-orange-400 text-orange-400 w-2/3 h-2',
+              score === 4 && 'bg-green-600 text-green-600 w-[99.9%] h-2'
+            )}
+          >
+            <div className="text-end pt-2 text-xs">
+              {score === 0 || score === 1 ? 'weak' : ''}
+              {score === 2 || score === 3 ? 'fair' : ''}
+              {score === 4 ? 'strong' : ''}
+            </div>
           </div>
 
           <Button variant={Variant.Primary} size={Size.Large} className="font-bold mt-8 w-full" type="submit">
