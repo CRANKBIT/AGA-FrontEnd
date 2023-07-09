@@ -6,37 +6,37 @@ import axios from '@/utils/axios'
 
 const HomeNavigation: FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const checkLoggedInStatus = async (): Promise<void> => {
-      // 检查本地存储中的令牌
-      const storedToken = localStorage.getItem('token')
-      if (storedToken) {
-        axios.defaults.headers.common.Authorization = `Bearer ${storedToken}`
-        try {
-          const response = await axios.get('/api/v1/tenant/is-logged-in')
-          const { isLoggedIn: loggedInStatus } = response.data
-          setIsLoggedIn(loggedInStatus)
-        } catch (error) {
-          console.error('Failed to check login status:', error)
-        }
+      const token = window.localStorage.getItem('token')
+      if (token) {
+        axios.defaults.headers.common.Authorization = `Bearer ${token}`
+      } else {
+        delete axios.defaults.headers.common.Authorization
       }
-
-      setIsLoading(false)
+      try {
+        const response = await axios.get('/api/v1/tenant/check-login')
+        const { loggedIn } = response.data
+        console.log('Logged In:', loggedIn)
+        setIsLoggedIn(loggedIn)
+      } catch (error) {
+        console.log('Failed to check login status:', error)
+      }
     }
 
     checkLoggedInStatus()
   }, [])
 
-  const handleLogout = (): void => {
-    // 从本地存储中移除令牌
-    localStorage.removeItem('token')
-    setIsLoggedIn(false)
-  }
-
-  if (isLoading) {
-    return <div>Loading...</div>
+  const handleLogout = async (): Promise<void> => {
+    try {
+      await axios.post('/api/v1/auth/logout')
+      setIsLoggedIn(false)
+      window.localStorage.removeItem('token') // Make sure to remove the token when logging out
+      delete axios.defaults.headers.common.Authorization // Remove the Authorization header
+    } catch (error) {
+      console.error('Logout failed:', error)
+    }
   }
 
   return (

@@ -1,12 +1,12 @@
 import { FC, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { registerUser } from '@/features/auth/authSlice'
+import { registerTenant } from '@/features/auth/authSlice'
 import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import AuthLayout from '@/layouts/AuthLayout'
 import Button, { Variant, Size } from '@/components/Button'
 
 const SignUp: FC = () => {
-  const { user } = useAppSelector((state) => state.auth)
+  const { tenant } = useAppSelector((state) => state.auth)
   const dispatch = useAppDispatch()
 
   const navigate = useNavigate()
@@ -16,20 +16,20 @@ const SignUp: FC = () => {
 
   // NOTE: for temporary testing
   const handleRegister = (): void => {
-    const testUser = {
+    const testTenant = {
       name: 'John Doe',
       email: 'john@gmail.com',
       password: 'password123',
     }
 
-    dispatch(registerUser(testUser))
+    dispatch(registerTenant(testTenant))
   }
 
   useEffect(() => {
-    if (user) {
+    if (tenant) {
       navigate('/account')
     }
-  }, [user, navigate])
+  }, [tenant, navigate])
 
   return (
     <AuthLayout>

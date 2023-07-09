@@ -1,42 +1,44 @@
 import { AxiosError } from 'axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { RootState } from '@/app/store'
-import { loginApi, registerApi } from '@/services/user'
-import { getUserFromLocalStorage, addUserToLocalStorage, removeUserFromLocalStorage } from '@/utils/localStorage'
-import { User, RegisterPayload, LoginPayload, AuthState } from '@/interfaces/auth'
+import { loginApi, registerApi } from '@/services/tenant'
+import { getTenantFromLocalStorage, addTenantToLocalStorage, removeTenantFromLocalStorage } from '@/utils/localStorage'
+
+import { Tenant, RegisterPayload, LoginPayload, AuthState } from '@/types/auth'
 
 const initialState: AuthState = {
+  isLoggedIn: false,
   isLoading: false,
-  user: getUserFromLocalStorage(),
+  tenant: getTenantFromLocalStorage(),
   isError: false,
 }
 
-export const registerUser = createAsyncThunk<User, RegisterPayload, { rejectValue: AxiosError }>(
+export const registerTenant = createAsyncThunk<Tenant, RegisterPayload, { rejectValue: AxiosError }>(
   'auth/signup',
   async (registerPayload: RegisterPayload, { rejectWithValue }) => {
     try {
       const { data } = await registerApi(registerPayload)
-      addUserToLocalStorage(data)
+      addTenantToLocalStorage(data)
       return data
     } catch (err) {
       if (err instanceof AxiosError) {
-        return rejectWithValue(err)
+        return rejectWithValue(err.response?.data ?? err)
       }
       throw err
     }
   }
 )
 
-export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: AxiosError }>(
+export const loginTenant = createAsyncThunk<Tenant, LoginPayload, { rejectValue: AxiosError }>(
   'auth/login',
   async (loginPayload: LoginPayload, { rejectWithValue }) => {
     try {
       const { data } = await loginApi(loginPayload)
-      addUserToLocalStorage(data)
+      addTenantToLocalStorage(data)
       return data
     } catch (err) {
       if (err instanceof AxiosError) {
-        return rejectWithValue(err)
+        return rejectWithValue(err.response?.data ?? err)
       }
       throw err
     }
@@ -48,33 +50,35 @@ export const authSlice = createSlice({
   initialState,
   reducers: {
     logout: (state) => {
-      state.user = null
-      removeUserFromLocalStorage()
+      state.tenant = null
+      removeTenantFromLocalStorage()
     },
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
+      .addCase(registerTenant.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(registerUser.fulfilled, (state, { payload }) => {
+      .addCase(registerTenant.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.user = payload
+        state.tenant = payload
       })
-      .addCase(registerUser.rejected, (state) => {
+      .addCase(registerTenant.rejected, (state, { payload }) => {
         state.isLoading = false
         state.isError = true
+        state.error = payload
       })
-      .addCase(loginUser.pending, (state) => {
+      .addCase(loginTenant.pending, (state) => {
         state.isLoading = true
       })
-      .addCase(loginUser.fulfilled, (state, { payload }) => {
+      .addCase(loginTenant.fulfilled, (state, { payload }) => {
         state.isLoading = false
-        state.user = payload
+        state.tenant = payload
       })
-      .addCase(loginUser.rejected, (state) => {
+      .addCase(loginTenant.rejected, (state, { payload }) => {
         state.isLoading = false
         state.isError = true
+        state.error = payload
       })
   },
 })

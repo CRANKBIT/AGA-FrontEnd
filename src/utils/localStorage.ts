@@ -1,15 +1,15 @@
-import { User } from '@/interfaces/auth'
+import { Tenant } from '@/types/auth'
 
-export const addUserToLocalStorage = (user: User): void => {
-  localStorage.setItem('user', JSON.stringify(user))
+export const addTenantToLocalStorage = (tenant: Tenant): void => {
+  localStorage.setItem('tenant', JSON.stringify(tenant))
 }
 
-export const removeUserFromLocalStorage = (): void => {
-  localStorage.removeItem('user')
+export const removeTenantFromLocalStorage = (): void => {
+  localStorage.removeItem('tenant')
 }
 
-export const getUserFromLocalStorage = (): User | null => {
-  const result = localStorage.getItem('user')
-  const user = result ? JSON.parse(result) : null
-  return user
+export const getTenantFromLocalStorage = (): Tenant | null => {
+  const result = localStorage.getItem('tenant')
+  const tenant = result ? JSON.parse(result) : null
+  return tenant
 }

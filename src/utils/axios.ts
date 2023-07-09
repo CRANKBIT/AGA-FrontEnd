@@ -1,16 +1,15 @@
 import axios from 'axios'
-import { getUserFromLocalStorage } from './localStorage'
+import { getTenantFromLocalStorage } from './localStorage'
 
-// NOTE: Please use your own server port number, and will change to production server later
 const axiosClient = axios.create({
   baseURL: process.env.REACT_APP_BACKEND_BASE_URL || 'http://localhost:8080',
 })
 
 axiosClient.interceptors.request.use((config) => {
-  const user = getUserFromLocalStorage()
-  if (user) {
+  const tenant = getTenantFromLocalStorage()
+  if (tenant) {
     // eslint-disable-next-line no-param-reassign
-    config.headers.common.Authorization = `Bearer ${user.token}`
+    config.headers.common.Authorization = `Bearer ${localStorage.getItem('token')}`
   }
   return config
 })

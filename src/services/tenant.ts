@@ -1,6 +1,6 @@
 import { AxiosResponse } from 'axios'
 import api from '@/utils/axios'
-import { RegisterPayload, LoginPayload } from '@/interfaces/auth'
+import { RegisterPayload, LoginPayload } from '@/types/auth'
 
 export const registerApi = (registerPayload: RegisterPayload): Promise<AxiosResponse> =>
   api.post('/auth/register', registerPayload)

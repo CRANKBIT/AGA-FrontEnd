@@ -1,3 +1,5 @@
+import { AxiosError } from 'axios'
+
 export interface Tenant {
   tenant: {
     tenantId: string
@@ -23,4 +25,5 @@ export interface AuthState {
   isLoggedIn: boolean
   isError: boolean
   tenant: Tenant | null
+  error?: AxiosError | Error
 }
