@@ -15,6 +15,7 @@ const FooterContainer: FC = () => (
       <NavLink Ref="/features" LinkName="Features" ScrollToTop={handleScrollToTop} />
       <NavLink Ref="/pricing" LinkName="Pricing" ScrollToTop={handleScrollToTop} />
       <NavLink Ref="/contact" LinkName="Contact" ScrollToTop={handleScrollToTop} />
+      <NavLink Ref="/about-us" LinkName="About Us" ScrollToTop={handleScrollToTop} />
     </div>
 
     <div className="text-xs pt-[64px] flex justify-center">© Report Builder, 2023 - All Rights Reserved</div>
