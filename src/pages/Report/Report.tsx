@@ -6,9 +6,9 @@ import Snapshot from './Components/Snapshot'
 // import ReportList from '@/components/ReportList/ReportList'
 
 const Report: FC = () => (
-    <UserLayout>
-      <Snapshot />
-    </UserLayout>
+  <UserLayout>
+    <Snapshot />
+  </UserLayout>
 )
 
 export default Report

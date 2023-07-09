@@ -92,8 +92,8 @@ const router = createHashRouter([
   {
     path: '/auth/login/rest-password',
     element: <ResetPassword />,
-        },
-        {
+  },
+  {
     path: '/about-us',
     element: <AboutUs />,
   },

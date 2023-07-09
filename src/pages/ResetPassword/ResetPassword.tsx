@@ -52,10 +52,10 @@ const ResetPassword: FC = () => {
         password,
         token,
       })
-      setMessage(response.data.msg)
+      setMessage(response.data.message)
     } catch (error) {
       const errorMessage =
-        (error as { response?: { data: { msg: string } } }).response?.data.msg || 'An unkonw error occurred'
+        (error as { response?: { data: { message: string } } }).response?.data.message || 'An unkonw error occurred'
       setMessage(errorMessage)
     }
   }
@@ -109,7 +109,7 @@ const ResetPassword: FC = () => {
             Update Password
           </Button>
         </form>
-        {message && <Modal message={message} onClose={handleClosePopup} isError={isError} />}
+        {message && <Modal onClose={handleClosePopup} error={isError ? new Error(message) : undefined} />}
       </div>
     </AuthLayout>
   )
