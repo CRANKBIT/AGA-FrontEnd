@@ -32,8 +32,8 @@ const HomeNavigation: FC = () => {
     try {
       await axios.post('/api/v1/auth/logout')
       setIsLoggedIn(false)
-      window.localStorage.removeItem('token') // Make sure to remove the token when logging out
-      delete axios.defaults.headers.common.Authorization // Remove the Authorization header
+      window.localStorage.removeItem('token') 
+      delete axios.defaults.headers.common.Authorization 
     } catch (error) {
       console.error('Logout failed:', error)
     }
