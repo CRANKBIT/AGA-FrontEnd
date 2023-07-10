@@ -1,5 +1,5 @@
 import { FC, useState, FormEvent } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import AuthLayout from '@/layouts/AuthLayout'
 import axios from '@/utils/axios'
 
@@ -57,6 +57,9 @@ const Login: FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
+            <Link to="/auth/login/reset-password" className="text-darkgray block mb-2">
+              Forget Password?
+            </Link>
 
             <button
               type="submit"
@@ -68,14 +71,20 @@ const Login: FC = () => {
 
             {message && <p>{message}</p>}
           </form>
-          <button
-            type="button"
-            className="w-[280px] h-[50px] hover:bg-sky-700 text-white bg-[#007AD3] text-4.5 leading-5 font-bold rounded-[5px] mt-5"
-            disabled={isLoading}
-            onClick={() => navigate('/auth/login/reset-password')}
-          >
-            Forget Password
-          </button>
+          <div className="flex justify-between items-center my-3">
+            <hr className="w-28" />
+            or
+            <hr className="w-28" />
+          </div>
+          <div className="flex justify-center mb-2 relative">
+            <button
+              type="button"
+              className="block text-center text-[#5E5E5E] w-[280px] h-[50px] rounded-md bg-white border-[#03111B] border-2"
+            >
+              Sign in with Google
+            </button>
+            <img className="absolute left-6 top-4" src="/svg/googleIcon.svg" alt="" />
+          </div>
         </div>
       </div>
     </AuthLayout>
