@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { createBrowserRouter, createHashRouter, RouterProvider } from 'react-router-dom'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import SignUp from '@/pages/SignUp'
 import GetStarted from '@/pages/GetStarted'
@@ -94,9 +94,8 @@ const routes = [
   },
 ]
 
-const App: FC = () => {
-  const router = createHashRouter(routes)
-  return <RouterProvider router={router} />
-}
+const router = createBrowserRouter(routes)
+
+const App: FC = () => <RouterProvider router={router} />
 
 export default App
