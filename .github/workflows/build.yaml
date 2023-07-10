@@ -1,15 +1,15 @@
 name: Build Nodejs frontend and deploy to AWS S3
 run-name: ${{ github.actor }} is running GitHub Actions workflow
-on:   
+on:
   push:
-    branches: 
+    branches:
       - 'CB**'
       - main
       - uat
       - prod
 
   pull_request:
-    branches: 
+    branches:
       - main
       - uat
       - prod
@@ -21,14 +21,14 @@ on:
   workflow_dispatch:
     inputs:
       environment:
-         description: 'Please select the environment on which to run:'
-         required: true
-         default: 'dev'
-         type: choice
-         options:
-         - dev
-         - uat
-         - prod
+        description: 'Please select the environment on which to run:'
+        required: true
+        default: 'dev'
+        type: choice
+        options:
+          - dev
+          - uat
+          - prod
 
 concurrency:
   group: ${{ github.ref || github.run_id }}
@@ -40,8 +40,8 @@ permissions:
 jobs:
   test:
     runs-on: ubuntu-22.04
-    permissions: 
-      security-events: write 
+    permissions:
+      security-events: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -85,79 +85,79 @@ jobs:
           npm ci
           npm run lint
           npm run test
-  
+
   build:
     if: ${{ github.ref == 'refs/heads/main' || github.ref == 'refs/heads/uat' || github.ref == 'refs/heads/prod'}}
     needs: test
     runs-on: ubuntu-22.04
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Restore node modules cache
-      uses: actions/cache@v3
-      with:
-        path: ~/.npm
-        key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
+      - name: Restore node modules cache
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-cache-node-modules-${{ hashFiles('**/package-lock.json') }}
 
-    - name: Build frontend code
-      env: 
-        REACT_APP_BACKEND_BASE_URL: ${{ secrets.REACT_APP_BACKEND_BASE_URL }}
-      run: |
-        npm ci
-        npm run build
+      - name: Build frontend code
+        env:
+          REACT_APP_BACKEND_BASE_URL: ${{ secrets.REACT_APP_BACKEND_BASE_URL }}
+        run: |
+          npm ci
+          npm run build
 
-    - name: Archive build artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: crankbit-frontend-build
-        path: build
+      - name: Archive build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: crankbit-frontend-build
+          path: build
 
   deploy:
     needs: build
     runs-on: ubuntu-22.04
-   
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Setup Node
-      uses: actions/setup-node@v3
-      with:
-        node-version: '18'
-    
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: ${{ secrets.AWS_REGION }}
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-    - name: Download build artifact
-      uses: actions/download-artifact@v3
-      with:
-        name: crankbit-frontend-build
-        path: build
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
 
-    - if: ${{ (github.event.inputs.environment == 'dev' || github.event_name == 'push') && github.ref == 'refs/heads/main' }}
-      name: Deploy to Dev and invalidate Cloudfront distribution
-      run: |
-        aws s3 sync ./build s3://www.dev.crankbit.com
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_DISTRIBUTION_ID }} --paths "/*"
+      - name: Download build artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: crankbit-frontend-build
+          path: build
 
-    - if: ${{ (github.event.inputs.environment == 'uat' || github.event_name == 'push') && github.ref == 'refs/heads/uat' }}
-      name: Deploy to UAT
-      run: |
-        aws s3 sync ./build s3://www.uat.crankbit.com
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.UAT_DISTRIBUTION_ID }} --paths "/*"
+      - if: ${{ (github.event.inputs.environment == 'dev' || github.event_name == 'push') && github.ref == 'refs/heads/main' }}
+        name: Deploy to Dev and invalidate Cloudfront distribution
+        run: |
+          aws s3 sync ./build s3://www.dev.crankbit.com
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.DEV_DISTRIBUTION_ID }} --paths "/*"
 
-    - if: ${{ (github.event.inputs.environment == 'prod' || github.event_name == 'push') && github.ref == 'refs/heads/prod' }}
-      name: Deploy to Prod
-      run: |
-        aws s3 sync ./build s3://www.crankbit.com
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_DISTRIBUTION_ID }} --paths "/*"
+      - if: ${{ (github.event.inputs.environment == 'uat' || github.event_name == 'push') && github.ref == 'refs/heads/uat' }}
+        name: Deploy to UAT
+        run: |
+          aws s3 sync ./build s3://www.uat.crankbit.com
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.UAT_DISTRIBUTION_ID }} --paths "/*"
+
+      - if: ${{ (github.event.inputs.environment == 'prod' || github.event_name == 'push') && github.ref == 'refs/heads/prod' }}
+        name: Deploy to Prod
+        run: |
+          aws s3 sync ./build s3://www.crankbit.com
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.PROD_DISTRIBUTION_ID }} --paths "/*"

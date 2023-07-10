@@ -33,7 +33,7 @@ const SignUp: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="w-[640px] flex items-center justify-center bg-white ">
+      <div className="w-[640px] flex items-center justify-center bg-userContent min-h-screen">
         <div>
           <div className="text-xl font-medium mb-5">Get started</div>
 

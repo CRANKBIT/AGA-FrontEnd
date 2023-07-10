@@ -18,11 +18,12 @@ module.exports = {
         darkGray: 'rgb(165,165,165)',
         hover: '#007AD3',
         textColorBlack: '#1E1E1E',
-        userContentBackground: '#E9EFF4',
+        userContent: '#E9EFF4',
       },
       borderColor: {
         primary: '#007AD3',
         secondary: '#03111B',
+        gray: '#CBD5E1',
       },
       maxWidth: {
         container: '1280px',

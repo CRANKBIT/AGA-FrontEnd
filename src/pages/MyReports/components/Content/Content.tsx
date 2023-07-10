@@ -8,7 +8,7 @@ const Content: FC = () => {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-white pt-14 px-20 h-screen">
+    <div className="bg-userContent pt-14 px-20 min-h-screen ">
       <div className="flex justify-between">
         <div className="font-bold text-2xl">My Reports (12)</div>
         <div className="p-1 flex justify-between items-center border border-black bg-white rounded w-[250px]">
@@ -29,6 +29,7 @@ const Content: FC = () => {
           Report History
         </Button>
       </div>
+
       <ReportViewToggle />
     </div>
   )

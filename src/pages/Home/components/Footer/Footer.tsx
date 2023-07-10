@@ -9,7 +9,7 @@ const handleScrollToTop = (): void => {
   })
 }
 
-const FooterContainer: FC = () => (
+const Footer: FC = () => (
   <div className="bg-background text-white h-[384px] mx-auto max-w-7xl min-w-[390px]">
     <div className="text-base space-x-9 pt-[112px] flex justify-center">
       <NavLink Ref="/features" LinkName="Features" ScrollToTop={handleScrollToTop} />
@@ -34,4 +34,4 @@ const FooterContainer: FC = () => (
   </div>
 )
 
-export default FooterContainer
+export default Footer

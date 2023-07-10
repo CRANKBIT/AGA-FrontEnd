@@ -12,6 +12,7 @@ interface Props {
 export enum PageVariant {
   AuthPage,
   UserPage,
+  CompanyPage,
 }
 
 const FlexLayout: FC<Props> = ({ children, variant }) => (
@@ -26,15 +27,18 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
     >
       {variant === PageVariant.AuthPage && <FileLogo className="h-[100px]" />}
       {variant === PageVariant.UserPage && <SideNavigation />}
+      {variant === PageVariant.CompanyPage && <SideNavigation isCompanySide />}
     </div>
 
     <div
       className={classNames(
         variant === PageVariant.AuthPage && ['w-1/2'],
-        variant === PageVariant.UserPage && ['w-full']
+        variant === PageVariant.UserPage && ['w-full'],
+        variant === PageVariant.CompanyPage && ['w-full']
       )}
     >
       {variant === PageVariant.UserPage && children}
+      {variant === PageVariant.CompanyPage && children}
       {variant === PageVariant.AuthPage && (
         <div className="flex items-center justify-center bg-white h-screen">{children}</div>
       )}

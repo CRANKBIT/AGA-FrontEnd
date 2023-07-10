@@ -1,3 +1,5 @@
+/* eslint-disable react/no-danger */
+
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
@@ -13,19 +15,19 @@ const members = [
   {
     imgSrc: '',
     name: 'Linghan',
-    role: 'Developer',
+    role: 'Tech Lead <br> Scrum Master',
     linkIn: '',
   },
   {
     imgSrc: '',
     name: 'Jeremy',
-    role: 'Developer',
+    role: 'Tech Lead',
     linkIn: '',
   },
   {
     imgSrc: '',
     name: 'Long Chao',
-    role: 'Developer',
+    role: 'Tech Lead',
     linkIn: '',
   },
 
@@ -112,7 +114,13 @@ const DisplayMemberCard: FC = () => (
       <MemberCard key={uuidv4()}>
         <img className="w-12 h-12 rounded-full mx-auto" src="/svg/logo.svg" alt="" />
         <p>{member.name}</p>
-        <p className="text-xs text-[#6F6F6F]">@{member.role}</p>
+
+        <p
+          className="text-xs text-[#6F6F6F]"
+          dangerouslySetInnerHTML={{
+            __html: `@${member.role}`,
+          }}
+        />
         <Link className="m-8" to={member.linkIn}>
           <img className="mx-auto" src="/svg/LinkIn.svg" alt="" />
         </Link>
