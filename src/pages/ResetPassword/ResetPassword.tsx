@@ -47,31 +47,33 @@ const ResetPassword: FC<Props> = ({ onClose = () => {} }) => {
 
   return (
     <AuthLayout>
-      <div className="w-1/2">
-        <div className="text-xl font-bold mb-5">Forgot Password?</div>
-        <div className="font-bold text-gray mb-10">Please enter your email address to reset your password</div>
-        <form onSubmit={handleSubmit}>
-          <div className="text-xl">
-            <label htmlFor="email" className="block">
-              Email:
-            </label>
-            <input
-              type="email"
-              id="email"
-              className="w-full px-4 py-2 mb-20 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-          </div>
+      <div className="bg-userContent flex justify-center items-center w-full h-screen">
+        <div className='w-1/2'>
+          <div className="text-xl font-bold mb-5">Forgot Password?</div>
+          <div className="font-bold text-gray mb-10">Please enter your email address to reset your password</div>
+          <form onSubmit={handleSubmit}>
+            <div className="text-xl">
+              <label htmlFor="email" className="block">
+                Email:
+              </label>
+              <input
+                type="email"
+                id="email"
+                className="w-full px-4 py-2 mb-20 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
 
-          <button
-            type="submit"
-            className="w-full px-4 py-2 bg-primary text-white text-xl font-bold rounded hover:bg-blue-800"
-          >
-            Reset
-          </button>
-        </form>
+            <button
+              type="submit"
+              className="w-full px-4 py-2 bg-primary text-white text-xl font-bold rounded hover:bg-blue-800"
+            >
+              Reset
+            </button>
+          </form>
+        </div>
       </div>
     </AuthLayout>
   )
