@@ -5,8 +5,8 @@ import Button from '@/components/Button'
 
 const UserLogin: FC = () => (
   <AuthLayout>
-    <div className="py-80 bg-white w-[640px] flex justify-center justify-items-center">
-      <div className="w-[280px] h-screen">
+    <div className="py-80 bg-white w-[640px] flex justify-center items-center">
+      <div className="w-[280px]">
         <div>
           <h1 className="text-textColorBlack text-2xl mb-5 font-medium">Log in</h1>
           <p className="font-medium">User name or email</p>
@@ -31,10 +31,10 @@ const UserLogin: FC = () => (
           <hr className="w-28" />
         </div>
         <div className="flex justify-center mb-2 relative">
-          <Button className="block text-center text-[#5E5E5E] w-[280px] h-10 bg-white border-[#03111B] border-2">
+          <button type='button' className="block text-center text-[#5E5E5E] w-[250px] h-10 rounded-md bg-white border-[#03111B] border-2">
             Sign in with Google
-          </Button>
-          <img className="absolute left-3 top-3" src="/svg/googleIcon.svg" alt="" />
+          </button>
+          <img className="absolute left-6 top-3" src="/svg/googleIcon.svg" alt="" />
         </div>
       </div>
     </div>
