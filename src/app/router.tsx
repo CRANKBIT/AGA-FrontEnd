@@ -94,8 +94,9 @@ const routes = [
   },
 ]
 
-const router = process.env.HASH_ROUTER ? createHashRouter(routes) : createBrowserRouter(routes)
-
-const App: FC = () => <RouterProvider router={router} />
+const App: FC = () => {
+  const router = process.env.HASH_ROUTER ? createHashRouter(routes) : createBrowserRouter(routes)
+  return <RouterProvider router={router} />
+}
 
 export default App
