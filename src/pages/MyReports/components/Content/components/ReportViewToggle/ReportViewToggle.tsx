@@ -8,7 +8,7 @@ const ReportViewToggle: FC = () => {
   const [viewMode, SetViewMode] = useState<'list' | 'card'>('list')
 
   return (
-    <div className='bg-white rounded-lg mt-4'>
+    <div className="bg-white rounded-lg mt-4">
       <div className="flex items-center my-4 p-4 justify-between ">
         {viewMode === 'list' ? (
           <div className="flex gap-20">

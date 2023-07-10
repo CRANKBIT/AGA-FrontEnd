@@ -37,7 +37,7 @@ const Login: FC = () => {
 
   return (
     <AuthLayout>
-      <div className='bg-userContent min-h-screen flex justify-center items-center w-full'>
+      <div className="bg-userContent min-h-screen flex justify-center items-center w-full">
         <div className="w-[280px]">
           <form onSubmit={handleLogin}>
             <div>

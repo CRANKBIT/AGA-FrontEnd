@@ -6,12 +6,12 @@ const MyAccount: FC = () => (
   <CompanyLayout>
     <div className="bg-userContent min-h-screen p-10">
       <h1>Hi, Alonso</h1>
-      <div className='text-end'>Edit</div>
+      <div className="text-end">Edit</div>
       <div className="flex justify-around">
         <div> email</div> <div>123.com</div>
       </div>
       <div>
-      <div className='text-end'>Edit</div>
+        <div className="text-end">Edit</div>
         <h1>companylist</h1>
         <div className="flex gap-10">
           <Link to="/user/my-reports">
