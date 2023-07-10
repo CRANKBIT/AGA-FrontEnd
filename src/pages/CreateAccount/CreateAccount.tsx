@@ -33,7 +33,7 @@ const CreateAccount: FC = () => {
 
   return (
     <AuthLayout>
-      <div className="flex justify-center items-center h-full bg-white">
+      <div className="flex justify-center items-center min-h-screen bg-userContent w-full">
         <Formik
           initialValues={{
             name: '',

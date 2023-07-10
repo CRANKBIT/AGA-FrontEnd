@@ -8,22 +8,22 @@ const HomeNavigation: FC = () => {
   return (
     <nav>
       <div className="flex justify-between pt-7 mx-[120px] text-white">
+        <Link to="/" className="flex items-center gap-2 ">
+          <img width={32} src="./logo.svg" />
+          Report Builder
+        </Link>
         <div className="flex gap-10 items-center">
-          <Link to="/" className="flex items-center gap-2">
-            <img width={32} src="./logo.svg" />
-            Report Builder
-          </Link>
           <Link to="/products">Products</Link>
           <Link to="/features">Features</Link>
           <Link to="/support">Support</Link>
         </div>
 
         <div className="flex gap-9">
-          <Link to="/buy">
-            <Button variant={Variant.Primary}>Buy</Button>
-          </Link>
+          <Button variant={Variant.Primary} onClick={() => navigate('/')}>
+            Buy
+          </Button>
 
-          <Button variant={Variant.Primary} className="border border-primary" onClick={() => navigate('/account')}>
+          <Button variant={Variant.Primary} onClick={() => navigate('/account')}>
             My Account
           </Button>
         </div>
