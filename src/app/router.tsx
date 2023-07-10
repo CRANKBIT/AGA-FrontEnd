@@ -94,9 +94,7 @@ const routes = [
   },
 ]
 
-const router = process.env.PUBLIC_URL.startsWith('https://CRANKBIT.github.io/')
-  ? createHashRouter(routes)
-  : createBrowserRouter(routes)
+const router = process.env.HASH_ROUTER ? createHashRouter(routes) : createBrowserRouter(routes)
 
 const App: FC = () => <RouterProvider router={router} />
 
