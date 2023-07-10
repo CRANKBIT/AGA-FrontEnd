@@ -29,7 +29,8 @@ on:
          - dev
          - uat
          - prod
-
+env:
+  CI: false
 concurrency:
   group: ${{ github.ref || github.run_id }}
   cancel-in-progress: true
@@ -82,7 +83,7 @@ jobs:
 
       - name: Checking code format, testing the code.
         run: |
-          npm ci
+          npm install
           npm run lint
           npm run test
   
@@ -109,7 +110,7 @@ jobs:
       env: 
         REACT_APP_BACKEND_BASE_URL: ${{ secrets.REACT_APP_BACKEND_BASE_URL }}
       run: |
-        npm ci
+        npm install
         npm run build
 
     - name: Archive build artifact
@@ -121,7 +122,10 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-22.04
-   
+    environment: 
+      name: ${{ github.ref_name }}
+      url: ${{ vars.DNS_URL }}
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
