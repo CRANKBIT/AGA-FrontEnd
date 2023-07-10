@@ -95,7 +95,7 @@ const routes = [
 ]
 
 const App: FC = () => {
-  const router = process.env.HASH_ROUTER ? createHashRouter(routes) : createBrowserRouter(routes)
+  const router = process.env.REACT_APP_HASH_ROUTER ? createHashRouter(routes) : createBrowserRouter(routes)
   return <RouterProvider router={router} />
 }
 
