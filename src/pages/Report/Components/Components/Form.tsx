@@ -1,6 +1,5 @@
 import { FC, useState } from 'react'
 import { HiOutlineCamera } from 'react-icons/hi'
-import { Link } from '@mui/material'
 import Button from '@/components/Button'
 
 const Form: FC = () => {

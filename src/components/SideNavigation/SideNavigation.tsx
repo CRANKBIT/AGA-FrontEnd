@@ -1,16 +1,27 @@
 import { FC, useState } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { MdLogout } from 'react-icons/md'
+import { useAppDispatch } from '@/app/hooks'
+import { logout } from '@/features/auth/authSlice'
 import navItems from '@/constants/navItems'
 import NavItem from '@/components/NavItem'
 import FileLogo from '@/components/FileLogo'
+import Button, { Variant, Size } from '@/components/Button'
 
 interface Props {
   isCompanySide?: boolean
 }
 
 const SideNavigation: FC<Props> = ({ isCompanySide = false }) => {
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
   const location = useLocation()
   const [currentActive, setCurrentActive] = useState<string | null>(location.pathname)
+
+  const handleLogout = (): void => {
+    dispatch(logout())
+    navigate('/')
+  }
 
   return (
     <div className="w-[305px]">
@@ -33,8 +44,11 @@ const SideNavigation: FC<Props> = ({ isCompanySide = false }) => {
           <div className="text-lg pl-14 mb-2">
             <Link to="/user/my-profile">My Profile</Link>
           </div>
-          <div className="text-sm pl-14 text-[#7C7C81]">
-            <Link to="/auth/logout">Logout</Link>
+          <div className="w-52 text-lg font-bold pl-14 mt-32">
+            <Button variant={Variant.PrimaryOutline} size={Size.Large} block onClick={handleLogout}>
+              <MdLogout className="inline mr-2" size={18} />
+              Logout
+            </Button>
           </div>
         </>
       ) : (

@@ -1,10 +1,9 @@
 import { FC, useState, FormEvent } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import AuthLayout from '@/layouts/AuthLayout'
 import axios from '@/utils/axios'
 
 const Login: FC = () => {
-  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [message, setMessage] = useState('')
