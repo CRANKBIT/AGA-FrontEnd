@@ -8,7 +8,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 
 const DatePicker: FC = () => {
-  const [open, setOpen] = useState(true)
+  const [open, setOpen] = useState(false)
   const refOne = useRef<HTMLInputElement>(null)
   const [state, setState] = useState([
     {
