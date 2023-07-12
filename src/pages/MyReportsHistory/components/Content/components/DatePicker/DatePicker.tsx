@@ -45,14 +45,11 @@ const DatePicker: FC = () => {
         </button>
       </div>
 
-      <div 
-        ref={refOne}
-        className="z-10 absolute top-[35px] right-[0px]"
-      >
+      <div ref={refOne} className="z-10 absolute top-[35px] right-[0px]">
         {open && (
           <DateRangePicker
-          // eslint-disable-next-line
-            onChange={(item:any) => setState([item.selection])}
+            // eslint-disable-next-line
+            onChange={(item: any) => setState([item.selection])}
             moveRangeOnFirstSelection={false}
             months={1}
             ranges={state}

@@ -30,8 +30,8 @@ const Content: FC = () => {
             <input placeholder="Search.." className="focus:outline-none" />
             <CiSearch />
           </div>
-          <DatePicker/>
-          
+          <DatePicker />
+
           <div className="w-1/6 flex cursor-pointer text-3xl">
             <ToggleButton icon={AiOutlineAppstore} isActive={viewMode === 'card'} onClick={() => SetViewMode('card')} />
             <ToggleButton icon={AiOutlineMenu} isActive={viewMode === 'list'} onClick={() => SetViewMode('list')} />
