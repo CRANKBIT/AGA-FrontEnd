@@ -16,7 +16,7 @@ const ServiceItem: FC = () => (
           <div>Create New Report</div>
         </div>
       </div>
-      <div className="flex justify-center mt-[180px]">
+      <div className="flex justify-center mt-[80px]">
         <ItemsList />
       </div>
     </div>
