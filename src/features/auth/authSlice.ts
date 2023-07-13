@@ -26,7 +26,6 @@ export const registerUser = createAsyncThunk<User, RegisterPayload, { rejectValu
     }
   }
 )
-
 export const loginUser = createAsyncThunk<User, LoginPayload, { rejectValue: AxiosError }>(
   'auth/login',
   async (loginPayload: LoginPayload, { rejectWithValue }) => {

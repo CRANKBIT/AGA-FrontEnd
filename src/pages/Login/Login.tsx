@@ -57,7 +57,7 @@ const Login: FC = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Link to="/auth/login/reset-password" className="text-darkgray block mb-2">
+            <Link to="/auth/login/forgot-password" className="text-darkgray block mb-2">
               Forget Password?
             </Link>
 
