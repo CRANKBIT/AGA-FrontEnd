@@ -8,24 +8,19 @@ interface Props {
 const Item: FC<Props> = ({ service, deleteHandler }) => {
   const [editService, setEditservice] = useState(service)
   const [editSave, setEditSave] = useState(true)
-  let serviceContent
   const editHandler = (): void => {
     setEditSave(!editSave)
   }
-  if (!editSave) {
-    serviceContent = (
-      <input
-        onChange={(e) => {
-          setEditservice(e.target.value)
-        }}
-        className="w-[440px] h-[42px] bg-white rounded-lg shadow-lg flex items-center px-2"
-      />
-    )
-  } else {
-    serviceContent = (
-      <input value={editService} className="w-[440px] h-[42px] bg-white rounded-lg shadow-lg flex items-center px-2" />
-    )
-  }
+  const serviceContent = editSave ? (
+    <input value={editService} className="w-[440px] h-[42px] bg-white rounded-lg shadow-lg flex items-center px-2" />
+  ) : (
+    <input
+      onChange={(e) => {
+        setEditservice(e.target.value)
+      }}
+      className="w-[440px] h-[42px] bg-white rounded-lg shadow-lg flex items-center px-2"
+    />
+  )
   return (
     <div className="flex items-center mb-3">
       {serviceContent}
