@@ -1,19 +1,18 @@
-// eslint-disable-next-line
 import 'react-date-range/dist/styles.css'
 import 'react-date-range/dist/theme/default.css'
 import { FC, useState, useRef, useEffect } from 'react'
-import { addDays, format } from 'date-fns'
-import { DateRangePicker } from 'react-date-range'
+import { addDays } from 'date-fns'
+import { DateRangePicker, RangeKeyDict, Range } from 'react-date-range'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 import ExpandLessIcon from '@mui/icons-material/ExpandLess'
 
 const DatePicker: FC = () => {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState<boolean>(false)
   const refOne = useRef<HTMLInputElement>(null)
-  const [state, setState] = useState([
+  const [state, setState] = useState<Range[]>([
     {
-      startDate: new Date(),
-      endDate: addDays(new Date(), 7),
+      startDate: addDays(new Date(), -7),
+      endDate: new Date(),
       key: 'selection',
     },
   ])
@@ -34,22 +33,23 @@ const DatePicker: FC = () => {
 
   return (
     <div className="relative">
-      <div className="w-[215px] h-[32px] rounded bg-white flex items-center">
+      <div className="w-[215px] h-8 rounded bg-white flex items-center">
         <input
-          value={`${format(state[0].startDate, 'MM/dd/yyyy')}-${format(state[0].endDate, 'MM/dd/yyyy')}`}
+          value={`${state[0].startDate?.toLocaleString().split(',')[0]}-${
+            state[0].endDate?.toLocaleString().split(',')[0]
+          }`}
           readOnly
-          className="inputBox w-[190px]"
+          className="inputBox w-[190px] text-center"
         />
         <button type="button" onClick={() => setOpen(!open)}>
           {open ? <ExpandLessIcon /> : <ExpandMoreIcon />}
         </button>
       </div>
 
-      <div ref={refOne} className="z-10 absolute top-[35px] right-[0px]">
+      <div ref={refOne} className="z-10 absolute top-[35px] right-0">
         {open && (
           <DateRangePicker
-            // eslint-disable-next-line
-            onChange={(item: any) => setState([item.selection])}
+            onChange={(item: RangeKeyDict) => setState([item.selection])}
             moveRangeOnFirstSelection={false}
             months={1}
             ranges={state}
