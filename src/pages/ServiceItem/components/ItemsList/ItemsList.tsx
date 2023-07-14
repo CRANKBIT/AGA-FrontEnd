@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, ChangeEvent } from 'react'
 import { v4 as uuid } from 'uuid'
 import Item from './components/Item'
 import AddItem from './components/AddItem'
@@ -52,12 +52,26 @@ const initItems = [
 
 const ItemsList: FC = () => {
   const [items, setItems] = useState(initItems)
+  const [addItem, setAdditem] = useState('')
+  const changeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
+    setAdditem(e.target.value)
+  }
   const deleteHandler = (id: string): void => {
     setItems(items.filter((item) => item.id !== id))
   }
+  const addHandler = (): void => {
+    setItems((preItems) => [
+      ...preItems,
+      {
+        id: uuid(),
+        service: addItem,
+      },
+    ])
+    setAdditem('')
+  }
 
   return (
-    <div>
+    <div className="py-8">
       <div className="text-center mb-5">
         <h2 className="text-lg font-bold">Service Items</h2>
         <div className="w-[320px] h-[1px] bg-[#03111B] mx-auto" />
@@ -68,7 +82,7 @@ const ItemsList: FC = () => {
         ))}
       </div>
       <div>
-        <AddItem />
+        <AddItem addItem={addItem} addHandler={addHandler} changeHandler={changeHandler} />
       </div>
     </div>
   )
