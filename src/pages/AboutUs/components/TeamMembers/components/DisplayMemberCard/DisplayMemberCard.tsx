@@ -15,19 +15,19 @@ const members = [
   {
     imgSrc: '',
     name: 'Linghan',
-    role: 'Tech Lead <br> Scrum Master',
+    role: 'Developer',
     linkIn: '',
   },
   {
     imgSrc: '',
     name: 'Jeremy',
-    role: 'Tech Lead',
+    role: 'Developer',
     linkIn: '',
   },
   {
     imgSrc: '',
     name: 'Long Chao',
-    role: 'Tech Lead',
+    role: 'Developer',
     linkIn: '',
   },
 
