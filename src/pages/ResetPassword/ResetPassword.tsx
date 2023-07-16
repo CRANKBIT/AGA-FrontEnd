@@ -5,9 +5,9 @@ interface Props {
   onClose?: () => void
 }
 
-const ResetPassword: FC<Props> = ({ onClose = () => {} }) => {
+const ResetPassword: FC<Props> = () => {
   const [email, setEmail] = useState('')
-  const [emailSent, setEmailSent] = useState(false)
+  const [, setEmailSent] = useState(false)
 
   const handleEmailChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setEmail(e.target.value)
