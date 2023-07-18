@@ -1,6 +1,7 @@
 import { FC, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { MdLogout } from 'react-icons/md'
+import { FaArrowRight, FaArrowLeft } from 'react-icons/fa'
 import { useAppDispatch } from '@/app/hooks'
 import { logout } from '@/features/auth/authSlice'
 import navItems from '@/constants/navItems'
@@ -28,7 +29,16 @@ const SideNavigation: FC<Props> = ({ isCompanySide = false }) => {
       {isCompanySide ? (
         <>
           <FileLogo className="my-10 h-8 ml-14" />
-          <FileLogo className="my-10 h-[100px] mx-auto" />
+          {location.pathname === '/user/my-reports' ? (
+            <div className="flex items-center justify-center gap-4 my-10">
+              <FaArrowLeft />
+              <FileLogo className="h-[100px]" />
+              <FaArrowRight />
+            </div>
+          ) : (
+            <FileLogo className="my-10 h-[100px] mx-auto" />
+          )}
+
           <div className="flex flex-col mb-[67px]">
             {navItems.map(({ id, href, label }) => (
               <NavItem
