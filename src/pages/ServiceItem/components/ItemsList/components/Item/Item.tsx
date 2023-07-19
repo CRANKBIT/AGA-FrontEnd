@@ -25,7 +25,7 @@ const Item: FC<Props> = ({ service, deleteHandler }) => {
     <div className="flex items-center mb-3">
       {serviceContent}
       <button className="mx-2" type="button" onClick={deleteHandler}>
-        <img src="/svg/ServiceItemDelete.svg" alt="delete" />
+        <img src="./svg/ServiceItemDelete.svg" alt="delete" />
       </button>
       <button onClick={editHandler} className="bg-blue-700 text-white p-2 shadow-lg rounded-lg" type="button">
         {editSave ? 'Edit' : 'Save'}
