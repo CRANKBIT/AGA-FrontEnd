@@ -19,6 +19,7 @@ import ForgotPassword from '@/pages/ForgotPassword'
 import AboutUs from '@/pages/AboutUs'
 import SetNewPassword from '@/pages/SetNewPassword/SetNewPassword'
 
+
 const router = createHashRouter([
   {
     path: '/',

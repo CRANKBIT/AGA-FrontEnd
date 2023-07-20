@@ -4,6 +4,25 @@ import Button, { Variant } from '@/components/Button'
 
 const HomeNavigation: FC = () => {
   const navigate = useNavigate()
+  const handleScrollToFeatures = (): void => {
+    window.scrollTo({
+      top: 650,
+      behavior: 'smooth',
+    })
+  }
+    const handleScrollToProducts = (): void => {
+      window.scrollTo({
+        top: 1300,
+        behavior: 'smooth',
+      })
+    }
+
+       const handleScrollToContact = (): void => {
+         window.scrollTo({
+           top: 2100,
+           behavior: 'smooth',
+         })
+       }
 
   return (
     <nav>
@@ -13,15 +32,15 @@ const HomeNavigation: FC = () => {
           Report Builder
         </Link>
         <div className="flex gap-10 items-center">
-          <Link to="/products">Products</Link>
-          <Link to="/features">Features</Link>
-          <Link to="/support">Support</Link>
+          <Link to="/" onClick={handleScrollToProducts}>Products</Link>
+          <Link to="/" onClick={handleScrollToFeatures}>Features</Link>
+          <Link to="/" onClick={handleScrollToContact}>Support</Link>
         </div>
 
         <div className="flex gap-9">
-          <Button variant={Variant.Primary} onClick={() => navigate('/')}>
+          {/* <Button variant={Variant.Primary} onClick={() => navigate('/')}>
             Buy
-          </Button>
+          </Button> */}
 
           <Button variant={Variant.Primary} onClick={() => navigate('/account')}>
             My Account
