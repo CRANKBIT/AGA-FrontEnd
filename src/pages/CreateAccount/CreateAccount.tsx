@@ -15,9 +15,7 @@ import Modal from './components/Modal'
 const CreateAccount: FC = () => {
   const { user, error } = useAppSelector((state) => state.auth)
   const dispatch = useAppDispatch()
-
   const navigate = useNavigate()
-
   const [isPasswordVisible, setIsPasswordVisible] = useState<boolean>(false)
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
   const [passwordScore, setPasswordScore] = useState<number | null>(null)
