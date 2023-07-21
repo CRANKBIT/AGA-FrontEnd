@@ -1,4 +1,4 @@
-import { FC, HTMLProps, ReactNode } from 'react'
+import { FC, HTMLProps } from 'react'
 
 interface Props extends HTMLProps<HTMLInputElement> {
   type?: 'email' | 'password' | undefined
