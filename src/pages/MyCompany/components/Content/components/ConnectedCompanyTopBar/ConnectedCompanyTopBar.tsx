@@ -14,8 +14,8 @@ const ConnectedCompanyTopBar: FC = () => (
         <span className="text-primary text-[15px] ml-[6px] font-medium">Company</span>
       </button>
 
-      <button type="button" className="bg-white w-[60px] h-8 border border-[#DDDBDA] rounded ml-[15px]">
-        <span className="text-primary text-[15px] font-medium">Edit</span>
+      <button type="button" className="bg-white w-20 h-8 border border-[#DDDBDA] rounded ml-[15px]">
+        <span className="text-primary text-[15px] font-medium">Delete</span>
       </button>
     </div>
   </div>
