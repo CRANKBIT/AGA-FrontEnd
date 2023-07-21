@@ -5,24 +5,31 @@ import Button, { Variant } from '@/components/Button'
 const HomeNavigation: FC = () => {
   const navigate = useNavigate()
   const handleScrollToFeatures = (): void => {
-    window.scrollTo({
-      top: 650,
-      behavior: 'smooth',
-    })
-  }
-    const handleScrollToProducts = (): void => {
-      window.scrollTo({
-        top: 1300,
+    const element = document.getElementById('Features')
+    if (element) {
+      element.scrollIntoView({
         behavior: 'smooth',
       })
     }
+  }
 
-       const handleScrollToContact = (): void => {
-         window.scrollTo({
-           top: 2100,
-           behavior: 'smooth',
-         })
-       }
+  const handleScrollToProducts = (): void => {
+    const element = document.getElementById('Pricing')
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+  }
+
+  const handleScrollToContact = (): void => {
+    const element = document.getElementById('Contact')
+    if (element) {
+      element.scrollIntoView({
+        behavior: 'smooth',
+      })
+    }
+  }
 
   return (
     <nav>
@@ -32,9 +39,15 @@ const HomeNavigation: FC = () => {
           Report Builder
         </Link>
         <div className="flex gap-10 items-center">
-          <Link to="/" onClick={handleScrollToProducts}>Products</Link>
-          <Link to="/" onClick={handleScrollToFeatures}>Features</Link>
-          <Link to="/" onClick={handleScrollToContact}>Support</Link>
+          <Link to="/" onClick={handleScrollToProducts}>
+            Products
+          </Link>
+          <Link to="/" onClick={handleScrollToFeatures}>
+            Features
+          </Link>
+          <Link to="/" onClick={handleScrollToContact}>
+            Support
+          </Link>
         </div>
 
         <div className="flex gap-9">
