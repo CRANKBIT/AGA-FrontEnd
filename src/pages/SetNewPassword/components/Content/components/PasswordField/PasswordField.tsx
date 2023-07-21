@@ -70,7 +70,7 @@ const PasswordField: FC<Props> = ({ setPasswordReset }) => {
         onMouseDown={() => {
           setPasswordReset(false)
         }}
-        className="w-[280px] h-[50px] hover:bg-sky-700 duration-150  text-white bg-hover text-[18px] leading-5 font-bold rounded-[5px] mt-[20px]"
+        className="w-[280px] h-[50px] hover:bg-sky-700 duration-150 text-white bg-hover text-[18px] leading-5 font-bold rounded-[5px] mt-[20px]"
       >
         Update password
       </button>
