@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
+import Button from '@/components/Button/Button'
 
 const Hero: FC = () => (
   <div className="text-center py-40 text-white">
@@ -9,9 +10,11 @@ const Hero: FC = () => (
       <br />
       Elevate Your Reports to Perfection!
     </p>
-    <Link className="text-xl" to="/auth/signup">
-      Get started by creating an account for FREE!
-    </Link>
+    <Button className='bg-blue-600'>
+      <Link className="text-xl" to="/auth/signup">
+        Get started by creating an account for FREE!
+      </Link>
+    </Button>
   </div>
 )
 
