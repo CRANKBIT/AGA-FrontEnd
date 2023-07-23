@@ -25,7 +25,7 @@ const Pagination: FC<Props> = ({ dataLength, itemsPerPage, paginate}) => {
             type="button"
             key={number}
             onClick={() => handleButtonClick(number)}
-            className={`w-8 h-8 border-inherit rounded-lg mx-2 text-white ${
+            className={`w-8 h-8 border-[#DDDDDD] border-2 rounded-lg mx-2 ${
               activeButton === number ? 'bg-blue-600 text-white' : 'bg-white text-[#4A4A4A]'
             }`}
           >

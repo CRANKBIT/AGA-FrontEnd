@@ -17,18 +17,18 @@ interface VehicleData {
 
 const Content: FC = () => {
   const [viewMode, SetViewMode] = useState<'list' | 'card'>('list')
-  const [Data,setData] = useState<VehicleData[]>([])
+  const [Data, setData] = useState<VehicleData[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
-  const [itemsPerPage] = useState(6);
-  useEffect(()=>{
+  const [itemsPerPage] = useState(5)
+  useEffect(() => {
     setData(mockData)
-  },[])
-  const indexOfLastItem = currentPage*itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem- itemsPerPage;
-  const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem);
-  const paginate = (currentNumber:number):void=> setCurrentPage(currentNumber);
+  }, [])
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem)
+  const paginate = (currentNumber: number): void => setCurrentPage(currentNumber)
   return (
-    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen">
+    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll">
       <div className="flex justify-between my-9">
         <div className="font-bold">Company A Report History(10)</div>
         <div className="flex gap-4">
@@ -43,8 +43,14 @@ const Content: FC = () => {
           </div>
         </div>
       </div>
-      {viewMode === 'list' ? <ListView currentItem={currentItem} /> : <CardView currentItem={currentItem} />}
-      <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
+      {viewMode === 'list' ? (
+        <div>
+          <ListView currentItem={currentItem} />
+          <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
+        </div>
+      ) : (
+        <CardView />
+      )}
     </div>
   )
 }
