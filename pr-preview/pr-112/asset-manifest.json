@@ -47,6 +47,7 @@
     "static/media/roboto-vietnamese-700-normal.woff2": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-700-normal.3425a701027d0699e369.woff2",
     "static/media/roboto-vietnamese-300-normal.woff2": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-300-normal.32fc45a3d1e8ea11fabc.woff2",
     "static/media/roboto-vietnamese-300-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-300-normal.8472d69545c7409091b4.woff",
+    "static/media/BusinessIcon.svg": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/BusinessIcon.f8f8d48591c6d6e3f2a061cf0f8b84c5.svg",
     "static/media/roboto-vietnamese-400-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-400-normal.e0e8ba725ebd107367a8.woff",
     "static/media/roboto-vietnamese-500-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-500-normal.657896dad292ee9a0a0a.woff",
     "static/media/roboto-vietnamese-700-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-vietnamese-700-normal.4df79f684fcbca8386bd.woff",
@@ -59,7 +60,9 @@
     "static/media/roboto-greek-ext-300-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-greek-ext-300-normal.392a45a84c081c4b412d.woff",
     "static/media/roboto-greek-ext-400-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
     "static/media/roboto-greek-ext-700-normal.woff": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
+    "static/media/EditPencil.svg": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/EditPencil.f2cbbf2da30c90f7bc1b91c9e138d0d0.svg",
     "static/media/Arrow.svg": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/Arrow.8311ca8bdeef45b56e3820b9c450788e.svg",
+    "static/media/WarningIcon.svg": "/CrankBit-FrontEnd/pr-preview/pr-112/static/media/WarningIcon.49215e741c1ce466e4ce6a59ab4afaac.svg",
     "bundle.js.map": "/CrankBit-FrontEnd/pr-preview/pr-112/static/js/bundle.js.map",
     "vendors-node_modules_web-vitals_dist_web-vitals_js.chunk.js.map": "/CrankBit-FrontEnd/pr-preview/pr-112/static/js/vendors-node_modules_web-vitals_dist_web-vitals_js.chunk.js.map"
   },
