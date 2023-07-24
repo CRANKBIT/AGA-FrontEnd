@@ -1,1 +1,1 @@
-export {default} from './MyCompanyReport'
+export { default } from './MyCompanyReport'

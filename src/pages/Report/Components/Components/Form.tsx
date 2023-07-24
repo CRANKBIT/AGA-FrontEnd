@@ -1,32 +1,30 @@
-import { FC, useState } from 'react';
-import { HiOutlineCamera } from 'react-icons/hi';
-import Button from '@/components/Button';
-import PopupTwo from '@/components/PopupTwo/PopupTwo';
-import PopupProfile from '@/components/PopupTwo/PopupProfile';
+import { FC, useState } from 'react'
+import { HiOutlineCamera } from 'react-icons/hi'
+import Button from '@/components/Button'
+import PopupTwo from '@/components/PopupTwo/PopupTwo'
+import PopupProfile from '@/components/PopupTwo/PopupProfile'
 
 const Form: FC = () => {
-  const [, setImage] = useState<File | null>(null);
+  const [, setImage] = useState<File | null>(null)
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.files && event.target.files.length > 0) {
-      setImage(event.target.files[0]);
+      setImage(event.target.files[0])
     }
-  };
+  }
 
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isPopupVisible, setIsPopupVisible] = useState(false)
 
   const handleOpenPopup = (): void => {
-    setIsPopupVisible(true);
-  };
+    setIsPopupVisible(true)
+  }
 
   const handleClosePopup = (): void => {
-    setIsPopupVisible(false);
-  };
+    setIsPopupVisible(false)
+  }
 
   return (
-  
     <div className="bg-white border border-gray px-12 py-10 rounded-2xl shadow">
-     
       <div className="p-4">
         <h2 className="text-lg font-bold">Snapshot</h2>
         <div className="border-t border-black mx-auto w-full" />
@@ -51,17 +49,17 @@ const Form: FC = () => {
         </div>
       </div>
       <div className="text-center mt-10">
-        <Button className="w-[200px] bg-primary" type="submit">Submit</Button>
+        <Button className="w-[200px] bg-primary" type="submit">
+          Submit
+        </Button>
       </div>
-    
-   
-  
-  <div className="text-center mt-4">
+
+      <div className="text-center mt-4">
         <Button onClick={handleOpenPopup} className="w-[200px] bg-primary">
           Show Popup
         </Button>
       </div>
-  {isPopupVisible && (
+      {isPopupVisible && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="w-[500px] rounded bg-white p-10 min-h-[500px] flex flex-col items-center">
             {/* PopupTwo content */}
@@ -69,10 +67,8 @@ const Form: FC = () => {
           </div>
         </div>
       )}
-  
-
     </div>
-  );
-};
+  )
+}
 
-export default Form;
+export default Form

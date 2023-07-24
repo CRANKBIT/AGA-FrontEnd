@@ -1,22 +1,26 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 
-interface Props{
-    dataLength:number;
-    itemsPerPage:number;
-    paginate:(currentNumber:number)=>void;
+interface Props {
+  dataLength: number
+  itemsPerPage: number
+  paginate: (currentNumber: number) => void
 }
 
-const Pagination: FC<Props> = ({ dataLength, itemsPerPage, paginate}) => {
-    const[activeButton, setActiveButton] = useState<number|null>(null);
-    const pages = Math.ceil(dataLength/itemsPerPage);
-     const numbers = []
-    for(let i=1;i<=pages;i++){
-        numbers.push(i)
-    }
-    const handleButtonClick =(number:number):void=>{
-        setActiveButton(number);
-        paginate(number);
-    }
+const Pagination: FC<Props> = ({ dataLength, itemsPerPage, paginate }) => {
+  const pages = Math.ceil(dataLength / itemsPerPage)
+  const numbers: number[] = []
+
+  for (let i = 1; i <= pages; i++) {
+    numbers.push(i)
+  }
+
+  const [activeButton, setActiveButton] = useState<number | null>(1)
+
+  const handleButtonClick = (number: number): void => {
+    setActiveButton(number)
+    paginate(number)
+  }
+
   return (
     <div className="flex justify-center mt-2">
       <ul>
@@ -25,7 +29,7 @@ const Pagination: FC<Props> = ({ dataLength, itemsPerPage, paginate}) => {
             type="button"
             key={number}
             onClick={() => handleButtonClick(number)}
-            className={`w-8 h-8 border-[#DDDDDD] border-2 rounded-lg mx-2 ${
+            className={`w-8 h-8 border-[#DDDDDD] border-2 rounded-lg mx-0.5 ${
               activeButton === number ? 'bg-blue-600 text-white' : 'bg-white text-[#4A4A4A]'
             }`}
           >

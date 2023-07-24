@@ -1,12 +1,10 @@
-import React from 'react';
-import PopupProfile from './PopupProfile';
+import React from 'react'
+import PopupProfile from './PopupProfile'
 
 interface PopupTwoProps {
-  onClose: () => void;
+  onClose: () => void
 }
 
-const PopupTwo: React.FC<PopupTwoProps> = ({ onClose }) => (
-  <PopupProfile onClose={onClose} />
-);
+const PopupTwo: React.FC<PopupTwoProps> = ({ onClose }) => <PopupProfile onClose={onClose} />
 
-export default PopupTwo;
+export default PopupTwo

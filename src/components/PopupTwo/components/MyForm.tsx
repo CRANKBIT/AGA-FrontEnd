@@ -1,5 +1,5 @@
-import React from 'react';
-import FieldSet from './FieldSet';
+import React from 'react'
+import FieldSet from './FieldSet'
 
 const MyForm: React.FC = () => (
   <div className="w-full">
@@ -20,6 +20,6 @@ const MyForm: React.FC = () => (
       placeholder="Enter your mobile number"
     />
   </div>
-);
+)
 
-export default MyForm;
+export default MyForm

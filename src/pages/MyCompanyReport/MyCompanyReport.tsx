@@ -1,10 +1,10 @@
-import {FC} from 'react'
+import { FC } from 'react'
 import CompanyLayout from '@/layouts/CompanyLayout/CompanyLayout'
 import Content from './components/Content'
 
 const MyCompanyReport: FC = () => (
   <CompanyLayout>
-    <Content/>
+    <Content />
   </CompanyLayout>
 )
 export default MyCompanyReport

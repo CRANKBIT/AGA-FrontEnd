@@ -4,8 +4,8 @@ import { AiOutlineAppstore, AiOutlineMenu } from 'react-icons/ai'
 import ToggleButton from '@/components/ToggleButton'
 import ListView from './components/ListView'
 import CardView from './components/CardView'
-import DatePicker from './components/DatePicker/DatePicker'
-import Pagination from '@/components/Pagination/Pagination'
+import DatePicker from './components/DatePicker'
+import Pagination from '@/components/Pagination'
 import mockData from '../../assets/mockData'
 
 interface VehicleData {

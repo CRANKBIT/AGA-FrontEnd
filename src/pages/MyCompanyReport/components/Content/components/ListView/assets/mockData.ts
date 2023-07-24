@@ -38,7 +38,6 @@ const mockData: Props[] = [
     lastUpdated: '25 Dec 2022 - 18:24',
     taskNumber: 512,
   },
-  
 ]
 
 export default mockData

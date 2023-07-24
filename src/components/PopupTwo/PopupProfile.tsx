@@ -1,13 +1,13 @@
-import { FC } from 'react';
-import { Link } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
-import Container from '@/layouts/Container';
-import MyForm from './components/MyForm';
+import { FC } from 'react'
+import { Link } from 'react-router-dom'
+import Button from '@mui/material/Button'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
+import Container from '@/layouts/Container'
+import MyForm from './components/MyForm'
 
 interface PopupProfileProps {
-  onClose: () => void;
+  onClose: () => void
 }
 
 const PopupProfile: FC<PopupProfileProps> = ({ onClose }) => (
@@ -58,6 +58,6 @@ const PopupProfile: FC<PopupProfileProps> = ({ onClose }) => (
       </Link>
     </div>
   </Container>
-);
+)
 
-export default PopupProfile;
+export default PopupProfile
