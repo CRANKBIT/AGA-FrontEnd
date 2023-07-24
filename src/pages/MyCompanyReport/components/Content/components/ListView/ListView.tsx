@@ -20,7 +20,7 @@ const ListView: FC<Props> = ({ currentItem }) => (
       <div className="min-w-[100px]">Tasks</div>
       <div className="min-w-[140px]">Actions</div>
     </div>
-    <div className="overflow-y-scroll max-h-screen">
+    <div className="max-h-screen">
       {currentItem.map((item) => (
         <ListItem key={item.id} {...item} />
       ))}

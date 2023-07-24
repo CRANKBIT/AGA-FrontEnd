@@ -28,7 +28,7 @@ const Content: FC = () => {
   const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem)
   const paginate = (currentNumber: number): void => setCurrentPage(currentNumber)
   return (
-    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll">
+    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen">
       <div className="flex justify-between my-9">
         <div className="font-bold">Company A Report History(10)</div>
         <div className="flex gap-4">
