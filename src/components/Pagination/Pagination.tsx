@@ -1,4 +1,4 @@
-import { FC, useState, useEffect } from 'react'
+import { FC, useState } from 'react'
 
 interface Props {
   dataLength: number
@@ -22,7 +22,7 @@ const Pagination: FC<Props> = ({ dataLength, itemsPerPage, paginate }) => {
   }
 
   return (
-    <div className="flex justify-center mt-2">
+    <div className="flex justify-center mt-2 mb-2">
       <ul>
         {numbers.map((number) => (
           <button

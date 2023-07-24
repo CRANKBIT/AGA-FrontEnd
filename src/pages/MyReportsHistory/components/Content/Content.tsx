@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC, useState, useEffect } from 'react'
 import { CiSearch } from 'react-icons/ci'
 import { AiOutlineAppstore, AiOutlineMenu } from 'react-icons/ai'
 import { useNavigate } from 'react-router-dom'
@@ -7,10 +7,29 @@ import ToggleButton from '@/components/ToggleButton'
 import ListView from './components/ListView'
 import CardView from './components/CardView'
 import DatePicker from './components/DatePicker/DatePicker'
+import Pagination from '@/components/Pagination'
+import mockData from './components/ListView/assets/mockData'
+
+interface VehicleData {
+  report: string
+  lastUpdated: string
+  taskNumber: number
+  id: string
+}
 
 const Content: FC = () => {
   const navigate = useNavigate()
   const [viewMode, SetViewMode] = useState<'list' | 'card'>('list')
+  const [Data, setData] = useState<VehicleData[]>([])
+  const [currentPage, setCurrentPage] = useState<number>(1)
+  const [itemsPerPage] = useState(5)
+  useEffect(() => {
+    setData(mockData)
+  }, [])
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem)
+  const paginate = (currentNumber: number): void => setCurrentPage(currentNumber)
 
   return (
     <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll">
@@ -39,7 +58,14 @@ const Content: FC = () => {
         </div>
       </div>
 
-      {viewMode === 'list' ? <ListView /> : <CardView />}
+      {viewMode === 'list' ? (
+        <div>
+          <ListView currentItem={currentItem} />
+          <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
+        </div>
+      ) : (
+        <CardView />
+      )}
     </div>
   )
 }
