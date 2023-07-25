@@ -8,9 +8,6 @@ const ConnectedCompanyItems: FC = () => (
     <div className="mx-auto w-[808px] h-[337px] bg-white overflow-y-auto">
       {MockData.length ? <ConnectedCompanyList /> : <CompanyEmptyWarning />}
     </div>
-    {MockData.length && (
-      <div className="w-[251px] h-8 bg-slate-400 absolute left-[641px] top-[360px]">Pagination Area</div>
-    )}
   </div>
 )
 

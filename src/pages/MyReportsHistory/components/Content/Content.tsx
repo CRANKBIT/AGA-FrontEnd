@@ -32,7 +32,7 @@ const Content: FC = () => {
   const paginate = (currentNumber: number): void => setCurrentPage(currentNumber)
 
   return (
-    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll">
+    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll relative">
       <div className="flex items-center justify-between">
         <div className="font-bold text-3xl">Good Morning, Alonso</div>
         <Button
@@ -59,10 +59,14 @@ const Content: FC = () => {
       </div>
 
       {viewMode === 'list' ? (
-        <div>
-          <ListView currentItem={currentItem} />
-          <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
-        </div>
+        <>
+          <div>
+            <ListView currentItem={currentItem} />
+          </div>
+          <div className="absolute left-0 right-0 top-[792px]">
+            <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
+          </div>
+        </>
       ) : (
         <CardView />
       )}

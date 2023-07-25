@@ -28,7 +28,7 @@ const Content: FC = () => {
   const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem)
   const paginate = (currentNumber: number): void => setCurrentPage(currentNumber)
   return (
-    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll">
+    <div className="w-[975px] bg-userContent pt-14 px-20 h-screen overflow-y-scroll relative">
       <div className="flex justify-between my-9">
         <div className="font-bold">Company A Report History(10)</div>
         <div className="flex gap-4">
@@ -44,10 +44,14 @@ const Content: FC = () => {
         </div>
       </div>
       {viewMode === 'list' ? (
-        <div>
-          <ListView currentItem={currentItem} />
-          <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
-        </div>
+        <>
+          <div>
+            <ListView currentItem={currentItem} />
+          </div>
+          <div className="absolute left-0 right-0 top-[730px]">
+            <Pagination dataLength={Data.length} itemsPerPage={itemsPerPage} paginate={paginate} />
+          </div>
+        </>
       ) : (
         <CardView />
       )}

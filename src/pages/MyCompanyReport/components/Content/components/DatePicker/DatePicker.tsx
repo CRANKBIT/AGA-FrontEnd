@@ -33,7 +33,7 @@ const DatePicker: FC = () => {
 
   return (
     <div className="relative">
-      <div className="w-[215px] h-8 rounded bg-white flex items-center border-2 border-slate-300">
+      <div className="w-[215px] h-8 rounded bg-white flex items-center border border-[#DDE2E4]">
         <input
           value={`${state[0].startDate?.toLocaleString().split(',')[0]}-${
             state[0].endDate?.toLocaleString().split(',')[0]

@@ -32,12 +32,6 @@ const mockData: Props[] = [
     lastUpdated: '25 Dec 2022 - 18:24',
     taskNumber: 54,
   },
-  {
-    id: uuidv4(),
-    report: 'Rego OP4597',
-    lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 512,
-  },
 ]
 
 export default mockData
