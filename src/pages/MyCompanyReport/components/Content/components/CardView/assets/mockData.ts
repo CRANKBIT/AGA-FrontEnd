@@ -46,9 +46,15 @@ const mockData: Props[] = [
   },
   {
     id: uuidv4(),
-    report: 'Rego RT5367',
+    report: 'Rego FOE451',
     lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 76,
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),
@@ -58,9 +64,15 @@ const mockData: Props[] = [
   },
   {
     id: uuidv4(),
-    report: 'Rego RT5367',
+    report: 'Rego FOE451',
     lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 76,
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),
@@ -70,9 +82,15 @@ const mockData: Props[] = [
   },
   {
     id: uuidv4(),
-    report: 'Rego RT5367',
+    report: 'Rego FOE451',
     lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 76,
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),
@@ -82,9 +100,15 @@ const mockData: Props[] = [
   },
   {
     id: uuidv4(),
-    report: 'Rego RT5367',
+    report: 'Rego FOE451',
     lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 76,
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),
@@ -94,15 +118,69 @@ const mockData: Props[] = [
   },
   {
     id: uuidv4(),
-    report: 'Rego RT5367',
+    report: 'Rego FOE451',
     lastUpdated: '25 Dec 2022 - 18:24',
-    taskNumber: 76,
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),
     report: 'Rego RT5367',
     lastUpdated: '25 Dec 2022 - 18:24',
     taskNumber: 76,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego FOE451',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego RT5367',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 76,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego FOE451',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego RT5367',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 76,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego FOE451',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 54,
+  },
+  {
+    id: uuidv4(),
+    report: 'Rego OP4597',
+    lastUpdated: '25 Dec 2022 - 18:24',
+    taskNumber: 512,
   },
   {
     id: uuidv4(),

@@ -12,4 +12,5 @@ const Features: FC = () => (
     </div>
   </div>
 )
+
 export default Features
