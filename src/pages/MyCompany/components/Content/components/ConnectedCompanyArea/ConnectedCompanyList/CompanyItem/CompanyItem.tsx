@@ -1,6 +1,5 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
-import EditPencil from './assets/EditPencil.svg'
 
 interface Props {
   companyName: string
@@ -20,11 +19,6 @@ const CompanyItem: FC<Props> = ({ companyName, owner }) => (
     <span className="w-[160px]">
       <Link to="." className="text-[16px] text-primary font-semibold border-b">
         {owner}
-      </Link>
-    </span>
-    <span>
-      <Link to="." className="text-[16px] text-primary font-semibold">
-        <img src={EditPencil} alt="RightArrow" />
       </Link>
     </span>
   </div>
