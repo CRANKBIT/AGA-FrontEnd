@@ -8,7 +8,8 @@ import ListView from './components/ListView'
 import CardView from './components/CardView'
 import DatePicker from './components/DatePicker/DatePicker'
 import Pagination from '@/components/Pagination'
-import mockData from './components/ListView/assets/mockData'
+import { getReports } from '@/services/report'
+// import mockData from './components/ListView/assets/mockData'
 
 interface VehicleData {
   report: string
@@ -24,7 +25,8 @@ const Content: FC = () => {
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [itemsPerPage] = useState(5)
   useEffect(() => {
-    setData(mockData)
+    const getReportData: () => void = async () => setData(await getReports())
+    getReportData()
   }, [])
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
