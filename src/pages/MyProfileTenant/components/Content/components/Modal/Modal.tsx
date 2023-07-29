@@ -17,36 +17,49 @@ const Modal: FC<Props> = ({ setClose }) => (
           className="cursor-pointer mb-6 mr-5 w-10 h-10"
         />
       </div>
-      <div className="px-[87px]">
-        <h2 className="text-[22px] font-semibold text-textColorBlack">My Profile</h2>
-        <div className="pt-8">
-          <p className="text-[16px] leading-5 font-semibold">Full Name</p>
-          <input className="box-border text-sm font-normal pl-[10px] w-[320px] h-[40px] mb-[18px] mt-[4px] border border-richBlack rounded-[5px] placeholder-shown:border-gray-500" />
+      <form
+        action=""
+        onSubmit={(event) => {
+          event.preventDefault()
+        }}
+      >
+        <div className="px-[87px]">
+          <h2 className="text-[22px] font-semibold text-textColorBlack">My Profile</h2>
+          <div className="pt-8">
+            <p className="text-[16px] leading-5 font-semibold">Full Name</p>
+            <input
+              className="box-border text-sm font-normal pl-[10px] w-[320px] h-[40px] mb-[18px] mt-[4px] border border-richBlack rounded-[5px] placeholder-shown:border-gray-500"
+              name="updatedFullName"
+            />
+          </div>
+          <div>
+            <p className="text-[16px] leading-5 font-semibold">Phone</p>
+            <input
+              className="box-border text-sm font-normal pl-[10px] w-[320px] h-[40px] mb-3 mt-[4px] border border-richBlack rounded-[5px] placeholder-shown:border-gray-500"
+              name="updatedPhoneNumber"
+            />
+          </div>
+          <div className="mb-3">
+            <Link to="/auth/login/forgot-password" className="text-base text-primary border-b">
+              Change Password
+            </Link>
+          </div>
+          <Button variant={Variant.Primary} type="submit" className="w-[320px] h-[40px] mt-2">
+            {' '}
+            <div className="text-large font-bold"> Update Changes</div>{' '}
+          </Button>
+          <hr className=" text-richBlack my-6 relative]" />
+          <Button variant={Variant.PrimaryOutline} type="button" className="w-[320px] h-[40px]">
+            {' '}
+            <div className="text-large font-bold"> Logout</div>{' '}
+          </Button>
+          <div className="flex justify-center mt-4">
+            <Link to="." className="text-base text-[#FF887B] border-b">
+              Request to Close Account
+            </Link>
+          </div>
         </div>
-        <div>
-          <p className="text-[16px] leading-5 font-semibold">Phone</p>
-          <input className="box-border text-sm font-normal pl-[10px] w-[320px] h-[40px] mb-3 mt-[4px] border border-richBlack rounded-[5px] placeholder-shown:border-gray-500" />
-        </div>
-        <div className="mb-3">
-          <Link to="." className="text-base text-primary border-b">
-            Change Password
-          </Link>
-        </div>
-        <Button variant={Variant.Primary} type="button" className="w-[320px] h-[40px] mt-2">
-          {' '}
-          <div className="text-large font-bold"> Update Changes</div>{' '}
-        </Button>
-        <hr className=" text-richBlack my-6 relative]" />
-        <Button variant={Variant.PrimaryOutline} type="button" className="w-[320px] h-[40px]">
-          {' '}
-          <div className="text-large font-bold"> Logout</div>{' '}
-        </Button>
-        <div className="flex justify-center mt-4">
-          <Link to="." className="text-base text-[#FF887B] border-b">
-            Request to Close Account
-          </Link>
-        </div>
-      </div>
+      </form>
     </div>
   </div>
 )
