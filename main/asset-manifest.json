@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/css/main.69699182.css",
-    "main.js": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/main.68c44706.js",
+    "main.css": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/css/main.60cca9e7.css",
+    "main.js": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/main.c8651300.js",
     "static/js/496.f78701ae.chunk.js": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/496.f78701ae.chunk.js",
     "static/media/roboto-latin-500-normal.woff2": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/roboto-latin-500-normal.f25d774ecfe0996f8eb5.woff2",
     "static/media/roboto-latin-700-normal.woff2": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/roboto-latin-700-normal.227c93190fe7f82de3f8.woff2",
@@ -60,16 +60,15 @@
     "static/media/roboto-greek-ext-300-normal.woff": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/roboto-greek-ext-300-normal.392a45a84c081c4b412d.woff",
     "static/media/roboto-greek-ext-400-normal.woff": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/roboto-greek-ext-400-normal.f708607d2a7290fb8bfa.woff",
     "static/media/roboto-greek-ext-700-normal.woff": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/roboto-greek-ext-700-normal.249853776d22a271b2b5.woff",
-    "static/media/EditPencil.svg": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/EditPencil.f2cbbf2da30c90f7bc1b91c9e138d0d0.svg",
     "index.html": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/index.html",
     "static/media/Arrow.svg": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/Arrow.8311ca8bdeef45b56e3820b9c450788e.svg",
     "static/media/WarningIcon.svg": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/media/WarningIcon.49215e741c1ce466e4ce6a59ab4afaac.svg",
-    "main.69699182.css.map": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/css/main.69699182.css.map",
-    "main.68c44706.js.map": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/main.68c44706.js.map",
+    "main.60cca9e7.css.map": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/css/main.60cca9e7.css.map",
+    "main.c8651300.js.map": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/main.c8651300.js.map",
     "496.f78701ae.chunk.js.map": "https://CRANKBIT.github.io/CrankBit-FrontEnd/main/static/js/496.f78701ae.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.69699182.css",
-    "static/js/main.68c44706.js"
+    "static/css/main.60cca9e7.css",
+    "static/js/main.c8651300.js"
   ]
 }
