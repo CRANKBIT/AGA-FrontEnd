@@ -7,11 +7,11 @@ const formFields = [
         type: 'text',
         placeholder: '2000',
       },
-      {
-        label: 'Make',
-        type: 'text',
-        placeholder: 'Toyota',
-      },
+      // {
+      //   label: 'Make',
+      //   type: 'text',
+      //   placeholder: 'Toyota',
+      // },
       {
         label: 'Model',
         type: 'text',

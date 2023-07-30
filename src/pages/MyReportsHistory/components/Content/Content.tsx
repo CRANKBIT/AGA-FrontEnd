@@ -24,10 +24,10 @@ const Content: FC = () => {
   const [Data, setData] = useState<VehicleData[]>([])
   const [currentPage, setCurrentPage] = useState<number>(1)
   const [itemsPerPage] = useState(5)
-  useEffect(() => {
-    const getReportData: () => void = async () => setData(await getReports())
-    getReportData()
-  }, [])
+  // useEffect(() => {
+  //   const getReportData: () => void = async () => setData(await getReports())
+  //   getReportData()
+  // }, [])
   const indexOfLastItem = currentPage * itemsPerPage
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItem = Data.slice(indexOfFirstItem, indexOfLastItem)
