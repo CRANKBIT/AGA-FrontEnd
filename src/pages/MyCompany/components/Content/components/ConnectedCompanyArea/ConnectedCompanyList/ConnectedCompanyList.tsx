@@ -4,30 +4,25 @@ import MockData from './CompanyItem/assets/MockData'
 import CompanyItem from './CompanyItem'
 
 const ConnectedCompanyList: FC = () => {
-  const [tenantId, getTenantId] = useState('')
   const [companyData, setCompanyData] = useState([])
 
-  useEffect(() => {
-    const urlTenantId = window.location.search.split('=')[1]
-    getTenantId(urlTenantId || '')
-  }, [])
-
-  useEffect(() => {
-    const fetchData = async (): Promise<void> => {
-      try {
-        // TODO: url need to change later on
-        const response = await axios.get(`http://localhost:8080/companies/${tenantId}`)
-        const { companies } = response.data
-
-        setCompanyData(companies)
-        console.log(companies)
-      } catch (error) {
-        console.error('Error fetching data:', error)
-      }
+  const fetchData = async (tenantId: string): Promise<void> => {
+    try {
+      const response = await axios.get(`http://localhost:8080/companies/${tenantId}`)
+      const { companies } = response.data
+      setCompanyData(companies)
+      console.log(companies)
+    } catch (error) {
+      console.error('Error fetching data:', error)
     }
+  }
 
-    fetchData()
-  }, [tenantId])
+  useEffect(() => {
+    const tenantId = localStorage.getItem('tenantId')
+    if (tenantId) {
+      fetchData(tenantId)
+    }
+  }, [])
 
   return (
     <div>
