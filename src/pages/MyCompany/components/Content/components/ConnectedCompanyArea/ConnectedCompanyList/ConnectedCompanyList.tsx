@@ -15,6 +15,7 @@ const ConnectedCompanyList: FC = () => {
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
+        // TODO: url need to change later on
         const response = await axios.get(`http://localhost:8080/companies/${tenantId}`)
         const { companies } = response.data
 
@@ -34,6 +35,7 @@ const ConnectedCompanyList: FC = () => {
         <span className="text-[14px] text-richBlack font-medium opacity-70 w-[510px] ml-16">Company Name</span>
         <span className="text-[14px] text-richBlack font-medium opacity-70">Owner</span>
       </div>
+      {/* TODO: need to replace the MockData with companyData */}
       {MockData.map((item) => (
         <CompanyItem key={item.id} {...item} />
       ))}
