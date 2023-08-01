@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from 'react'
-import axios from 'axios'
+import axios from '@/utils/axios'
 import MockData from './CompanyItem/assets/MockData'
 import CompanyItem from './CompanyItem'
 
@@ -10,7 +10,7 @@ const ConnectedCompanyList: FC = () => {
   useEffect(() => {
     const fetchData = async (): Promise<void> => {
       try {
-        const response = await axios.get(`http://localhost:8080/companies/${tenantId}`)
+        const response = await axios.get(`/api/v1/companies/${tenantId}`)
         const { companies } = response.data
 
         setCompanyData(companies)
