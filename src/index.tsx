@@ -4,6 +4,7 @@ import { StrictMode } from 'react'
 import { Provider } from 'react-redux'
 
 // Local imports
+import { Toaster } from 'react-hot-toast'
 import App from '@/app/router'
 import reportWebVitals from '@/utils/web-vitals'
 import '@/styles/main.css'
@@ -16,6 +17,7 @@ reactRoot.render(
   <StrictMode>
     <Provider store={store}>
       <App />
+      <Toaster />
     </Provider>
   </StrictMode>
 )

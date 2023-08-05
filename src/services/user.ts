@@ -1,8 +1,13 @@
 import { AxiosResponse } from 'axios'
 import api from '@/utils/axios'
-import { RegisterPayload, LoginPayload } from '@/interfaces/auth'
+import { User } from '@/interfaces/user'
 
-export const registerApi = (registerPayload: RegisterPayload): Promise<AxiosResponse> =>
-  api.post('/auth/register', registerPayload)
+export const createUser = (user: User): Promise<AxiosResponse> => api.post('/user', user)
 
-export const loginApi = (loginPayload: LoginPayload): Promise<AxiosResponse> => api.post('/auth/login', loginPayload)
+export const getUsers = (): Promise<AxiosResponse> => api.get('/user')
+
+export const getUserById = (id: number): Promise<AxiosResponse> => api.get(`/user/${id}`)
+
+export const updateUserById = (id: number, user: User): Promise<AxiosResponse> => api.put(`/user/${id}`, user)
+
+export const deleteUserById = (id: number): Promise<AxiosResponse> => api.put(`/user/${id}`)

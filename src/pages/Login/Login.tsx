@@ -50,19 +50,19 @@ const Login: FC = () => {
 
               <p>Password</p>
               <input
-                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                className="box-border w-full h-11 mb-4 border border-background rounded placeholder-shown:border-gray-500 pl-2"
                 placeholder="*********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Link to="/auth/login/reset-password" className="text-darkgray block mb-2">
+            <Link to="/auth/login/reset-password" className="text-darkgray text-sm block mb-3">
               Forget Password?
             </Link>
 
             <button
               type="submit"
-              className="w-[280px] h-[50px] hover:bg-sky-700 text-white bg-[#007AD3] text-4.5 leading-5 font-bold rounded-[5px] mt-5"
+              className="w-[280px] h-[50px] hover:bg-sky-700 text-white bg-primary text-4.5 leading-5 font-bold rounded-[5px] mt-3"
               disabled={isLoading}
             >
               {isLoading ? 'Logging in...' : 'Login'}
@@ -83,6 +83,13 @@ const Login: FC = () => {
               Sign in with Google
             </button>
             <img className="absolute left-6 top-4" src="/svg/googleIcon.svg" alt="" />
+          </div>
+          <div className="mt-20">
+            <span className="text-richBlack mr-[5px]">Do not have an Account?</span>
+
+            <Link to="/auth/signup/create-account" className="text-primary">
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>
