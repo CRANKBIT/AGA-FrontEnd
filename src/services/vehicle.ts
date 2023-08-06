@@ -2,13 +2,29 @@ import { AxiosResponse } from 'axios'
 import api from '@/utils/axios'
 import { Vehicle } from '@/interfaces/vehicle'
 
-export const createVehicle = (vehicle: Vehicle): Promise<AxiosResponse> => api.post('/vehicle', vehicle)
+export const createVehicle = (vehicle: Vehicle): Promise<AxiosResponse> =>
+  api('/vehicle', {
+    method: 'POST',
+    data: vehicle,
+  })
 
-export const getVehicles = (): Promise<AxiosResponse> => api.get('/vehicle')
+export const getVehicles = (): Promise<AxiosResponse> =>
+  api('/vehicle', {
+    method: 'GET',
+  })
 
-export const getVehicleById = (id: number): Promise<AxiosResponse> => api.get(`/vehicle/${id}`)
+export const getVehicleById = (id: number): Promise<AxiosResponse> =>
+  api(`/vehicle/${id}`, {
+    method: 'GET',
+  })
 
 export const updateVehicleById = (id: number, vehicle: Vehicle): Promise<AxiosResponse> =>
-  api.put(`/vehicle/${id}`, vehicle)
+  api(`/vehicle/${id}`, {
+    method: 'PUT',
+    data: vehicle,
+  })
 
-export const deleteVehicleById = (id: number): Promise<AxiosResponse> => api.put(`/vehicle/${id}`)
+export const deleteVehicleById = (id: number): Promise<AxiosResponse> =>
+  api(`/vehicle/${id}`, {
+    method: 'DELETE',
+  })

@@ -1,7 +1,7 @@
 import { AxiosError } from 'axios'
 
 export interface User {
-  user: {
+  tenant: {
     userId: string
     name: string
     email: string
