@@ -17,10 +17,10 @@ const MyAccount: FC = () => {
 
   useEffect(() => {
     if (!user) {
-      navigate('/')
+      navigate('/auth/login')
+    } else {
+      getCompanies()
     }
-
-    getCompanies()
   }, [user, navigate])
 
   if (user === null) {

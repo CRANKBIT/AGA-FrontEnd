@@ -40,11 +40,11 @@ const router = createHashRouter([
     element: <Login />,
   },
   {
-    path: '/report',
+    path: '/report', // create report
     element: <Report />,
   },
   {
-    path: '/user/my-reports',
+    path: '/user/my-reports', // report list
     element: <MyReports />,
   },
   {
