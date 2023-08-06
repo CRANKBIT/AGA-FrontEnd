@@ -11,6 +11,7 @@ import AuthLayout from '@/layouts/AuthLayout'
 import Button, { Variant, Size } from '@/components/Button'
 import FieldSet from './components/FieldSet'
 import Modal from './components/Modal'
+import getSubdomain from '@/utils/subdomain'
 
 const CreateAccount: FC = () => {
   const { user, error } = useAppSelector((state) => state.auth)
@@ -128,7 +129,7 @@ const CreateAccount: FC = () => {
                 className="font-bold"
                 block
                 type="submit"
-                disabled={isSubmitting || !isValid}
+                disabled={(isSubmitting || !isValid) && getSubdomain() === process.env.REACT_APP_MAIN_HOST}
               >
                 Sign Up
               </Button>

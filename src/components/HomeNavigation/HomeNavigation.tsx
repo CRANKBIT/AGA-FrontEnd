@@ -51,10 +51,6 @@ const HomeNavigation: FC = () => {
         </div>
 
         <div className="flex gap-9">
-          {/* <Button variant={Variant.Primary} onClick={() => navigate('/')}>
-            Buy
-          </Button> */}
-
           <Button variant={Variant.Primary} onClick={() => navigate('/account')}>
             My Account
           </Button>

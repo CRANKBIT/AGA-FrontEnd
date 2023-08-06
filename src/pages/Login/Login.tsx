@@ -1,36 +1,41 @@
-import { FC, useState, FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { FC, useState, useEffect, FormEvent } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import AuthLayout from '@/layouts/AuthLayout'
-import axios from '@/utils/axios'
+import { loginUser } from '@/features/auth/authSlice'
 
 const Login: FC = () => {
+  const { user } = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      const timer = setTimeout(() => {
+        navigate('/account')
+      }, 2000)
+
+      return () => clearTimeout(timer)
+    }
+
+    return undefined
+  }, [user, navigate])
 
   const handleLogin = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     setIsLoading(true)
-
-    try {
-      const response = await axios.post('/api/v1/auth/login', {
+    await dispatch(
+      loginUser({
         email,
         password,
       })
+    )
 
-      const { token } = response.data
-
-      window.localStorage.setItem('token', token)
-
-      setMessage(response.data.msg)
-      window.location.href = '/'
-    } catch (error) {
-      const errorMessage =
-        (error as { response?: { data: { msg: string } } }).response?.data.msg || 'An unknown error occurred'
-      setMessage(errorMessage)
-    }
-
+    navigate('/account')
     setIsLoading(false)
   }
 
@@ -67,8 +72,6 @@ const Login: FC = () => {
             >
               {isLoading ? 'Logging in...' : 'Login'}
             </button>
-
-            {message && <p>{message}</p>}
           </form>
           <div className="flex justify-between items-center my-3">
             <hr className="w-28" />
