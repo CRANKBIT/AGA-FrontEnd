@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import GetStarted from '@/pages/GetStarted'
@@ -22,6 +22,8 @@ import MyCompanyReport from '@/pages/MyCompanyReport/MyCompanyReport'
 import MyCompany from '@/pages/MyCompany/MyCompany'
 import MyProfileTenant from '@/pages/MyProfileTenant'
 import NotFound from '@/pages/NotFound'
+import getSubdomain from '@/utils/subdomain'
+import checkSubDomain from '@/services/public'
 
 const router = createHashRouter([
   {
@@ -110,10 +112,19 @@ const router = createHashRouter([
   },
   {
     path: '/NotFound',
-    element: <NotFound/>
+    element: <NotFound />,
   },
 ])
 
-const App: FC = () => <RouterProvider router={router} />
+
+
+
+const App: FC = () => {
+  useEffect(() => {
+    const subdomain = getSubdomain();
+    console.log(subdomain);
+    checkSubDomain(subdomain);
+  }, [])
+return <RouterProvider router={router} />}
 
 export default App

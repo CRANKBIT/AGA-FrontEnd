@@ -2,6 +2,7 @@ import { FC, useEffect, ReactElement } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAppSelector } from '@/app/hooks'
 import getSubdomain from '@/utils/subdomain'
+import checkSubDomain from '@/services/public'
 
 interface Props {
   children: ReactElement
@@ -13,7 +14,7 @@ const PrivateRoute: FC<Props> = ({ children }) => {
 
   useEffect(() => {
     const subdomain = getSubdomain()
-    console.log(subdomain)
+    checkSubDomain(subdomain);
     if (subdomain === process.env.REACT_APP_MAIN_HOST) {
       if (!user) {
         navigate('/auth/login')
