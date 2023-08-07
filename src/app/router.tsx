@@ -21,6 +21,7 @@ import ServiceItem from '@/pages/ServiceItem/ServiceItem'
 import MyCompanyReport from '@/pages/MyCompanyReport/MyCompanyReport'
 import MyCompany from '@/pages/MyCompany/MyCompany'
 import MyProfileTenant from '@/pages/MyProfileTenant'
+import NotFound from '@/pages/NotFound'
 
 const router = createHashRouter([
   {
@@ -106,6 +107,10 @@ const router = createHashRouter([
   {
     path: '/tenant/MyProfile',
     element: <MyProfileTenant />,
+  },
+  {
+    path: '/NotFound',
+    element: <NotFound/>
   },
 ])
 
