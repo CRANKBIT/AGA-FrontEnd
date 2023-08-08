@@ -1,4 +1,4 @@
-import { FC, useEffect } from 'react'
+import { FC, useEffect,useState} from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import GetStarted from '@/pages/GetStarted'
@@ -116,15 +116,20 @@ const router = createHashRouter([
   },
 ])
 
-
-
-
 const App: FC = () => {
+  const [domainExists, setDomainExists] = useState(true)
   useEffect(() => {
-    const subdomain = getSubdomain();
-    console.log(subdomain);
-    checkSubDomain(subdomain);
+    const subdomain = getSubdomain()
+    checkSubDomain(subdomain).then((response) => {
+      const result = response.data
+      setDomainExists(result)
+    })
   }, [])
-return <RouterProvider router={router} />}
+
+  if (domainExists) {
+    return <RouterProvider router={router} />
+  }
+  return <NotFound />
+}
 
 export default App
