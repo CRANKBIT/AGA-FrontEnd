@@ -1,29 +1,43 @@
 import { FC, useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { MdLogout } from 'react-icons/md'
-import CompanyLayout from '@/layouts/UserLayout/UserLayout'
+import UserLayout from '@/layouts/UserLayout/UserLayout'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
-import { createCompany, getMyCompanies } from '@/services/company'
-import { Company } from '@/interfaces/company'
+import { sendInviteEmial, getMyUsers } from '@/services/user'
+import { User } from '@/interfaces/user'
 import Button, { Variant, Size } from '@/components/Button'
 import { logout } from '@/features/auth/authSlice'
 
-const MyAccount: FC = () => {
+const MyUsers: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
   const dispatch = useAppDispatch()
   const navigate = useNavigate()
-  const [companies, setCompanies] = useState<Company[]>([])
-  const [companyName, setCompanyName] = useState<string>('')
-  const getCompanies: () => Promise<void> = async () => {
-    const res = await getMyCompanies()
-    setCompanies(res.data)
+  const [users, setUsers] = useState<User[]>([])
+  const [email, setEmail] = useState<string>('')
+
+  const getUsers: () => Promise<void> = async () => {
+    const res = await getMyUsers()
+    setUsers(res.data)
+  }
+
+  const getAccountUrl = (): string => {
+    const currentURL = new URL(window.location.href)
+    const hostnameParts = currentURL.hostname.split('.')
+    if (hostnameParts.length > 2) {
+      hostnameParts[0] = process.env.REACT_APP_MAIN_HOST || 'www'
+    }
+    currentURL.hostname = hostnameParts.join('.')
+    currentURL.pathname = ''
+    currentURL.search = ''
+    currentURL.hash = `/account`
+    return currentURL.toString()
   }
 
   useEffect(() => {
     if (!user) {
-      navigate('/auth/login')
+      navigate(getAccountUrl())
     } else {
-      getCompanies()
+      getUsers()
     }
   }, [user, navigate])
 
@@ -31,12 +45,10 @@ const MyAccount: FC = () => {
     return null
   }
 
-  const handleAddCompany = async (): Promise<void> => {
-    await createCompany({
-      domain: companyName,
-    })
-    await getCompanies()
-    setCompanyName('')
+  const handleSendEmial = async (): Promise<void> => {
+    await sendInviteEmial(email)
+    await getUsers()
+    setEmail('')
   }
 
   const handleLogout = (): void => {
@@ -44,23 +56,12 @@ const MyAccount: FC = () => {
     navigate('/')
   }
 
-  const getCompanyUrl = (domain: string): string => {
-    const currentURL = new URL(window.location.href)
-    const hostnameParts = currentURL.hostname.split('.')
-    if (hostnameParts.length > 2) {
-      hostnameParts[0] = domain
-    }
-    currentURL.hostname = hostnameParts.join('.')
-    currentURL.pathname = ''
-    currentURL.search = ''
-    currentURL.hash = `/publicLogin/${encodeURIComponent(`/my-users`)}/${encodeURIComponent(
-      localStorage.getItem('user') as string
-    )}`
-    return currentURL.toString()
+  const handleBack = (): void => {
+    window.location.href = getAccountUrl()
   }
 
   return (
-    <CompanyLayout>
+    <UserLayout>
       <div className="bg-userContent min-h-screen p-10 ">
         <h1 className="mb-4">Hi {user.tenant.name},</h1>
         <div className="bg-white rounded-lg p-10">
@@ -75,42 +76,45 @@ const MyAccount: FC = () => {
         </div>
         <div className="mt-10">
           <div className="flex space-around bg-gray p-8">
-            <h2 className="text-bold text-lg">Company List</h2>
+            <h2 className="text-bold text-lg">User List</h2>
           </div>
           <div className="flex space-around bg-gray p-4">
             <input
               type="text"
               className="w-[200px] h-[30px] rounded-lg shadow-mb"
-              value={companyName}
+              value={email}
               onChange={(e) => {
-                const regex = /^[a-zA-Z0-9-]*$/
-                if (!regex.test(e.target.value)) {
-                  return
-                }
-                if (e.target.value.length > 10) {
-                  return
-                }
-                setCompanyName(e.target.value)
+                setEmail(e.target.value)
               }}
             />
             <button
               type="button"
               className="bg-black w-[200px] h-[30px] text-white text-center ml-[500px] rounded-lg shadow-mb"
-              onClick={handleAddCompany}
+              onClick={handleSendEmial}
             >
-              Add New Company
+              Send Invite Email
             </button>
           </div>
 
           <div className="flex gap-10 bg-white shadow-md rounded-lg p-20">
-            {companies.map((company) => (
-              <Link to={getCompanyUrl(company.domain)} key={company.domain}>
-                <img src="./svg/CompanyOne.png" alt="Company Logo" className="h-[100px] rounded-[100px]" />
-                <span>{company.domain}</span>
-              </Link>
+            {users.map((u) => (
+              <div key={u.email}>
+                <span>{u.email}</span>
+              </div>
             ))}
           </div>
 
+          <Button
+            variant={Variant.Primary}
+            size={Size.Large}
+            style={{
+              marginTop: '20px',
+            }}
+            block
+            onClick={handleBack}
+          >
+            Back to Campany List
+          </Button>
           <Button
             variant={Variant.PrimaryOutline}
             size={Size.Large}
@@ -125,8 +129,8 @@ const MyAccount: FC = () => {
           </Button>
         </div>
       </div>
-    </CompanyLayout>
+    </UserLayout>
   )
 }
 
-export default MyAccount
+export default MyUsers

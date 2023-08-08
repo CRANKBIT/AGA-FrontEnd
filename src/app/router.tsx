@@ -8,6 +8,9 @@ import MyReports from '@/pages/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import HelpSupport from '@/pages/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
+import PublicRoute from '@/routes/PublicRouter'
+import PublicLoginRoute from '@/routes/PublicLoginRoute'
+import MyUsers from '@/pages/MyUsers'
 import MyAccount from '@/pages/MyAccount'
 import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
@@ -45,7 +48,11 @@ const router = createHashRouter([
   },
   {
     path: '/user/my-reports', // report list
-    element: <MyReports />,
+    element: (
+      <PublicRoute>
+        <MyReports />
+      </PublicRoute>
+    ),
   },
   {
     path: '/user/my-reports/create-report',
@@ -62,6 +69,14 @@ const router = createHashRouter([
   {
     path: '/user/help-support',
     element: <HelpSupport />,
+  },
+  {
+    path: '/publicLogin/:url/:userLS',
+    element: <PublicLoginRoute />,
+  },
+  {
+    path: '/my-users',
+    element: <MyUsers />,
   },
   {
     path: '/account',
