@@ -47,8 +47,9 @@ const Login: FC = () => {
             <div>
               <p>Email</p>
               <input
-                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500"
-                placeholder="  Alonso@mail.com"
+                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                type="email"
+                placeholder="Alonso@mail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -56,6 +57,7 @@ const Login: FC = () => {
               <p>Password</p>
               <input
                 className="box-border w-full h-11 mb-4 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                type="password"
                 placeholder="*********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
