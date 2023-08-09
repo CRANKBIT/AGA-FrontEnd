@@ -13,7 +13,12 @@ export const getMyCompanies = (): Promise<AxiosResponse> =>
     method: 'GET',
   })
 
-export const deleteCompanyById = (id: number): Promise<AxiosResponse> =>
+export const deleteCompanyById = (id: string): Promise<AxiosResponse> =>
   api(`/company/${id}`, {
     method: 'DELETE',
+  })
+
+export const getCompanyIdByDomain = (domain: string): Promise<AxiosResponse> =>
+  api(`/company/${domain}`, {
+    method: 'GET',
   })

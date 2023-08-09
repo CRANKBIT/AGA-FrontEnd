@@ -2,7 +2,7 @@ import { FC, useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import CompanyLayout from '@/layouts/UserLayout/UserLayout'
 import { useAppSelector } from '@/app/hooks'
-import { createCompany, getMyCompanies } from '@/services/company'
+import { createCompany, getMyCompanies, deleteCompanyById, getCompanyIdByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
 
 const MyAccount: FC = () => {
@@ -31,6 +31,12 @@ const MyAccount: FC = () => {
     await createCompany({
       domain: companyName,
     })
+    getCompanies()
+  }
+
+  const handleDeleteCompany = async (domain: string): Promise<void> => {
+    const id = await getCompanyIdByDomain(domain)
+    await deleteCompanyById(id.data)
     getCompanies()
   }
 
@@ -80,12 +86,25 @@ const MyAccount: FC = () => {
           </div>
 
           <div className="flex gap-10 bg-white shadow-md rounded-lg p-20">
-            {companies.map((company) => (
-              <Link to={getCompanyUrl(company.domain)} key={company.domain}>
-                <img src="./svg/CompanyOne.png" alt="Company Logo" className="h-[100px] rounded-[100px]" />
-                <span>{company.domain}</span>
-              </Link>
-            ))}
+            {companies.length ? (
+              companies.map((company) => (
+                <div key={company.domain} className="flex-col w-[100px]">
+                  <Link to={getCompanyUrl(company.domain)}>
+                    <img src="./svg/CompanyOne.png" alt="Company Logo" className="h-[100px] rounded-[100px] block" />
+                    <span>{company.domain}</span>
+                  </Link>
+                  <button
+                    type="button"
+                    className="border-b text-xs text-orange-500 mt-10"
+                    onClick={() => handleDeleteCompany(company.domain)}
+                  >
+                    Delete Company
+                  </button>
+                </div>
+              ))
+            ) : (
+              <div>No Company Added</div>
+            )}
           </div>
         </div>
       </div>
