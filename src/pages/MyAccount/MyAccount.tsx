@@ -45,8 +45,9 @@ const MyAccount: FC = () => {
   }
 
   const handleDeleteCompany = async (domain: string): Promise<void> => {
-    const id = await getCompanyIdByDomain(domain)
-    await deleteCompanyById(id.data)
+    const response = await getCompanyIdByDomain(domain)
+    const id = response.data
+    await deleteCompanyById(id)
     getCompanies()
   }
 
@@ -86,7 +87,7 @@ const MyAccount: FC = () => {
           <div className="flex space-around bg-gray p-4">
             <input
               type="text"
-              className="w-[200px] h-[30px] rounded-lg shadow-mb"
+              className="w-[200px] h-[30px] rounded-lg shadow-mb pl-2"
               value={companyName}
               onChange={(e) => {
                 const regex = /^[a-zA-Z0-9-]*$/
