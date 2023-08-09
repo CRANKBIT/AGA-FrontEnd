@@ -1,36 +1,41 @@
-import { FC, useState, FormEvent } from 'react'
-import { Link } from 'react-router-dom'
+import { FC, useState, useEffect, FormEvent } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
 import AuthLayout from '@/layouts/AuthLayout'
-import axios from '@/utils/axios'
+import { loginUser } from '@/features/auth/authSlice'
 
 const Login: FC = () => {
+  const { user } = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
   const [isLoading, setIsLoading] = useState(false)
+
+  useEffect(() => {
+    if (user) {
+      const timer = setTimeout(() => {
+        navigate('/account')
+      }, 2000)
+
+      return () => clearTimeout(timer)
+    }
+
+    return undefined
+  }, [user, navigate])
 
   const handleLogin = async (e: FormEvent): Promise<void> => {
     e.preventDefault()
     setIsLoading(true)
-
-    try {
-      const response = await axios.post('/api/v1/auth/login', {
+    await dispatch(
+      loginUser({
         email,
         password,
       })
+    )
 
-      const { token } = response.data
-
-      window.localStorage.setItem('token', token)
-
-      setMessage(response.data.msg)
-      window.location.href = '/'
-    } catch (error) {
-      const errorMessage =
-        (error as { response?: { data: { msg: string } } }).response?.data.msg || 'An unknown error occurred'
-      setMessage(errorMessage)
-    }
-
+    navigate('/account')
     setIsLoading(false)
   }
 
@@ -42,33 +47,33 @@ const Login: FC = () => {
             <div>
               <p>Email</p>
               <input
-                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500"
-                placeholder="  Alonso@mail.com"
+                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                type="email"
+                placeholder="Alonso@mail.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
 
               <p>Password</p>
               <input
-                className="box-border w-full h-11 mb-6 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                className="box-border w-full h-11 mb-4 border border-background rounded placeholder-shown:border-gray-500 pl-2"
+                type="password"
                 placeholder="*********"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <Link to="/auth/login/reset-password" className="text-darkgray block mb-2">
+            <Link to="/auth/login/reset-password" className="text-darkgray text-sm block mb-3">
               Forget Password?
             </Link>
 
             <button
               type="submit"
-              className="w-[280px] h-[50px] hover:bg-sky-700 text-white bg-[#007AD3] text-4.5 leading-5 font-bold rounded-[5px] mt-5"
+              className="w-[280px] h-[50px] hover:bg-sky-700 text-white bg-primary text-4.5 leading-5 font-bold rounded-[5px] mt-3"
               disabled={isLoading}
             >
               {isLoading ? 'Logging in...' : 'Login'}
             </button>
-
-            {message && <p>{message}</p>}
           </form>
           <div className="flex justify-between items-center my-3">
             <hr className="w-28" />
@@ -83,6 +88,13 @@ const Login: FC = () => {
               Sign in with Google
             </button>
             <img className="absolute left-6 top-4" src="/svg/googleIcon.svg" alt="" />
+          </div>
+          <div className="mt-20">
+            <span className="text-richBlack mr-[5px]">Do not have an Account?</span>
+
+            <Link to="/auth/signup/create-account" className="text-primary">
+              Sign Up
+            </Link>
           </div>
         </div>
       </div>

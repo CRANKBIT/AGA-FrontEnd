@@ -19,6 +19,7 @@ module.exports = {
         hover: '#007AD3',
         textColorBlack: '#1E1E1E',
         userContent: '#E9EFF4',
+        richBlack: '#03111B',
       },
       borderColor: {
         primary: '#007AD3',

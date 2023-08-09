@@ -1,18 +1,31 @@
-import axios from 'axios'
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { getUserFromLocalStorage } from './localStorage'
 
-// NOTE: Please use your own server port number, and will change to production server later
-const axiosClient = axios.create({
-  baseURL: process.env.REACT_APP_BACKEND_BASE_URL || 'http://localhost:8080',
-})
+const backendHttpInstance = (): AxiosInstance => {
+  const axiosInstance: AxiosInstance = axios.create()
+  axiosInstance.defaults.baseURL = process.env.REACT_APP_BACKEND_BASE_URL || 'http://localhost:8080/api/v1'
 
-axiosClient.interceptors.request.use((config) => {
   const user = getUserFromLocalStorage()
   if (user) {
-    // eslint-disable-next-line no-param-reassign
-    config.headers.common.Authorization = `Bearer ${user.token}`
+    axiosInstance.defaults.headers.common.Authorization = `Bearer ${user.token}`
   }
-  return config
-})
 
-export default axiosClient
+  axiosInstance.interceptors.response.use(
+    (response: AxiosResponse) => response,
+    (error) => {
+      console.error(error.response)
+      return Promise.reject(error)
+    }
+  )
+
+  return axiosInstance
+}
+
+const api = (endpoint: string, config: AxiosRequestConfig) => {
+  const axiosInstance: AxiosInstance = backendHttpInstance()
+  return axiosInstance(endpoint, config)
+}
+
+export default api

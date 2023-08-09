@@ -3,9 +3,12 @@ import { CiSearch } from 'react-icons/ci'
 import { useNavigate } from 'react-router-dom'
 import Button from '@/components/Button'
 import ReportViewToggle from './components/ReportViewToggle'
+import { useAppSelector } from '@/app/hooks'
 
 const Content: FC = () => {
+  const { user } = useAppSelector((state) => state.auth)
   const navigate = useNavigate()
+  console.log(user)
 
   return (
     <div className="bg-userContent pt-14 px-20 min-h-screen ">
