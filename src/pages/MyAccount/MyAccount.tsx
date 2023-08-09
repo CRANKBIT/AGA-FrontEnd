@@ -1,12 +1,16 @@
 import { FC, useState, useEffect } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { MdLogout } from 'react-icons/md'
 import CompanyLayout from '@/layouts/UserLayout/UserLayout'
-import { useAppSelector } from '@/app/hooks'
+import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { createCompany, getMyCompanies, deleteCompanyById, getCompanyIdByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
+import Button, { Variant, Size } from '@/components/Button'
+import { logout } from '@/features/auth/authSlice'
 
 const MyAccount: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
+  const dispatch = useAppDispatch()
   const navigate = useNavigate()
   const [companies, setCompanies] = useState<Company[]>([])
   const [companyName, setCompanyName] = useState<string>('')
@@ -31,7 +35,13 @@ const MyAccount: FC = () => {
     await createCompany({
       domain: companyName,
     })
-    getCompanies()
+    await getCompanies()
+    setCompanyName('')
+  }
+
+  const handleLogout = (): void => {
+    dispatch(logout())
+    navigate('/')
   }
 
   const handleDeleteCompany = async (domain: string): Promise<void> => {
@@ -47,6 +57,11 @@ const MyAccount: FC = () => {
       hostnameParts[0] = domain
     }
     currentURL.hostname = hostnameParts.join('.')
+    currentURL.pathname = ''
+    currentURL.search = ''
+    currentURL.hash = `/publicLogin/${encodeURIComponent(`/my-users`)}/${encodeURIComponent(
+      localStorage.getItem('user') as string
+    )}`
     return currentURL.toString()
   }
 
@@ -72,7 +87,15 @@ const MyAccount: FC = () => {
             <input
               type="text"
               className="w-[200px] h-[30px] rounded-lg shadow-mb"
+              value={companyName}
               onChange={(e) => {
+                const regex = /^[a-zA-Z0-9-]*$/
+                if (!regex.test(e.target.value)) {
+                  return
+                }
+                if (e.target.value.length > 10) {
+                  return
+                }
                 setCompanyName(e.target.value)
               }}
             />
@@ -106,6 +129,19 @@ const MyAccount: FC = () => {
               <div>No Company Added</div>
             )}
           </div>
+
+          <Button
+            variant={Variant.PrimaryOutline}
+            size={Size.Large}
+            style={{
+              marginTop: '20px',
+            }}
+            block
+            onClick={handleLogout}
+          >
+            <MdLogout className="inline mr-2" size={18} />
+            Logout
+          </Button>
         </div>
       </div>
     </CompanyLayout>

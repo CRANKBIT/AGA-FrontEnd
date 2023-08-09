@@ -3,7 +3,7 @@ import api from '@/utils/axios'
 import { Report } from '@/interfaces/report'
 
 export const createReportApi = (report: Report): Promise<AxiosResponse> =>
-  api('/report/createReport', {
+  api('/report', {
     method: 'POST',
     data: report,
   })

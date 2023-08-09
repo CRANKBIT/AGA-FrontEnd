@@ -7,7 +7,7 @@ interface Props {
   children: ReactElement
 }
 
-const PrivateRoute: FC<Props> = ({ children }) => {
+const PublicRoute: FC<Props> = ({ children }) => {
   const navigate = useNavigate()
   const { user, isLoading } = useAppSelector((state) => state.auth)
 
@@ -15,10 +15,8 @@ const PrivateRoute: FC<Props> = ({ children }) => {
     const subdomain = getSubdomain()
     if (subdomain === process.env.REACT_APP_MAIN_HOST) {
       if (!user) {
-        navigate('/auth/login')
+        navigate('/')
       }
-    } else {
-      navigate('/')
     }
   }, [user, navigate])
 
@@ -29,4 +27,4 @@ const PrivateRoute: FC<Props> = ({ children }) => {
   return children
 }
 
-export default PrivateRoute
+export default PublicRoute

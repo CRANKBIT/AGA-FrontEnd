@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { createHashRouter, RouterProvider } from 'react-router-dom'
 import Home from '@/pages/Home'
 import GetStarted from '@/pages/GetStarted'
@@ -8,6 +8,9 @@ import MyReports from '@/pages/MyReports'
 import KnowledgeBase from '@/pages/KnowledgeBase'
 import HelpSupport from '@/pages/HelpSupport'
 import PrivateRoute from '@/routes/PrivateRoute'
+import PublicRoute from '@/routes/PublicRouter'
+import PublicLoginRoute from '@/routes/PublicLoginRoute'
+import MyUsers from '@/pages/MyUsers'
 import MyAccount from '@/pages/MyAccount'
 import MyProfile from '@/pages/MyProfile'
 import CreateAccount from '@/pages/CreateAccount'
@@ -21,6 +24,9 @@ import ServiceItem from '@/pages/ServiceItem/ServiceItem'
 import MyCompanyReport from '@/pages/MyCompanyReport/MyCompanyReport'
 import MyCompany from '@/pages/MyCompany/MyCompany'
 import MyProfileTenant from '@/pages/MyProfileTenant'
+import NotFound from '@/pages/NotFound'
+import getSubdomain from '@/utils/subdomain'
+import checkSubDomain from '@/services/public'
 
 const router = createHashRouter([
   {
@@ -45,7 +51,11 @@ const router = createHashRouter([
   },
   {
     path: '/user/my-reports', // report list
-    element: <MyReports />,
+    element: (
+      <PublicRoute>
+        <MyReports />
+      </PublicRoute>
+    ),
   },
   {
     path: '/user/my-reports/create-report',
@@ -62,6 +72,14 @@ const router = createHashRouter([
   {
     path: '/user/help-support',
     element: <HelpSupport />,
+  },
+  {
+    path: '/publicLogin/:url/:userLS',
+    element: <PublicLoginRoute />,
+  },
+  {
+    path: '/my-users',
+    element: <MyUsers />,
   },
   {
     path: '/account',
@@ -107,8 +125,26 @@ const router = createHashRouter([
     path: '/tenant/MyProfile',
     element: <MyProfileTenant />,
   },
+  {
+    path: '/NotFound',
+    element: <NotFound />,
+  },
 ])
 
-const App: FC = () => <RouterProvider router={router} />
+const App: FC = () => {
+  const [domainExists, setDomainExists] = useState(true)
+  useEffect(() => {
+    const subdomain = getSubdomain()
+    checkSubDomain(subdomain).then((response) => {
+      const result = response.data
+      setDomainExists(result)
+    })
+  }, [])
+
+  if (domainExists) {
+    return <RouterProvider router={router} />
+  }
+  return <NotFound />
+}
 
 export default App
