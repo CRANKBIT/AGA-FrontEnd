@@ -5,7 +5,8 @@ import Arrow from './assets/Arrow.svg'
 import Form from './component/Form'
 
 const Content: FC = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+  const newReportData={};
 
   return (
     <div className="bg-[#E9EFF4] min-h-screen">

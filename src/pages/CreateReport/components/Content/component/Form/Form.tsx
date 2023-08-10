@@ -3,6 +3,7 @@ import Button from '@/components/Button'
 import formFields from './assets/formFieldsData'
 import Item from './components/Item'
 
+
 const Form: FC = () => (
   <div className="bg-white border border-gray px-12 py-10 rounded-2xl shadow">
     {formFields.map(({ title, info }) => (
