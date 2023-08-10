@@ -117,10 +117,10 @@ const MyAccount: FC = () => {
                   </Link>
                   <button
                     type="button"
-                    className="border-b text-xs text-orange-500 mt-10"
+                    className="border text-[13px] text-white font-semibold bg-orange-600 mt-12 w-24 h-7 rounded"
                     onClick={() => handleDeleteCompany(company.domain)}
                   >
-                    Delete Company
+                    Delete
                   </button>
                 </div>
               ))
