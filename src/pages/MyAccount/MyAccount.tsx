@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { MdLogout } from 'react-icons/md'
 import CompanyLayout from '@/layouts/UserLayout/UserLayout'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
-import { createCompany, getMyCompanies, deleteCompanyById, getCompanyIdByDomain } from '@/services/company'
+import { createCompany, getMyCompanies, deleteCompanyByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
 import Button, { Variant, Size } from '@/components/Button'
 import { logout } from '@/features/auth/authSlice'
@@ -45,9 +45,7 @@ const MyAccount: FC = () => {
   }
 
   const handleDeleteCompany = async (domain: string): Promise<void> => {
-    const response = await getCompanyIdByDomain(domain)
-    const id = response.data
-    await deleteCompanyById(id)
+    await deleteCompanyByDomain(domain)
     getCompanies()
   }
 
