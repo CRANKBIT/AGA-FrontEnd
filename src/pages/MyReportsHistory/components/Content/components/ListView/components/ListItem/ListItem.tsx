@@ -1,4 +1,5 @@
 import { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
 interface Props {
@@ -15,8 +16,10 @@ const ListItem: FC<Props> = ({ report, lastUpdated, taskNumber }) => (
       <div className="font-bold">{taskNumber}</div>
     </div>
     <div className="cursor-pointer min-w-[140px] text-primary flex items-center">
-      <div className="underline">See More</div>
-      <AiOutlineArrowRight className="ml-1" />
+      <Link to="/user/my-reports/history/view-report" className="underline">
+        <span className="inline">See More</span>
+        <AiOutlineArrowRight className="ml-1 inline" />
+      </Link>
     </div>
   </div>
 )

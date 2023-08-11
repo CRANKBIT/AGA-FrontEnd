@@ -27,6 +27,7 @@ import MyProfileTenant from '@/pages/MyProfileTenant'
 import NotFound from '@/pages/NotFound'
 import getSubdomain from '@/utils/subdomain'
 import checkSubDomain from '@/services/public'
+import ViewPDFReport from '@/pages/ViewPDFReport/ViewPDFReport'
 
 const router = createHashRouter([
   {
@@ -100,6 +101,10 @@ const router = createHashRouter([
   {
     path: '/user/my-reports/history',
     element: <MyReportsHistory />,
+  },
+  {
+    path: '/user/my-reports/history/view-report',
+    element: <ViewPDFReport />,
   },
   {
     path: '/auth/login/reset-password',
