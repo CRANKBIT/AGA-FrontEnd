@@ -27,13 +27,8 @@ const formFields = [
         type: 'text',
         placeholder: '10,000KM',
       },
-    ],
-  },
-  {
-    title: 'Owner Info',
-    info: [
       {
-        label: 'Name',
+        label: 'CustomerName',
         type: 'text',
         placeholder: 'Fernando Alonso',
       },

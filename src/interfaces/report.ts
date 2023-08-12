@@ -1,12 +1,16 @@
+export interface IVehicle {
+  make: string
+  model: string
+  rego: string
+  year: number
+  odo: number
+  customername:string
+}
 export interface Report {
   title: string
-  vehicle: any
-  owner: string
-  service: [string]
+  vehicle: IVehicle
+  service: string[]
   createdAt: string
-  description: string
-  status: 'Pending' | 'In Progress' | 'Resolved'
-  assignedTo: string
   attachments: string[]
   comments: string[]
 }

@@ -6,8 +6,7 @@ import Form from './component/Form'
 
 const Content: FC = () => {
   const navigate = useNavigate();
-  const newReportData={};
-
+  
   return (
     <div className="bg-[#E9EFF4] min-h-screen">
       <div className="flex items-center justify-between px-[84px] pt-14 mb-7">
@@ -28,7 +27,7 @@ const Content: FC = () => {
         </div>
       </div>
       <form className="px-[188px] ">
-        <Form />
+        <Form/>
       </form>
     </div>
   )
