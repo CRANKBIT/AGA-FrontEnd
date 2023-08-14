@@ -2,6 +2,20 @@ import { FC, useState, ChangeEvent } from 'react'
 import { v4 as uuid } from 'uuid'
 import Item from './components/Item'
 import AddItem from './components/AddItem'
+import Button from '@/components/Button/Button'
+import { createReportApi } from '@/services/report'
+
+interface IVehicle {
+  Year: string
+  Make: string
+  Model: string
+  Rego: string
+  Odometer: string
+  CustomerName: string
+}
+interface Props {
+  vehicleData: IVehicle
+}
 
 const initItems = [
   {
@@ -50,9 +64,17 @@ const initItems = [
   },
 ]
 
-const ItemsList: FC = () => {
+const ItemsList: FC<Props> = ({ vehicleData }) => {
   const [items, setItems] = useState(initItems)
   const [addItem, setAdditem] = useState('')
+  const saveButtonHandler = (): void => {
+    const serviceItemsData = items.map((item) => item.service)
+    const serviceData = {
+      ...vehicleData,
+      service: serviceItemsData,
+    }
+    createReportApi(serviceData)
+  }
   const changeHandler = (e: ChangeEvent<HTMLInputElement>): void => {
     setAdditem(e.target.value)
   }
@@ -83,6 +105,11 @@ const ItemsList: FC = () => {
       </div>
       <div>
         <AddItem addItem={addItem} addHandler={addHandler} changeHandler={changeHandler} />
+      </div>
+      <div className="text-center mt-10">
+        <Button className="w-[200px] bg-primary" onClick={saveButtonHandler}>
+          Save
+        </Button>
       </div>
     </div>
   )
