@@ -12,11 +12,11 @@ interface IVehicle {
 interface Props {
   vehicleData: IVehicle
 }
-const ServiceItem: FC<Props> = ({vehicleData}) => (
-    <div className="bg-userContent px-20 min-h-screen">
-      <div className="flex justify-center mt-[80px]">
-        <ItemsList vehicleData={vehicleData}/>
-      </div>
+const ServiceItem: FC<Props> = ({ vehicleData }) => (
+  <div className="bg-userContent px-20 min-h-screen">
+    <div className="flex justify-center mt-[80px]">
+      <ItemsList vehicleData={vehicleData} />
     </div>
+  </div>
 )
 export default ServiceItem

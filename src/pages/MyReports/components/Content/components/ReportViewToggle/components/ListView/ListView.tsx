@@ -1,7 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { FC, useEffect, useState } from 'react'
 import ListItem from './components/ListItem'
-import mockData from './assets/mockData'
 import { getReports } from '@/services/report'
 
 interface ServiecReport {
@@ -22,8 +21,13 @@ const ListView: FC = () => {
       setReportData(response.data)
     })
   }, [])
-  return (<>
-  {reportData.map((item) =>(<ListItem key={item._id} {...item}>))}</>)
+  return (
+    <>
+      {reportData.map((item) => (
+        <ListItem key={item._id} {...item} />
+      ))}
+    </>
+  )
 }
 
 export default ListView
