@@ -12,9 +12,9 @@ const ReportViewToggle: FC = () => {
       <div className="flex items-center my-4 p-4 justify-between ">
         {viewMode === 'list' ? (
           <div className="flex gap-20">
-            <div className="min-w-[140px]">Reports</div>
-            <div className="min-w-[175px]">Last Updated</div>
-            <div className="min-w-[140px]">task</div>
+            <div className="min-w-[140px]">Rego</div>
+            <div className="min-w-[175px]">Make</div>
+            <div className="min-w-[140px]">CustomerName</div>
           </div>
         ) : (
           <div />
