@@ -23,7 +23,7 @@ const ListView: FC = () => {
     })
   }, [])
   return (<>
-  {reportData.map((item) => console.log(item._id))}</>)
+  {reportData.map((item) =>(<ListItem key={item._id} {...item}>))}</>)
 }
 
 export default ListView
