@@ -5,9 +5,8 @@ interface Props {
   children: ReactNode
 }
 
-const ReportBuilderLayout: FC<Props> = ({ children }) =>
-  <FlexLayout variant={PageVariant.ReportBuilderPage}>
-    {children}
-  </FlexLayout>
+const ReportBuilderLayout: FC<Props> = ({ children }) => (
+  <FlexLayout variant={PageVariant.ReportBuilderPage}>{children}</FlexLayout>
+)
 
 export default ReportBuilderLayout

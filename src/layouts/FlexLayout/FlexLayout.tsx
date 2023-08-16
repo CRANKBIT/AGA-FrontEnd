@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import Container from '@/layouts/Container'
 import FileLogo from '@/components/FileLogo'
 import SideNavigation from '@/components/SideNavigation'
-import SideNavigationReportBuilder from "@/components/SideNavigationReportBuilder";
+import SideNavigationReportBuilder from '@/components/SideNavigationReportBuilder'
 
 interface Props {
   children: ReactNode
@@ -14,7 +14,7 @@ export enum PageVariant {
   AuthPage,
   UserPage,
   CompanyPage,
-  ReportBuilderPage
+  ReportBuilderPage,
 }
 
 const FlexLayout: FC<Props> = ({ children, variant }) => (

@@ -28,7 +28,7 @@ const SideNavigationReportBuilder: FC<Props> = ({ isCompanySide = false }) => {
       {isCompanySide ? (
         <>
           <FileLogo className="my-10 h-8 ml-14" />
-       <div className='text-xl font-bold text-center mr-20 mb-20 p-10'>Report Builder</div>
+          <div className="text-xl font-bold text-center mr-20 mb-20 p-10">Report Builder</div>
           <div className="flex flex-col mb-[67px]">
             {navItems.map(({ id, href, label }) => (
               <NavItem
