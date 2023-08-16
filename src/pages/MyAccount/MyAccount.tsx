@@ -1,12 +1,14 @@
 import { FC, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { MdLogout } from 'react-icons/md'
-import CompanyLayout from '@/layouts/UserLayout/UserLayout'
+import AddIcon from "@mui/icons-material/Add";
+import TableViewIcon from '@mui/icons-material/TableView';
+import ReportBuilderLayout from "@/layouts/ReportBuilderLayout/";
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { createCompany, getMyCompanies, deleteCompanyByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
-import Button, { Variant, Size } from '@/components/Button'
 import { logout } from '@/features/auth/authSlice'
+
+
 
 const MyAccount: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -65,27 +67,32 @@ const MyAccount: FC = () => {
   }
 
   return (
-    <CompanyLayout>
+    <ReportBuilderLayout>
       <div className="bg-userContent min-h-screen p-10 ">
-        <h1 className="mb-4">Hi {user.tenant.name},</h1>
-        <div className="bg-white rounded-lg p-10">
+        <h1 className="mb-5 text-2xl font-extrabold">Hi {user.tenant.name},</h1>
+        <div className="bg-[#FFFFFF] rounded-lg p-10 w-[809px] h-[130px]">
           <div>
-            <p className="inline-block">Name:</p>
-            <p className="inline-block ml-20">{user.tenant.name}</p>
+            <p className="inline-block ">Name:</p>
+            <p className="inline-block ml-20 text-darkGray">{user.tenant.name}</p>
           </div>
           <div>
-            <p className="inline-block">Email:</p>
-            <p className="inline-block ml-20">{user.tenant.email}</p>
+            <p className="inline-block mt-5">Email:</p>
+            <p className="inline-block ml-20 text-darkGray">{user.tenant.email}</p>
           </div>
+
         </div>
-        <div className="mt-10">
-          <div className="flex space-around bg-gray p-8">
-            <h2 className="text-bold text-lg">Company List</h2>
+        <div className="mt-20 w-[808px] h-[72px]">
+
+          <div className="flex bg-[#F3F2F2] p-4 rounded-t-lg rounded-tr-lg">
+            <span className='bg-blue-500 text-white'> <TableViewIcon /></span>
+            <div className="font-bold text-lg ml-2">Company List</div>
+
           </div>
-          <div className="flex space-around bg-gray p-4">
+          <div className="flex justify-between  bg-[#F3F2F2] p-4">
             <input
               type="text"
-              className="w-[200px] h-[30px] rounded-lg shadow-mb pl-2"
+              className="rounded-lg w-[350px] h-[40px] shadow-mb border-b-2"
+              placeholder="Add company's name"
               value={companyName}
               onChange={(e) => {
                 const regex = /^[a-zA-Z0-9-]*$/
@@ -98,21 +105,26 @@ const MyAccount: FC = () => {
                 setCompanyName(e.target.value)
               }}
             />
+
             <button
               type="button"
-              className="bg-black w-[200px] h-[30px] text-white text-center ml-[500px] rounded-lg shadow-mb"
+              className="bg-white w-[150px] h-[40px] ml-[50px] text-[#007AD3] rounded-lg shadow-mb"
               onClick={handleAddCompany}
             >
-              Add New Company
-            </button>
+              <AddIcon style={{
+                color:"darkgray"
+              }}/>
+              <span className="text-sm"> Company</span>
+            </button >
+
           </div>
 
           <div className="flex gap-10 bg-white shadow-md rounded-lg p-20">
             {companies.length ? (
               companies.map((company) => (
-                <div key={company.domain} className="flex-col w-[100px]">
+                <div key={company.domain} className="text-center text-xl font-bold flex-col w-[100px]">
                   <Link to={getCompanyUrl(company.domain)}>
-                    <img src="./svg/CompanyOne.png" alt="Company Logo" className="h-[100px] rounded-[100px] block" />
+                    <img src="./svg/CompanyOne.png" alt="Company Logo" className="rounded-[100px] block" />
                     <span>{company.domain}</span>
                   </Link>
                   <button
@@ -125,25 +137,14 @@ const MyAccount: FC = () => {
                 </div>
               ))
             ) : (
-              <div>No Company Added</div>
+              <div className="font-bold">No Company Added</div>
             )}
           </div>
 
-          <Button
-            variant={Variant.PrimaryOutline}
-            size={Size.Large}
-            style={{
-              marginTop: '20px',
-            }}
-            block
-            onClick={handleLogout}
-          >
-            <MdLogout className="inline mr-2" size={18} />
-            Logout
-          </Button>
+
         </div>
       </div>
-    </CompanyLayout>
+    </ReportBuilderLayout>
   )
 }
 

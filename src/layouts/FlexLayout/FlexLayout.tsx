@@ -3,6 +3,7 @@ import classNames from 'classnames'
 import Container from '@/layouts/Container'
 import FileLogo from '@/components/FileLogo'
 import SideNavigation from '@/components/SideNavigation'
+import SideNavigationReportBuilder from "@/components/SideNavigationReportBuilder";
 
 interface Props {
   children: ReactNode
@@ -13,6 +14,7 @@ export enum PageVariant {
   AuthPage,
   UserPage,
   CompanyPage,
+  ReportBuilderPage
 }
 
 const FlexLayout: FC<Props> = ({ children, variant }) => (
@@ -28,17 +30,20 @@ const FlexLayout: FC<Props> = ({ children, variant }) => (
       {variant === PageVariant.AuthPage && <FileLogo className="h-[100px]" />}
       {variant === PageVariant.UserPage && <SideNavigation />}
       {variant === PageVariant.CompanyPage && <SideNavigation isCompanySide />}
+      {variant === PageVariant.ReportBuilderPage && <SideNavigationReportBuilder isCompanySide />}
     </div>
 
     <div
       className={classNames(
         variant === PageVariant.AuthPage && ['w-1/2'],
         variant === PageVariant.UserPage && ['w-full'],
-        variant === PageVariant.CompanyPage && ['w-full']
+        variant === PageVariant.CompanyPage && ['w-full'],
+        variant === PageVariant.ReportBuilderPage && ['w-full']
       )}
     >
       {variant === PageVariant.UserPage && children}
       {variant === PageVariant.CompanyPage && children}
+      {variant === PageVariant.ReportBuilderPage && children}
       {variant === PageVariant.AuthPage && (
         <div className="flex items-center justify-center bg-white h-screen">{children}</div>
       )}
