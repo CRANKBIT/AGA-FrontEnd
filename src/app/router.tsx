@@ -98,10 +98,6 @@ const router = createHashRouter([
     element: <MyReportsHistory />,
   },
   {
-    path: '/user/my-reports/history/view-report',
-    element: <ViewPDFReport />,
-  },
-  {
     path: '/auth/login/reset-password',
     element: <ResetPassword />,
   },

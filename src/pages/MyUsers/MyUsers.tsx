@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { FC, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { MdLogout } from 'react-icons/md'
@@ -63,15 +64,15 @@ const MyUsers: FC = () => {
   return (
     <UserLayout>
       <div className="bg-userContent min-h-screen p-10 ">
-        <h1 className="mb-4">Hi {user.tenant.name},</h1>
+        <h1 className="mb-4">Hi {user.tenant?.name},</h1>
         <div className="bg-white rounded-lg p-10">
           <div>
             <p className="inline-block">Name:</p>
-            <p className="inline-block ml-20">{user.tenant.name}</p>
+            <p className="inline-block ml-20">{user.tenant?.name}</p>
           </div>
           <div>
             <p className="inline-block">Email:</p>
-            <p className="inline-block ml-20">{user.tenant.email}</p>
+            <p className="inline-block ml-20">{user.tenant?.email}</p>
           </div>
         </div>
         <div className="mt-10">
