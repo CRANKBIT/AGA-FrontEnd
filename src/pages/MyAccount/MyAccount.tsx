@@ -2,15 +2,13 @@ import { FC, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import AddIcon from '@mui/icons-material/Add'
 import TableViewIcon from '@mui/icons-material/TableView'
-import {MdLogout} from "react-icons/md";
-import CompanyLayout from "@/layouts/UserLayout";
+import { MdLogout } from 'react-icons/md'
+import CompanyLayout from '@/layouts/UserLayout'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { createCompany, getMyCompanies, deleteCompanyByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
 import { logout } from '@/features/auth/authSlice'
-import Button, {Size, Variant} from "@/components/Button";
-
-
+import Button, { Size, Variant } from '@/components/Button'
 
 const MyAccount: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -144,12 +142,12 @@ const MyAccount: FC = () => {
             )}
           </div>
           <div className="flex justify-end ">
-          <div className="w-52 mt-20 text-lg font-bold" >
-            <Button variant={Variant.Primary} size={Size.Default} onClick={handleLogout} block >
-              <MdLogout className="inline mr-2" size={18} />
-              Logout
-            </Button>
-          </div>
+            <div className="w-52 mt-20 text-lg font-bold">
+              <Button variant={Variant.Primary} size={Size.Default} onClick={handleLogout} block>
+                <MdLogout className="inline mr-2" size={18} />
+                Logout
+              </Button>
+            </div>
           </div>
         </div>
       </div>

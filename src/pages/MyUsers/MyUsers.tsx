@@ -1,13 +1,12 @@
-import {FC, useEffect, useState} from 'react'
-import {useNavigate} from 'react-router-dom'
-import {MdKeyboardDoubleArrowLeft, MdLogout} from 'react-icons/md'
-import CompanyLayout from "@/layouts/UserLayout/UserLayout";
-import {useAppDispatch, useAppSelector} from '@/app/hooks'
-import {getMyUsers, sendInviteEmial} from '@/services/user'
-import {User} from '@/interfaces/user'
-import Button, {Size, Variant} from '@/components/Button'
-import {logout} from '@/features/auth/authSlice'
-
+import { FC, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { MdKeyboardDoubleArrowLeft, MdLogout } from 'react-icons/md'
+import CompanyLayout from '@/layouts/UserLayout/UserLayout'
+import { useAppDispatch, useAppSelector } from '@/app/hooks'
+import { getMyUsers, sendInviteEmial } from '@/services/user'
+import { User } from '@/interfaces/user'
+import Button, { Size, Variant } from '@/components/Button'
+import { logout } from '@/features/auth/authSlice'
 
 const MyUsers: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -105,23 +104,18 @@ const MyUsers: FC = () => {
             ))}
           </div>
           <div className="flex justify-between">
-          <div className="w-56 mt-20" >
-          <Button
-            variant={Variant.Primary}
-            size={Size.Default}
-            block
-            onClick={handleBack}
-          >
-            <MdKeyboardDoubleArrowLeft size={25} className='inline-flex mr-2'/>
-            Back to Company List
-          </Button>
+            <div className="w-56 mt-20">
+              <Button variant={Variant.Primary} size={Size.Default} block onClick={handleBack}>
+                <MdKeyboardDoubleArrowLeft size={25} className="inline-flex mr-2" />
+                Back to Company List
+              </Button>
             </div>
-          <div className="w-32 mt-20" >
-            <Button variant={Variant.Primary} size={Size.Default} onClick={handleLogout} block >
-              <MdLogout className="inline mr-2" size={18} />
-              Logout
-            </Button>
-          </div>
+            <div className="w-32 mt-20">
+              <Button variant={Variant.Primary} size={Size.Default} onClick={handleLogout} block>
+                <MdLogout className="inline mr-2" size={18} />
+                Logout
+              </Button>
+            </div>
           </div>
         </div>
       </div>
