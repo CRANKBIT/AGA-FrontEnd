@@ -37,14 +37,16 @@ const PDFReport: FC<Props> = ({ Year, Model, Odometer, Rego, Make, CustomerName,
             <Text style={styles.body2}>Vehicle:</Text>
             <Text style={styles.body2}>Rego:</Text>
             <Text style={styles.body2}>Odometer:</Text>
+            <Text style={styles.body2}>Name:</Text>
           </View>
           <View>
             {' '}
             <Text style={styles.body2}>
-              {mockData.Vehicle.make} {mockData.Vehicle.make} {mockData.Vehicle.year}
+              {Make} {Model} {Year}
             </Text>
-            <Text style={styles.body2}>{mockData.Vehicle.rego}</Text>
-            <Text style={styles.body2}>{mockData.Vehicle.odo}</Text>
+            <Text style={styles.body2}>{Rego}</Text>
+            <Text style={styles.body2}>{Odometer}</Text>
+            <Text style={styles.body2}>{CustomerName}</Text>
           </View>
         </View>
       </View>
@@ -61,7 +63,7 @@ const PDFReport: FC<Props> = ({ Year, Model, Odometer, Rego, Make, CustomerName,
             </View>
           </View>
           <View style={styles.tableBody}>
-            {mockData.Report.service.map((item, index) => (
+            {service.map((item, index) => (
               <View style={styles.tableRow} key="">
                 <View style={[styles.tableCell, styles.serviceItemWidth]}>
                   <Text style={styles.body3}>{item}</Text>
