@@ -2,11 +2,13 @@ import { FC, useState, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import AddIcon from '@mui/icons-material/Add'
 import TableViewIcon from '@mui/icons-material/TableView'
-import ReportBuilderLayout from '@/layouts/ReportBuilderLayout/'
+import { MdLogout } from 'react-icons/md'
+import CompanyLayout from '@/layouts/UserLayout'
 import { useAppSelector, useAppDispatch } from '@/app/hooks'
 import { createCompany, getMyCompanies, deleteCompanyByDomain } from '@/services/company'
 import { Company } from '@/interfaces/company'
 import { logout } from '@/features/auth/authSlice'
+import Button, { Size, Variant } from '@/components/Button'
 
 const MyAccount: FC = () => {
   const { user } = useAppSelector((state) => state.auth)
@@ -65,7 +67,7 @@ const MyAccount: FC = () => {
   }
 
   return (
-    <ReportBuilderLayout>
+    <CompanyLayout>
       <div className="bg-userContent min-h-screen p-10 ">
         <h1 className="mb-5 text-2xl font-extrabold">Hi {user.tenant.name},</h1>
         <div className="bg-[#FFFFFF] rounded-lg p-10 w-[809px] h-[130px]">
@@ -89,7 +91,7 @@ const MyAccount: FC = () => {
           <div className="flex justify-between  bg-[#F3F2F2] p-4">
             <input
               type="text"
-              className="rounded-lg w-[350px] h-[40px] shadow-mb border-b-2"
+              className="rounded-lg w-[350px] h-[40px] shadow-mb border-b-2 px-3"
               placeholder="Add company's name"
               value={companyName}
               onChange={(e) => {
@@ -139,9 +141,17 @@ const MyAccount: FC = () => {
               <div className="font-bold">No Company Added</div>
             )}
           </div>
+          <div className="flex justify-end ">
+            <div className="w-52 mt-20 text-lg font-bold">
+              <Button variant={Variant.Primary} size={Size.Default} onClick={handleLogout} block>
+                <MdLogout className="inline mr-2" size={18} />
+                Logout
+              </Button>
+            </div>
+          </div>
         </div>
       </div>
-    </ReportBuilderLayout>
+    </CompanyLayout>
   )
 }
 
